@@ -1,6 +1,6 @@
 import React from 'react';
-import { Dimensions } from 'react-native';
-import {NativeBaseProvider, HStack, View} from 'native-base';
+import {Dimensions} from 'react-native';
+import {NativeBaseProvider, HStack, ScrollView, View} from 'native-base';
 
 const window = Dimensions.get("window");
 
@@ -21,7 +21,7 @@ class DefaultTemplate extends React.Component {
 
         return (
             <NativeBaseProvider>
-                <View>
+                <ScrollView>
                     <HStack bg="#f57f6f" w="100%" h="60">
                         <></>
                     </HStack>
@@ -34,7 +34,7 @@ class DefaultTemplate extends React.Component {
                     <HStack bg="#9d9fd2" w="100%" h="60">
                         <></>
                     </HStack>
-                </View>
+                </ScrollView>
             </NativeBaseProvider>
         );
     }

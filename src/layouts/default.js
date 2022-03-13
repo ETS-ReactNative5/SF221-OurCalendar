@@ -3,6 +3,7 @@ import {Dimensions} from 'react-native';
 import {NativeBaseProvider, HStack, ScrollView, IconButton, Icon, Image} from 'native-base';
 import Octicons from 'react-native-vector-icons/Octicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 import Logo from '../assets/logo.png';
 
@@ -44,7 +45,11 @@ class DefaultTemplate extends React.Component {
                         {this.props.children}
                     </HStack>
                     <HStack bg="#9d9fd2" w="100%" h="60">
-                        <></>
+                        <HStack justifyContent="space-between" px="2" alignItems="center" w="100%">
+                            <IconButton icon={<Icon as={FontAwesome5} name="user-alt" size="md" color="black" />} />
+                            <IconButton icon={<Icon as={FontAwesome5} name="calendar-plus" size="md" color="black"/>} style={{paddingEnd:0}} />
+                            <IconButton icon={<Icon as={FontAwesome5} name="users" color="black" style={{width: 40, height: 32}} />} style={{paddingEnd:0}}/>
+                        </HStack>
                     </HStack>
                 </ScrollView>
             </NativeBaseProvider>

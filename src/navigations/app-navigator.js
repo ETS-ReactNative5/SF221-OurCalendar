@@ -17,6 +17,9 @@ class AppNavigator extends React.Component {
                 <Drawer.Navigator initialRouteName="Home" screenOptions={{
                     headerShown: false,
                     drawerPosition: "right",
+                    drawerStyle: {
+                        marginLeft: "30%"
+                    }
                 }}>
                     <Drawer.Screen name="Home" component={Home} />
                 </Drawer.Navigator>

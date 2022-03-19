@@ -92,9 +92,9 @@ class CalendarTable extends React.Component {
                             round = { roundedBottomRight : "lg"};
                         }
 
-                        let attr = {key: col, borderColor: this.changeBorderColor(), bgColor: this.changeBgColor(), round};
+                        let attr = {borderColor: this.changeBorderColor(), bgColor: this.changeBgColor(), round};
                         return (
-                            <CalendarBox attributes={attr} text={this.updateDate()}/>
+                            <CalendarBox key={col} attributes={attr} text={this.updateDate()}/>
                         );
                     })}
                 </HStack>

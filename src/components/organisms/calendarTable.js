@@ -57,11 +57,11 @@ class CalendarTable extends React.Component {
 
     calculateHeight() {
         if (moment([this.year, this.month, 1]).day() === 6 && this.day_in_month >= 30) {
-            return '16.66%';
+            return "16.66%";
         } else if (moment([this.year, this.month, 1]).day() === 5 && this.day_in_month >= 31) {
-            return '16.66%';
+            return "16.66%";
         } else {
-            return '20%';
+            return "20%";
         }
     }
 

@@ -3,6 +3,7 @@ import {Box, HStack} from 'native-base';
 import moment from 'moment';
 
 import CalendarBox from '../molecules/calendarBox';
+import EventBoxCalendar from "../molecules/eventBoxCalendar";
 
 const COLOR_OUT = '#d4d4d4';
 const BG_COLOR_DATE = 'primary.50';
@@ -14,11 +15,13 @@ class CalendarTable extends React.Component {
 
         this.color_out = COLOR_OUT;
         this.bg_color_date = BG_COLOR_DATE;
+        this.bg_color_event = "primary.200";
         this.border_color_date = BORDER_COLOR_DATE;
         this.month = props.month;
         this.year = props.year;
         this.day_in_month = moment(this.month + 1, "MM").daysInMonth();
         this.date_count = 0 - moment([this.year, this.month, 1]).day();
+        this.event_count = 0 - moment([this.year, this.month, 1]).day();
     }
 
     updateDate() {
@@ -29,6 +32,18 @@ class CalendarTable extends React.Component {
             return this.date_count;
         } else {
             this.date_count += 1;
+            return null;
+        }
+    }
+
+    updateEvent() {
+        if (this.event_count >= this.day_in_month) {
+            return null;
+        } else if (this.event_count >= 0) {
+            this.event_count += 1;
+            return "Event";
+        } else {
+            this.event_count += 1;
             return null;
         }
     }
@@ -49,6 +64,17 @@ class CalendarTable extends React.Component {
             this.bg_color = this.color_out;
         } else if (this.date_count >= 0) {
             this.bg_color = this.bg_color_date;
+        } else {
+            this.bg_color = this.color_out;
+        }
+        return this.bg_color;
+    }
+
+    changeEventColor() {
+        if (this.event_count === this.day_in_month) {
+            this.bg_color = this.color_out;
+        } else if (this.event_count >= 0) {
+            this.bg_color = this.bg_color_event;
         } else {
             this.bg_color = this.color_out;
         }
@@ -93,8 +119,13 @@ class CalendarTable extends React.Component {
                         }
 
                         let attr = {borderColor: this.changeBorderColor(), bgColor: this.changeBgColor(), round};
+                        let ev_attr = {borderColor: this.changeBorderColor(), bgColor: this.changeEventColor()};
                         return (
-                            <CalendarBox key={col} attributes={attr} text={this.updateDate()}/>
+                            <Box h="100%" w="14.28%">
+                                <CalendarBox key={col} attributes={attr} text={this.updateDate()}/>
+                                <EventBoxCalendar event_attr={ev_attr} text={this.updateEvent()}/>
+                            </Box>
+
                         );
                     })}
                 </HStack>

@@ -2,6 +2,7 @@ import React from 'react';
 import {HStack, Icon, IconButton} from 'native-base';
 
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import EventModalButton from './eventModalButton';
 
 class HeaderApp extends React.Component {
     constructor(props) {
@@ -14,7 +15,7 @@ class HeaderApp extends React.Component {
         return (
             <HStack justifyContent="space-between" px="2" alignItems="center" w="100%">
                 <IconButton icon={<Icon as={FontAwesome5} name="user-alt" size="md" color="black" />} />
-                <IconButton icon={<Icon as={FontAwesome5} name="calendar-plus" size="md" color="black"/>} style={{paddingEnd:0}} />
+                <EventModalButton/>
                 <IconButton icon={<Icon as={FontAwesome5} name="users" color="black" style={{width: 40, height: 32}} />} style={{paddingEnd:0}}/>
             </HStack>
         );

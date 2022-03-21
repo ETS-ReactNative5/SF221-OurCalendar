@@ -5,6 +5,7 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 
 
 
+
 class EventBoxHead extends React.Component {
     constructor(props) {
         super(props);
@@ -13,7 +14,6 @@ class EventBoxHead extends React.Component {
     render() {
         return (
             <Box style={styles.boxEvent} backgroundColor={this.props.color}>
-
                 <HStack justifyContent="flex-end"  paddingTop="4%" paddingRight="10%">
                     <Text fontSize="13">{this.props.name}</Text>
                 </HStack>
@@ -23,8 +23,8 @@ class EventBoxHead extends React.Component {
                 <HStack justifyContent="flex-start">
                     <Icon as={MaterialCommunityIcons} name={this.props.icon} marginTop="-8" marginLeft="13%"/>
                 </HStack>
-                <HStack justifyContent="flex-start"  paddingLeft="2" marginTop="-45" >
-                    <Checkbox accessibilityLabel="Checkbox"/>
+                <HStack justifyContent="flex-start"  paddingLeft="2" marginTop="-45">
+                    {this.props.checkbox == 'true'&& <Checkbox accessibilityLabel="Checkbox"/> }
                 </HStack>
             </Box>
         );

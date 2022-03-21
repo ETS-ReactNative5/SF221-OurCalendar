@@ -6,7 +6,7 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 
 
 
-class EventBoxHead extends React.Component {
+class EventBoxHome extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -40,4 +40,4 @@ const styles = StyleSheet.create({
     },
 
 });
-export default EventBoxHead ;
+export default EventBoxHome ;

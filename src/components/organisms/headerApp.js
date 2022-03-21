@@ -1,9 +1,9 @@
 import React from 'react';
 import {HStack, Icon, IconButton, Image} from 'native-base';
 import Octicons from 'react-native-vector-icons/Octicons';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import Logo from '../../assets/images/logo.png';
+import NotificationModalButton from "./notificationModalButton";
 
 class HeaderApp extends React.Component {
     constructor(props) {
@@ -19,7 +19,7 @@ class HeaderApp extends React.Component {
                     <Image source={Logo} alt="Logo" size="sm" />
                 </HStack>
                 <HStack>
-                    <IconButton icon={<Icon as={MaterialCommunityIcons} name="bell-badge" size="md" color="yellow.400" />} />
+                    <NotificationModalButton/>
                     <IconButton icon={<Icon as={Octicons} name="three-bars" size="md" color="black" onPress={() => navigation.openDrawer()} />} />
                 </HStack>
             </HStack>

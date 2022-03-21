@@ -121,8 +121,8 @@ class CalendarTable extends React.Component {
                         let attr = {borderColor: this.changeBorderColor(), bgColor: this.changeBgColor(), round};
                         let ev_attr = {borderColor: this.changeBorderColor(), bgColor: this.changeEventColor()};
                         return (
-                            <Box h="100%" w="14.28%">
-                                <CalendarBox key={col} attributes={attr} text={this.updateDate()}/>
+                            <Box key={col} h="100%" w="14.28%">
+                                <CalendarBox attributes={attr} text={this.updateDate()}/>
                                 <EventBoxCalendar event_attr={ev_attr} text={this.updateEvent()}/>
                             </Box>
 

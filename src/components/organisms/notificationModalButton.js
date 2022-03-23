@@ -1,6 +1,7 @@
 import React from 'react';
 import {Text, Icon, IconButton, Modal} from 'native-base';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import NotificationEvent from "../molecules/notificationEvent";
 
 class NotificationModalButton extends React.Component {
     constructor(props) {
@@ -19,7 +20,8 @@ class NotificationModalButton extends React.Component {
                         <Modal.CloseButton />
                         <Modal.Header>Notifications</Modal.Header>
                         <Modal.Body>
-                            <Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus ad aliquam amet, assumenda autem beatae consequatur culpa cumque cupiditate debitis delectus deleniti hic ipsa itaque labore laudantium libero minima odio praesentium quasi quod rem repudiandae rerum soluta temporibus veniam, voluptatum? Autem delectus doloribus inventore maiores mollitia quae quibusdam suscipit!</Text>
+                            <NotificationEvent icon="cake" text="hapergergeggegfwggergegrhgrthtrhhthrhtrthrhtrhegergregrgrpy"/>
+                            <NotificationEvent icon="cake" text="happy"/>
                         </Modal.Body>
                     </Modal.Content>
                 </Modal>

@@ -17,10 +17,7 @@ class Home extends React.Component {
                         <EventBoxHome name="วิ่ง" time="7:00-8:00" icon="dumbbell"/>
                         <EventBoxHome name="ersg" time="1:00-8:00" icon="dumbbell" checkbox="true"/>
                         <EventBoxHome name="วิ่ง" time="7:00-8:00" icon="dumbbell"/>
-                        <EventBoxHome name="วิ่ง" time="7:00-8:00" icon="dumbbell"/>
-                        <EventBoxHome name="วิ่ง" time="7:00-8:00" icon="dumbbell"/>
-                        <EventBoxHome name="วิ่ง" time="7:00-8:00" icon="dumbbell"/>
-                        <EventBoxHome name="วิ่ง" time="7:00-8:00" icon="dumbbell"/>
+
                         <EventBoxHome name="วิ่ง" time="7:00-8:00" icon="dumbbell" color="#000000" checkbox="true"/>
                     </Stack>
                 </View>

@@ -11,23 +11,9 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		67B0137829FCE50C8B1984CE /* libPods-SF221_OurCalendar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B609BE837A1E296180CC2A8 /* libPods-SF221_OurCalendar.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		C76818C12D134C5E94A1821D /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB6A6CBE11C9435A8A628EB8 /* AntDesign.ttf */; };
-		32F9201B326242E78F6E9A8A /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3611E3B4F7E4BF8A8C993EF /* Entypo.ttf */; };
-		067864E86187414680FB62E8 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EAB447C9413B42DC8CEA2839 /* EvilIcons.ttf */; };
-		2BD8EA1095C84FCE9964BE6A /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 06DE36B31A8C459395CB802E /* Feather.ttf */; };
-		BF4566FA1E414979980E61E2 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 864812263FCE43F8A58BA60E /* FontAwesome.ttf */; };
-		A75C5957A1A143BFBB947A1B /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3391077E8AB043658D6602E1 /* FontAwesome5_Brands.ttf */; };
-		6FDD80DA82CF4175A28F1308 /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AA6EC2BACF0446E6A9247723 /* FontAwesome5_Regular.ttf */; };
-		E1ECDAD2D8544758AF2E08E2 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C80EBBF9EDF4984AA04C6B8 /* FontAwesome5_Solid.ttf */; };
-		386BDBED2664400597F0AC3C /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AF2256CA9D0D493F87F21CFF /* Fontisto.ttf */; };
-		710A015D42DF474E97F92499 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EE810E192ED145F4BB2458CA /* Foundation.ttf */; };
-		A99070D6CE1D494EB5B3755A /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 67324C5FFA774F71857486CF /* Ionicons.ttf */; };
-		EA052B35547A4BF2989CEF9B /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53070789094049F3875F507D /* MaterialCommunityIcons.ttf */; };
-		03126D599E2049F392F219CC /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16E54E42A5534703903C996B /* MaterialIcons.ttf */; };
-		E1E9B0D7A09F49A2B0868585 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6D6975081BA04E46A4997134 /* Octicons.ttf */; };
-		06BCBCC831BF470DAA67F9EA /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8C12C3BC6B94CE2BC3ED4F2 /* SimpleLineIcons.ttf */; };
-		FAF2F6EA5BBF425CA5A5F659 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5F348E0A26FF498C868317C4 /* Zocial.ttf */; };
+		E03E5E7E807C611B9221C640 /* libPods-SF221_OurCalendar-SF221_OurCalendarTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B243EB1E72086D3036A24C1F /* libPods-SF221_OurCalendar-SF221_OurCalendarTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,24 +36,30 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = SF221_OurCalendar/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = SF221_OurCalendar/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = SF221_OurCalendar/main.m; sourceTree = "<group>"; };
+		1A88A229B63330DD3CCA5218 /* Pods-SF221_OurCalendar-SF221_OurCalendarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SF221_OurCalendar-SF221_OurCalendarTests.debug.xcconfig"; path = "Target Support Files/Pods-SF221_OurCalendar-SF221_OurCalendarTests/Pods-SF221_OurCalendar-SF221_OurCalendarTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5B609BE837A1E296180CC2A8 /* libPods-SF221_OurCalendar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SF221_OurCalendar.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		652C44A235228E4111ED78BF /* Pods-SF221_OurCalendar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SF221_OurCalendar.debug.xcconfig"; path = "Target Support Files/Pods-SF221_OurCalendar/Pods-SF221_OurCalendar.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = SF221_OurCalendar/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B243EB1E72086D3036A24C1F /* libPods-SF221_OurCalendar-SF221_OurCalendarTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SF221_OurCalendar-SF221_OurCalendarTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6D8219F06A8B4059FD3C425 /* Pods-SF221_OurCalendar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SF221_OurCalendar.release.xcconfig"; path = "Target Support Files/Pods-SF221_OurCalendar/Pods-SF221_OurCalendar.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		DB6A6CBE11C9435A8A628EB8 /* AntDesign.ttf */ = {isa = PBXFileReference; name = "AntDesign.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		F3611E3B4F7E4BF8A8C993EF /* Entypo.ttf */ = {isa = PBXFileReference; name = "Entypo.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		EAB447C9413B42DC8CEA2839 /* EvilIcons.ttf */ = {isa = PBXFileReference; name = "EvilIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		06DE36B31A8C459395CB802E /* Feather.ttf */ = {isa = PBXFileReference; name = "Feather.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		864812263FCE43F8A58BA60E /* FontAwesome.ttf */ = {isa = PBXFileReference; name = "FontAwesome.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		3391077E8AB043658D6602E1 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Brands.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		AA6EC2BACF0446E6A9247723 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Regular.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		2C80EBBF9EDF4984AA04C6B8 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Solid.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		AF2256CA9D0D493F87F21CFF /* Fontisto.ttf */ = {isa = PBXFileReference; name = "Fontisto.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		EE810E192ED145F4BB2458CA /* Foundation.ttf */ = {isa = PBXFileReference; name = "Foundation.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		67324C5FFA774F71857486CF /* Ionicons.ttf */ = {isa = PBXFileReference; name = "Ionicons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		53070789094049F3875F507D /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; name = "MaterialCommunityIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		16E54E42A5534703903C996B /* MaterialIcons.ttf */ = {isa = PBXFileReference; name = "MaterialIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		6D6975081BA04E46A4997134 /* Octicons.ttf */ = {isa = PBXFileReference; name = "Octicons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		A8C12C3BC6B94CE2BC3ED4F2 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; name = "SimpleLineIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		5F348E0A26FF498C868317C4 /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F8F7C5AAA7D05F419A6CB66E /* Pods-SF221_OurCalendar-SF221_OurCalendarTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SF221_OurCalendar-SF221_OurCalendarTests.release.xcconfig"; path = "Target Support Files/Pods-SF221_OurCalendar-SF221_OurCalendarTests/Pods-SF221_OurCalendar-SF221_OurCalendarTests.release.xcconfig"; sourceTree = "<group>"; };
+		F986397627EF64C500A2E627 /* Entypo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
+		F986397727EF64C500A2E627 /* Fontisto.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Fontisto.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
+		F986397827EF64C500A2E627 /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
+		F986397927EF64C500A2E627 /* Zocial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
+		F986397A27EF64C500A2E627 /* AntDesign.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
+		F986397B27EF64C500A2E627 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
+		F986397C27EF64C500A2E627 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
+		F986397D27EF64C500A2E627 /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
+		F986397E27EF64C500A2E627 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
+		F986397F27EF64C500A2E627 /* Foundation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
+		F986398027EF64C500A2E627 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
+		F986398127EF64C500A2E627 /* EvilIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
+		F986398227EF64C500A2E627 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
+		F986398327EF64C500A2E627 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
+		F986398427EF64C500A2E627 /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
+		F986398527EF64C500A2E627 /* Feather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E03E5E7E807C611B9221C640 /* libPods-SF221_OurCalendar-SF221_OurCalendarTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67B0137829FCE50C8B1984CE /* libPods-SF221_OurCalendar.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +102,7 @@
 		13B07FAE1A68108700A75B9A /* SF221_OurCalendar */ = {
 			isa = PBXGroup;
 			children = (
+				F986397527EF64AF00A2E627 /* Fonts */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -118,12 +113,32 @@
 			name = SF221_OurCalendar;
 			sourceTree = "<group>";
 		};
+		2C3A3A22940E4655B0A79F76 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
+				5B609BE837A1E296180CC2A8 /* libPods-SF221_OurCalendar.a */,
+				B243EB1E72086D3036A24C1F /* libPods-SF221_OurCalendar-SF221_OurCalendarTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6C0F764CD864AB3CF186AA11 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				652C44A235228E4111ED78BF /* Pods-SF221_OurCalendar.debug.xcconfig */,
+				C6D8219F06A8B4059FD3C425 /* Pods-SF221_OurCalendar.release.xcconfig */,
+				1A88A229B63330DD3CCA5218 /* Pods-SF221_OurCalendar-SF221_OurCalendarTests.debug.xcconfig */,
+				F8F7C5AAA7D05F419A6CB66E /* Pods-SF221_OurCalendar-SF221_OurCalendarTests.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -142,6 +157,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				2C3A3A22940E4655B0A79F76 /* Resources */,
+				6C0F764CD864AB3CF186AA11 /* Pods */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -157,29 +173,28 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2C3A3A22940E4655B0A79F76 /* Resources */ = {
-			isa = "PBXGroup";
+		F986397527EF64AF00A2E627 /* Fonts */ = {
+			isa = PBXGroup;
 			children = (
-				DB6A6CBE11C9435A8A628EB8 /* AntDesign.ttf */,
-				F3611E3B4F7E4BF8A8C993EF /* Entypo.ttf */,
-				EAB447C9413B42DC8CEA2839 /* EvilIcons.ttf */,
-				06DE36B31A8C459395CB802E /* Feather.ttf */,
-				864812263FCE43F8A58BA60E /* FontAwesome.ttf */,
-				3391077E8AB043658D6602E1 /* FontAwesome5_Brands.ttf */,
-				AA6EC2BACF0446E6A9247723 /* FontAwesome5_Regular.ttf */,
-				2C80EBBF9EDF4984AA04C6B8 /* FontAwesome5_Solid.ttf */,
-				AF2256CA9D0D493F87F21CFF /* Fontisto.ttf */,
-				EE810E192ED145F4BB2458CA /* Foundation.ttf */,
-				67324C5FFA774F71857486CF /* Ionicons.ttf */,
-				53070789094049F3875F507D /* MaterialCommunityIcons.ttf */,
-				16E54E42A5534703903C996B /* MaterialIcons.ttf */,
-				6D6975081BA04E46A4997134 /* Octicons.ttf */,
-				A8C12C3BC6B94CE2BC3ED4F2 /* SimpleLineIcons.ttf */,
-				5F348E0A26FF498C868317C4 /* Zocial.ttf */,
+				F986397A27EF64C500A2E627 /* AntDesign.ttf */,
+				F986397627EF64C500A2E627 /* Entypo.ttf */,
+				F986398127EF64C500A2E627 /* EvilIcons.ttf */,
+				F986398527EF64C500A2E627 /* Feather.ttf */,
+				F986398027EF64C500A2E627 /* FontAwesome.ttf */,
+				F986397B27EF64C500A2E627 /* FontAwesome5_Brands.ttf */,
+				F986397E27EF64C500A2E627 /* FontAwesome5_Regular.ttf */,
+				F986397C27EF64C500A2E627 /* FontAwesome5_Solid.ttf */,
+				F986397727EF64C500A2E627 /* Fontisto.ttf */,
+				F986397F27EF64C500A2E627 /* Foundation.ttf */,
+				F986398427EF64C500A2E627 /* Ionicons.ttf */,
+				F986398227EF64C500A2E627 /* MaterialCommunityIcons.ttf */,
+				F986397D27EF64C500A2E627 /* MaterialIcons.ttf */,
+				F986397827EF64C500A2E627 /* Octicons.ttf */,
+				F986398327EF64C500A2E627 /* SimpleLineIcons.ttf */,
+				F986397927EF64C500A2E627 /* Zocial.ttf */,
 			);
-			name = Resources;
+			name = Fonts;
 			sourceTree = "<group>";
-			path = "";
 		};
 /* End PBXGroup section */
 
@@ -188,9 +203,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "SF221_OurCalendarTests" */;
 			buildPhases = (
+				275CED9F1B510BAA8B1F0532 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
+				5687D15B1BA61C0294FB7593 /* [CP] Embed Pods Frameworks */,
+				6E4CD53DF25D5BA79C9E1CDF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -206,11 +224,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "SF221_OurCalendar" */;
 			buildPhases = (
+				4AADE58B51CB8FE0FD3D6D95 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				F2B38658A5223020F0920649 /* [CP] Embed Pods Frameworks */,
+				B6CF539B7430899C539B01C8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -271,22 +292,6 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				C76818C12D134C5E94A1821D /* AntDesign.ttf in Resources */,
-				32F9201B326242E78F6E9A8A /* Entypo.ttf in Resources */,
-				067864E86187414680FB62E8 /* EvilIcons.ttf in Resources */,
-				2BD8EA1095C84FCE9964BE6A /* Feather.ttf in Resources */,
-				BF4566FA1E414979980E61E2 /* FontAwesome.ttf in Resources */,
-				A75C5957A1A143BFBB947A1B /* FontAwesome5_Brands.ttf in Resources */,
-				6FDD80DA82CF4175A28F1308 /* FontAwesome5_Regular.ttf in Resources */,
-				E1ECDAD2D8544758AF2E08E2 /* FontAwesome5_Solid.ttf in Resources */,
-				386BDBED2664400597F0AC3C /* Fontisto.ttf in Resources */,
-				710A015D42DF474E97F92499 /* Foundation.ttf in Resources */,
-				A99070D6CE1D494EB5B3755A /* Ionicons.ttf in Resources */,
-				EA052B35547A4BF2989CEF9B /* MaterialCommunityIcons.ttf in Resources */,
-				03126D599E2049F392F219CC /* MaterialIcons.ttf in Resources */,
-				E1E9B0D7A09F49A2B0868585 /* Octicons.ttf in Resources */,
-				06BCBCC831BF470DAA67F9EA /* SimpleLineIcons.ttf in Resources */,
-				FAF2F6EA5BBF425CA5A5F659 /* Zocial.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +311,118 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
+		};
+		275CED9F1B510BAA8B1F0532 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SF221_OurCalendar-SF221_OurCalendarTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4AADE58B51CB8FE0FD3D6D95 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SF221_OurCalendar-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5687D15B1BA61C0294FB7593 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SF221_OurCalendar-SF221_OurCalendarTests/Pods-SF221_OurCalendar-SF221_OurCalendarTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SF221_OurCalendar-SF221_OurCalendarTests/Pods-SF221_OurCalendar-SF221_OurCalendarTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SF221_OurCalendar-SF221_OurCalendarTests/Pods-SF221_OurCalendar-SF221_OurCalendarTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6E4CD53DF25D5BA79C9E1CDF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SF221_OurCalendar-SF221_OurCalendarTests/Pods-SF221_OurCalendar-SF221_OurCalendarTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SF221_OurCalendar-SF221_OurCalendarTests/Pods-SF221_OurCalendar-SF221_OurCalendarTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SF221_OurCalendar-SF221_OurCalendarTests/Pods-SF221_OurCalendar-SF221_OurCalendarTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B6CF539B7430899C539B01C8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SF221_OurCalendar/Pods-SF221_OurCalendar-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SF221_OurCalendar/Pods-SF221_OurCalendar-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SF221_OurCalendar/Pods-SF221_OurCalendar-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F2B38658A5223020F0920649 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SF221_OurCalendar/Pods-SF221_OurCalendar-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SF221_OurCalendar/Pods-SF221_OurCalendar-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SF221_OurCalendar/Pods-SF221_OurCalendar-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -359,6 +476,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1A88A229B63330DD3CCA5218 /* Pods-SF221_OurCalendar-SF221_OurCalendarTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -385,6 +503,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F8F7C5AAA7D05F419A6CB66E /* Pods-SF221_OurCalendar-SF221_OurCalendarTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -408,6 +527,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 652C44A235228E4111ED78BF /* Pods-SF221_OurCalendar.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -433,6 +553,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C6D8219F06A8B4059FD3C425 /* Pods-SF221_OurCalendar.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -487,6 +608,7 @@
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -551,6 +673,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

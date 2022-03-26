@@ -2,7 +2,7 @@ import React from 'react';
 import {Box, HStack, Icon,Pressable, Text} from 'native-base';
 import icons from "../../utils/icons";
 
-class NapAppBox extends React.Component {
+class NavAppBox extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -35,4 +35,4 @@ class NapAppBox extends React.Component {
     }
 }
 
-export default NapAppBox;
+export default NavAppBox;

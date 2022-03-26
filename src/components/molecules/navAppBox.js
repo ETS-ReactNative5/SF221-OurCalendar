@@ -10,7 +10,7 @@ class NapAppBox extends React.Component {
     render() {
         return (
             <Box alignItems="center">
-                <Pressable paddingTop="4">
+                <Pressable paddingTop="4" onPress={this.props.onPress}>
                     {({
                           isHovered,
                           isPressed
@@ -22,7 +22,7 @@ class NapAppBox extends React.Component {
                             }]
                         }}>
                             <HStack alignItems="center">
-                                <Icon as={icons[this.props.iconpic]} name={this.props.icon} size="sm" marginLeft="2" marginTop="2" color={this.props.colorIcon}/>
+                                <Icon as={icons[this.props.iconFont]} name={this.props.icon} size="sm" marginLeft="2" marginTop="2" color={this.props.colorIcon}/>
                                 <Text mt="2" fontSize={14} fontWeight="medium" color={this.props.colorText} alignSelf="flex-start" paddingLeft="5%">
                                     {this.props.text}
                                 </Text>

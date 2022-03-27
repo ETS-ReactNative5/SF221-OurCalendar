@@ -23,11 +23,11 @@ class SideNavigatorApp extends React.Component {
                     <Center>
                         <Text alignSelf={"flex-start"} paddingLeft="5" fontSize="3xl" bold="2" paddingTop="2" >Our Calendar</Text>
                         <Divider my="0.9%" />
-                        <NavAppBox iconFont="AntDesign" colorText="#000000" icon="home" background={this.backgroundColor(0)} border={this.borderColor(0)} colorIcon="#000000" text="Home" onPress={(event) => navigation.navigate('Home')}/>
-                        <NavAppBox iconFont="AntDesign" colorText="#000000" icon="calendar" background={this.backgroundColor(1)} border={this.borderColor(1)} colorIcon="#000000" text="My Calendar" onPress={(event) => navigation.navigate('Calendar')}/>
-                        <NavAppBox iconFont="MaterialCommunityIcons" colorText="#000000" icon="calendar-multiple" background="" border="#000000" colorIcon="#000000" text="Calendar Team"/>
-                        <NavAppBox iconFont="AntDesign" colorText="#000000" icon="setting" background="" border="#000000" colorIcon="#000000" text="Settings" onPress={(event) => navigation.navigate('Setting')}/>
-                        <NavAppBox iconFont="MaterialIcons" colorText="#000000" icon="alternate-email" background="" border="#000000" colorIcon="#000000" text="Contact Us"/>
+                        <NavAppBox iconFont="AntDesign" colorText="#000000" icon="home" background={this.backgroundColor(0)} border={this.borderColor(0)} colorIcon="#000000" text="Home" onPress={() => navigation.navigate('Home')}/>
+                        <NavAppBox iconFont="AntDesign" colorText="#000000" icon="calendar" background={this.backgroundColor(1)} border={this.borderColor(1)} colorIcon="#000000" text="My Calendar" onPress={() => navigation.navigate('Calendar')}/>
+                        <NavAppBox iconFont="MaterialCommunityIcons" colorText="#000000" icon="calendar-multiple" background={this.backgroundColor(2)} border={this.borderColor(2)} colorIcon="#000000" text="Calendar Team" onPress={() => navigation.navigate('CalendarTeam')}/>
+                        <NavAppBox iconFont="AntDesign" colorText="#000000" icon="setting" background={this.backgroundColor(3)} border={this.borderColor(3)} colorIcon="#000000" text="Settings" onPress={() => navigation.navigate('Setting')}/>
+                        <NavAppBox iconFont="MaterialIcons" colorText="#000000" icon="alternate-email" background={this.backgroundColor(4)} border={this.borderColor(4)} colorIcon="#000000" text="Contact Us" onPress={() => navigation.navigate('ContactUs')}/>
                     </Center>
             </DrawerContentScrollView>
         );

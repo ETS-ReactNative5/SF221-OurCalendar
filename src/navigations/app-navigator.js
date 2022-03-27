@@ -5,7 +5,9 @@ import { NavigationContainer } from '@react-navigation/native';
 
 import Home from '../scenes/home';
 import Calendar from '../scenes/calendar';
+import Setting from '../scenes/setting';
 import SideNavigatorApp from '../components/organisms/sideNavApp';
+
 
 class AppNavigator extends React.Component {
     constructor(props) {
@@ -27,6 +29,7 @@ class AppNavigator extends React.Component {
                     }} drawerContent={(props) => <SideNavigatorApp {...props}/>}>
                         <Drawer.Screen name="Home" component={Home} />
                         <Drawer.Screen name="Calendar" component={Calendar} />
+                        <Drawer.Screen name="Setting" component={Setting} />
                     </Drawer.Navigator>
                 </NavigationContainer>
             </NativeBaseProvider>

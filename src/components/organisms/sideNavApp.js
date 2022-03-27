@@ -26,7 +26,7 @@ class SideNavigatorApp extends React.Component {
                         <NavAppBox iconFont="AntDesign" colorText="#000000" icon="home" background={this.backgroundColor(0)} border={this.borderColor(0)} colorIcon="#000000" text="Home" onPress={(event) => navigation.navigate('Home')}/>
                         <NavAppBox iconFont="AntDesign" colorText="#000000" icon="calendar" background={this.backgroundColor(1)} border={this.borderColor(1)} colorIcon="#000000" text="My Calendar" onPress={(event) => navigation.navigate('Calendar')}/>
                         <NavAppBox iconFont="MaterialCommunityIcons" colorText="#000000" icon="calendar-multiple" background="" border="#000000" colorIcon="#000000" text="Calendar Team"/>
-                        <NavAppBox iconFont="AntDesign" colorText="#000000" icon="setting" background="" border="#000000" colorIcon="#000000" text="Settings"/>
+                        <NavAppBox iconFont="AntDesign" colorText="#000000" icon="setting" background="" border="#000000" colorIcon="#000000" text="Settings" onPress={(event) => navigation.navigate('Setting')}/>
                         <NavAppBox iconFont="MaterialIcons" colorText="#000000" icon="alternate-email" background="" border="#000000" colorIcon="#000000" text="Contact Us"/>
                     </Center>
             </DrawerContentScrollView>

@@ -8,6 +8,7 @@ class AddTodo extends React.Component {
         super(props);
         this.state = {
             openDateEndToDo: false,
+            openTimeEndToDo: false,
             deadlineToDo: new Date(),
         }
     }
@@ -42,19 +43,19 @@ class AddTodo extends React.Component {
                                     }}
                                     mode={"date"}
                                 />
-                                <Button style={styles.selectTime} onPress={() => this.setState({openDateEndToDo: true})}>
+                                <Button style={styles.selectTime} onPress={() => this.setState({openTimeEndToDo: true})}>
                                     <Text>{moment(this.state.deadlineToDo).format("HH:mm")}</Text>
                                 </Button>
                                 <DatePicker
                                     modal
-                                    open={this.state.openDateEndToDo}
+                                    open={this.state.openTimeEndToDo}
                                     date={this.state.deadlineToDo}
                                     onConfirm={(date) => {
-                                        this.setState({openDateEndToDo: false})
+                                        this.setState({openTimeEndToDo: false})
                                         this.setState({deadlineToDo: date})
                                     }}
                                     onCancel={() => {
-                                        this.setState({openDateEndToDo: false})
+                                        this.setState({openTimeEndToDo: false})
                                     }}
                                     mode={"time"}
                                 />

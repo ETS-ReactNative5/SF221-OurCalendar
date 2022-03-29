@@ -8,6 +8,7 @@ class AddEvent extends React.Component {
         super(props);
         this.state = {
             openDateStartEvent: false,
+            openTimeStartEvent: false,
             startEvent: new Date(),
             endEvent: new Date(),
             repeat: ''
@@ -65,8 +66,8 @@ class AddEvent extends React.Component {
                         <FormControl>
                             <FormControl.Label>End</FormControl.Label>
                             <HStack space={3}>
-                                <Button style={styles.selectDate} onPress={() => this.setState({openDateStartEvent: true})}>
-                                    <Text>{moment(this.state.startEvent).format("DD MMMM YYYY")}</Text>
+                                <Button style={styles.selectDate} onPress={() => this.setState({openDateEndEvent: true})}>
+                                    <Text>{moment(this.state.endEvent).format("DD MMMM YYYY")}</Text>
                                 </Button>
                                 <DatePicker
                                     modal

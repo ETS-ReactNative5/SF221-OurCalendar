@@ -11,7 +11,6 @@ class Setting extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            language: 'English',
             font:'Cordia',
         }
 
@@ -21,8 +20,8 @@ class Setting extends React.Component {
         return (
             <AppTemplate  {...this.props}>
                 <View width="100%">
-                    <LanguageSelection language={this.state.language} test={() => this.state.language}/>
-                    <FontSelection font={this.state.font} font_select={() => this.state.font}/>
+                    <LanguageSelection/>
+                    <FontSelection font={this.state.font}/>
                     <NotificationsSelection notification={this.state.notification} test={() => this.state.notification}/>
                     <Divider thickness="1.2" backgroundColor="#7B7D7D" width="80%" alignSelf="center" marginTop="2"/>
                     <AccountSignIn/>

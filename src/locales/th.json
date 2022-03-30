@@ -1,0 +1,15 @@
+{
+  "setting": {
+    "language": "ภาษา",
+    "font": "ฟอนต์",
+    "notifications": "การแจ้งเตือน",
+    "account": "บัญชี",
+    "sign_in_with_google": "เข้าสู่ระบบด้วย Google",
+    "passcode": "รหัสผ่าน",
+    "old_passcode": "รหัสผ่านเก่า",
+    "new_passcode": "รหัสผ่านใหม่",
+    "confirm_new_passcode": "ยืนยันรหัสผ่านใหม่",
+    "turn_off": "ปิดการใช้งาน",
+    "save": "บันทึก"
+  }
+}

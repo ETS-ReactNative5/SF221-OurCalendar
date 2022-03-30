@@ -1,0 +1,15 @@
+{
+  "setting": {
+    "language": "言語",
+    "font": "Font",
+    "notifications": "Notifications",
+    "account": "Account",
+    "sign_in_with_google": "Sign in with Google",
+    "passcode": "Passcode",
+    "old_passcode": "Old passcode",
+    "new_passcode": "New passcode",
+    "confirm_new_passcode": "Confirm new passcode",
+    "turn_off": "Turn off",
+    "save": "Save"
+  }
+}

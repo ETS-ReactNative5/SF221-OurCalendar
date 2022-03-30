@@ -1,5 +1,5 @@
 import React from 'react';
-import {Box, Checkbox, HStack, Icon, Image, Stack, Text} from 'native-base';
+import {Box, Checkbox, HStack, Icon,Text} from 'native-base';
 import {StyleSheet} from "react-native";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 

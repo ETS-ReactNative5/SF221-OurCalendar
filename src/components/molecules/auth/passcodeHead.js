@@ -1,7 +1,7 @@
 import React from 'react';
 import {Box, Image, Text} from 'native-base';
 import {StyleSheet} from "react-native";
-import Logo from "../../assets/images/logo.png";
+import Logo from "../../../assets/images/logo.png";
 
 
 class PasscodeHead extends React.Component {

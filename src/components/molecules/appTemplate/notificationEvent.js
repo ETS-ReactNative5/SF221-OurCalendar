@@ -1,6 +1,6 @@
 import React from 'react';
 import {HStack, Icon, Text} from 'native-base';
-import icons from "../../utils/icons";
+import icons from "../../../utils/icons";
 
 
 

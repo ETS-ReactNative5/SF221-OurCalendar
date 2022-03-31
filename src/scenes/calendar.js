@@ -1,6 +1,6 @@
 import React from 'react';
 import AppTemplate from '../components/templates/app';
-import CalendarTable from '../components/organisms/calendarTable';
+import CalendarTable from '../components/organisms/calendar/calendarTable';
 
 class Calendar extends React.Component {
     constructor(props) {

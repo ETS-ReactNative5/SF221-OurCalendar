@@ -2,7 +2,7 @@ import React from 'react';
 import {HStack, Icon, IconButton, Image} from 'native-base';
 import Octicons from 'react-native-vector-icons/Octicons';
 
-import Logo from '../../assets/images/logo.png';
+import Logo from '../../../assets/images/logo.png';
 import NotificationModalButton from "./notificationModalButton";
 
 class HeaderApp extends React.Component {

@@ -1,6 +1,6 @@
 import React from 'react';
 import {Center, HStack, Stack} from 'native-base';
-import SmallBox from "../atoms/smallBox";
+import SmallBox from "../../atoms/smallBox";
 
 class BoxPasscode extends React.Component {
     constructor(props) {

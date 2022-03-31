@@ -2,8 +2,8 @@ import React from 'react';
 import {Box, HStack} from 'native-base';
 import moment from 'moment';
 
-import CalendarBox from '../molecules/calendarBox';
-import EventBoxCalendar from "../molecules/eventBoxCalendar";
+import CalendarBox from '../../molecules/calender/calendarBox';
+import EventBoxCalendar from "../../molecules/calender/eventBoxCalendar";
 
 const COLOR_OUT = '#d4d4d4';
 const BG_COLOR_DATE = 'primary.50';

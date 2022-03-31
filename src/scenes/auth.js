@@ -2,9 +2,9 @@ import React from 'react';
 import {StyleSheet} from "react-native";
 import {Box,Text} from 'native-base';
 
-import BoxPasscode from "../components/molecules/boxPasscode";
+import BoxPasscode from "../components/molecules/auth/boxPasscode";
 import AuthTemplate from "../components/templates/auth";
-import PasscodeHead from "../components/molecules/passcodeHead";
+import PasscodeHead from "../components/molecules/auth/passcodeHead";
 
 
 class Auth extends React.Component {

@@ -1,6 +1,6 @@
 import React from 'react';
 import {Actionsheet, Box, ChevronRightIcon, Flex, HStack, Pressable, Text} from 'native-base';
-import i18n from '../../utils/i18n';
+import i18n from '../../../utils/i18n';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import RNRestart from 'react-native-restart';
 
@@ -30,7 +30,6 @@ class LanguageSelection extends React.Component {
     }
 
     render() {
-        console.log(this.props)
         return (
             <Box width="100%">
                 <Pressable onPress={() => this.setState({actionsheet: true})}>

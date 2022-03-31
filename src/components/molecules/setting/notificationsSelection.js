@@ -1,6 +1,6 @@
 import React from 'react';
 import {Box,Flex, HStack, Pressable, Switch, Text} from 'native-base';
-import i18n from '../../utils/i18n';
+import i18n from '../../../utils/i18n';
 
 
 class NotificationsSelection extends React.Component {

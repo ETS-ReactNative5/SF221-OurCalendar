@@ -1,6 +1,6 @@
 import React from 'react';
 import {Box, HStack, Icon,Pressable, Text} from 'native-base';
-import icons from "../../utils/icons";
+import icons from "../../../utils/icons";
 
 class NavAppBox extends React.Component {
     constructor(props) {

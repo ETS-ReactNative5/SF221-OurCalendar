@@ -1,11 +1,11 @@
 import React from 'react';
 import {Divider, View} from "native-base";
 import AppTemplate from '../components/templates/app';
-import LanguageSelection from '../components/molecules/languageSelection';
-import FontSelection from "../components/molecules/fontSelection";
-import NotificationsSelection from "../components/molecules/notificationsSelection";
-import AccountSignIn from "../components/molecules/accountSignIn";
-import PasscodeSetting from "../components/molecules/passcodeSetting";
+import LanguageSelection from '../components/molecules/setting/languageSelection';
+import FontSelection from "../components/molecules/setting/fontSelection";
+import NotificationsSelection from "../components/molecules/setting/notificationsSelection";
+import AccountSignIn from "../components/molecules/setting/accountSignIn";
+import PasscodeSetting from "../components/molecules/setting/passcodeSetting";
 
 class Setting extends React.Component {
     constructor(props) {

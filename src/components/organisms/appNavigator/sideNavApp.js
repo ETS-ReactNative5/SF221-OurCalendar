@@ -1,7 +1,7 @@
 import React from 'react';
 import {Text,Center,Divider} from "native-base";
 import {DrawerContentScrollView} from '@react-navigation/drawer';
-import NavAppBox from "../molecules/navAppBox";
+import NavAppBox from "../../molecules/appNavigator/navAppBox";
 
 class SideNavigatorApp extends React.Component {
     constructor(props) {

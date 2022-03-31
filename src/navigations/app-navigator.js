@@ -8,7 +8,7 @@ import Calendar from '../scenes/calendar';
 import CalendarTeam from '../scenes/calendarTeam';
 import Setting from '../scenes/setting';
 import ContactUs from '../scenes/contactUs';
-import SideNavigatorApp from '../components/organisms/sideNavApp';
+import SideNavigatorApp from '../components/organisms/appNavigator/sideNavApp';
 
 
 class AppNavigator extends React.Component {

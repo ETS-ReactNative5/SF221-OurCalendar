@@ -2,7 +2,7 @@ import React from 'react';
 import {HStack, Icon, IconButton} from 'native-base';
 
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import EventModalButton from '../templates/eventModalButton';
+import EventModalButton from '../../templates/eventModalButton';
 import TeamModalButton from './teamModalButton';
 
 class HeaderApp extends React.Component {

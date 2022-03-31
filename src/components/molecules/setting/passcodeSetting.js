@@ -1,7 +1,7 @@
 import React from 'react';
 import {Button, ChevronRightIcon, Divider, Flex, HStack, Modal, Pressable, Text,} from 'native-base';
-import PasscodeSettingBox from "../atoms/passcodeSettingBox";
-import i18n from "../../utils/i18n";
+import PasscodeSettingBox from "../../atoms/passcodeSettingBox";
+import i18n from "../../../utils/i18n";
 
 
 class PasscodeSetting extends React.Component {

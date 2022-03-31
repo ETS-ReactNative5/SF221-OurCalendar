@@ -1,6 +1,6 @@
 import React from 'react';
 import AppTemplate from '../components/templates/app';
-import EventBoxHome from "../components/molecules/eventBoxHome";
+import EventBoxHome from "../components/molecules/home/eventBoxHome";
 import {Stack, View} from "native-base";
 
 class Home extends React.Component {

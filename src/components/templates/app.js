@@ -1,9 +1,9 @@
 import React from 'react';
 import {NativeBaseProvider, HStack, ScrollView, View} from 'native-base';
-import Header from '../organisms/headerApp';
-import Bottom from '../organisms/bottomApp';
+import Header from '../organisms/appTemplate/headerApp';
+import Bottom from '../organisms/appTemplate/bottomApp';
 
-import WeekDay from "../organisms/weekDay";
+import WeekDay from "../organisms/appTemplate/weekDay";
 
 class AppTemplate extends React.Component {
     constructor(props) {

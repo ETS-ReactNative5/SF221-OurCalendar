@@ -1,7 +1,7 @@
 import React from 'react';
 import {Text, Icon, IconButton, Modal} from 'native-base';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import NotificationEvent from "../molecules/notificationEvent";
+import NotificationEvent from "../../molecules/appTemplate/notificationEvent";
 
 class NotificationModalButton extends React.Component {
     constructor(props) {

@@ -1,7 +1,7 @@
 import React from 'react';
 import {Box,HStack,Image, Pressable, Text} from 'native-base';
-import GoogleSignIn from '../../assets/images/googleSignIn.png';
-import i18n from '../../utils/i18n';
+import GoogleSignIn from '../../../assets/images/googleSignIn.png';
+import i18n from '../../../utils/i18n';
 
 
 class AccountSingIn extends React.Component {

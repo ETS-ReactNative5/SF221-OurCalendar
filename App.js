@@ -1,4 +1,5 @@
 import React from 'react';
+import { SafeAreaView } from 'react-native';
 import AppNavigator from './src/navigations/app-navigator';
 
 class App extends React.Component {
@@ -8,7 +9,9 @@ class App extends React.Component {
 
     render() {
         return (
-            <AppNavigator/>
+            <SafeAreaView style={{flex: 1}}>
+                <AppNavigator/>
+            </SafeAreaView>
         );
     }
 }

@@ -109,16 +109,16 @@ class CalendarTable extends React.Component {
                     {column.map((col, i) => {
                         let round;
                         if (row === 0 && col === 0) {
-                            round = { roundedTopLeft : "lg"};
+                            round = 'roundedTopLeft';
                         } else if (row === 0 && col === 6) {
-                            round = { roundedTopRight : "lg"};
+                            round = 'roundedTopRight';
                         } else if ((row === 4 || row === 5) && col === 0) {
-                            round = { roundedBottomLeft : "lg"};
+                            round = 'roundedBottomLeft';
                         } else if ((row === 4 || row === 5) && col === 6) {
-                            round = { roundedBottomRight : "lg"};
+                            round = 'roundedBottomRight';
                         }
 
-                        let attr = {borderColor: this.changeBorderColor(), bgColor: this.changeBgColor(), round};
+                        let attr = {borderColor: this.changeBorderColor(), bgColor: this.changeBgColor(), [round]: "lg"};
                         let ev_attr = {borderColor: this.changeBorderColor(), bgColor: this.changeEventColor()};
                         return (
                             <Box key={col} h="100%" w="14.28%">

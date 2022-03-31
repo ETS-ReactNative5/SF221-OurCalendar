@@ -7,8 +7,9 @@ class CalendarBox extends React.Component {
     }
 
     render() {
+        let border = this.props.attributes.bgColor !== '#d4d4d4' ? 1 : 0;
         return (
-            <Box h="100%" w="100%" borderWidth="1" {...this.props.attributes} _text={{textAlign:"right", top:"2", right:"1"}}>{this.props.text}</Box>
+            <Box h="100%" w="100%" borderWidth={border} {...this.props.attributes} _text={{textAlign:"right", top:"2", right:"1"}}>{this.props.text}</Box>
         );
     }
 }

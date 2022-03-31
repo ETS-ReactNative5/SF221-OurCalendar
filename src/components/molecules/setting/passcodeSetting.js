@@ -18,7 +18,7 @@ class PasscodeSetting extends React.Component {
                 <Pressable  onPress={() => this.setState({passcodeModal: true})} >
                     <HStack paddingTop="3%">
                         <Text width="60%" fontSize="19" fontWeight="bold" paddingLeft="14%"> {i18n.t('setting.passcode')}</Text>
-                        <Flex width="30%" direction="row" justify="flex-end">
+                        <Flex width="30%" flexDirection="row" justify="flex-end">
                             <ChevronRightIcon size="8"/>
                         </Flex>
                     </HStack>

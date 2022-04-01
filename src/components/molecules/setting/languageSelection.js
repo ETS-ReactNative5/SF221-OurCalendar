@@ -1,8 +1,7 @@
 import React from 'react';
+import { withTranslation } from 'react-i18next';
 import {Actionsheet, Box, ChevronRightIcon, Flex, HStack, Pressable, Text} from 'native-base';
-import i18n from '../../../utils/i18n';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import RNRestart from 'react-native-restart';
 
 const LANGUAGES = {
     en: 'English',
@@ -20,23 +19,24 @@ class LanguageSelection extends React.Component {
 
     async onPress(language) {
         this.setState({actionsheet: false});
-        i18n.locale = language;
+        await this.props.i18n.changeLanguage(language);
         await AsyncStorage.setItem('@locale', language);
-        RNRestart.Restart();
     }
 
     background(language) {
-        return i18n.locale === language ? '#0d9488' : '#ffffff';
+        return this.props.i18n.language === language ? '#0d9488' : '#ffffff';
     }
 
     render() {
+        const { i18n, t } = this.props;
+
         return (
             <Box width="100%">
                 <Pressable onPress={() => this.setState({actionsheet: true})}>
                     <HStack paddingTop="3%">
-                        <Text width="60%" fontSize="19" fontWeight="bold" paddingLeft="14%"> {i18n.t('setting.language')}</Text>
+                        <Text width="60%" fontSize="19" fontWeight="bold" paddingLeft="14%"> {t('setting.language')}</Text>
                         <Flex width="30%" flexDirection="row" justify="flex-end">
-                            <Text fontSize="19">{LANGUAGES[i18n.locale]}</Text>
+                            <Text fontSize="19">{LANGUAGES[i18n.language]}</Text>
                             <ChevronRightIcon size="8"/>
                         </Flex>
                     </HStack>
@@ -56,4 +56,4 @@ class LanguageSelection extends React.Component {
         );
     }
 }
-export default LanguageSelection;
+export default withTranslation()(LanguageSelection);

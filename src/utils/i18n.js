@@ -1,29 +1,26 @@
-import i18n from 'i18n-js';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
 
 import en from '../locales/en.json';
 import th from '../locales/th.json';
 import ja from '../locales/ja.json';
 
-i18n.defaultLocale = 'en';
-i18n.fallbacks = true;
-i18n.translations = { en, th, ja };
+const resources = {
+    en: {translation: en},
+    th: {translation: th},
+    ja: {translation: ja}
+};
 
-let locale;
-async function getLocale() {
-    try {
-        const localeValue = await AsyncStorage.getItem('@locale');
-
-        if (localeValue === null) {
-            await AsyncStorage.setItem('@locale', 'en');
-            locale = 'en';
-        } else {
-            locale = localeValue;
+i18n
+    .use(initReactI18next)
+    .init({
+        compatibilityJSON: 'v3',
+        resources,
+        lng: 'en',
+        fallbackLng: 'en',
+        interpolation: {
+            escapeValue: false
         }
-    } catch(e) {}
-}
-getLocale().then(() => {
-    i18n.locale = locale;
-});
+    });
 
 export default i18n;

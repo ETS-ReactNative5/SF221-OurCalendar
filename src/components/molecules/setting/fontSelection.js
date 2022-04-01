@@ -1,6 +1,6 @@
 import React from 'react';
+import { withTranslation } from 'react-i18next';
 import {Actionsheet, Box, ChevronRightIcon, Flex, HStack, Pressable, Text} from 'native-base';
-import i18n from '../../../utils/i18n';
 
 const FONTS = {
     Cordia: 'Cordia',
@@ -26,11 +26,13 @@ class FontSelection extends React.Component {
     }
 
     render() {
+        const { t } = this.props;
+
         return (
             <Box width="100%">
                 <Pressable onPress={() => this.setState({actionsheet: true})}>
                     <HStack paddingTop="3%">
-                        <Text width="60%" fontSize="19" fontWeight="bold" paddingLeft="14%"> {i18n.t('setting.font')}</Text>
+                        <Text width="60%" fontSize="19" fontWeight="bold" paddingLeft="14%"> {t('setting.font')}</Text>
                         <Flex width="30%" flexDirection="row" justify="flex-end">
                             <Text fontSize="19">{this.props.font}</Text>
                             <ChevronRightIcon size="8"/>
@@ -50,4 +52,4 @@ class FontSelection extends React.Component {
         );
     }
 }
-export default FontSelection;
+export default withTranslation()(FontSelection);

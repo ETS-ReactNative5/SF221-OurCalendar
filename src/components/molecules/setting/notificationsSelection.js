@@ -1,7 +1,6 @@
 import React from 'react';
+import { withTranslation } from 'react-i18next';
 import {Box,Flex, HStack, Pressable, Switch, Text} from 'native-base';
-import i18n from '../../../utils/i18n';
-
 
 class NotificationsSelection extends React.Component {
     constructor(props) {
@@ -12,11 +11,13 @@ class NotificationsSelection extends React.Component {
     }
 
     render() {
+        const { t } = this.props;
+
         return (
             <Box width="100%">
                 <Pressable onPress={() => this.setState({actionsheet: true})}>
                     <HStack paddingTop="3%">
-                        <Text width="60%" fontSize="19" fontWeight="bold" paddingLeft="14%"> {i18n.t('setting.notifications')}</Text>
+                        <Text width="60%" fontSize="19" fontWeight="bold" paddingLeft="14%"> {t('setting.notifications')}</Text>
                         <Flex width="30%" flexDirection="row" justify="flex-end">
                             <Switch/>
                         </Flex>
@@ -26,4 +27,4 @@ class NotificationsSelection extends React.Component {
         );
     }
 }
-export default NotificationsSelection;
+export default withTranslation()(NotificationsSelection);

@@ -1,4 +1,5 @@
 import React from 'react';
+import { withTranslation } from 'react-i18next';
 import {Box, Center, HStack, Icon, Text} from 'native-base';
 import moment from "moment";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
@@ -22,6 +23,7 @@ class WeekDay extends React.Component {
     }
 
     render() {
+        const { t } = this.props;
         const date = [0, 1, 2, 3, 4, 5, 6];
 
         return (
@@ -37,13 +39,13 @@ class WeekDay extends React.Component {
                     }
                 </HStack>
                 <HStack>
-                    <Center w="14.28%">Sun</Center>
-                    <Center w="14.28%">Mon</Center>
-                    <Center w="14.28%">Tue</Center>
-                    <Center w="14.28%">Wed</Center>
-                    <Center w="14.28%">Thu</Center>
-                    <Center w="14.28%">Fri</Center>
-                    <Center w="14.28%">Sat</Center>
+                    <Center w="14.28%">{t('day.sun')}</Center>
+                    <Center w="14.28%">{t('day.mon')}</Center>
+                    <Center w="14.28%">{t('day.tue')}</Center>
+                    <Center w="14.28%">{t('day.wed')}</Center>
+                    <Center w="14.28%">{t('day.thu')}</Center>
+                    <Center w="14.28%">{t('day.fri')}</Center>
+                    <Center w="14.28%">{t('day.sat')}</Center>
                 </HStack>
             </Box>
 
@@ -51,4 +53,4 @@ class WeekDay extends React.Component {
     }
 }
 
-export default WeekDay;
+export default withTranslation()(WeekDay);

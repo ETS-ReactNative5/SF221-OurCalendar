@@ -6,7 +6,7 @@ import {Actionsheet, Box, ChevronRightIcon, Flex, HStack, Pressable, Text} from 
 import {set} from '../../../redux/reducers/fontSlice';
 
 const FONTS = {
-    default: 'Default',
+    null: 'Default',
     raleway: 'Raleway',
     oswald: 'Oswald'
 };
@@ -27,13 +27,15 @@ class FontSelection extends React.Component {
         };
     }
 
-    async onPress(font) {
+    async onPress(fontInput) {
+        let font = fontInput === 'null' ? null : fontInput;
         this.setState({actionsheet: false});
-        this.props.set(font);
+        await this.props.set(font);
         await AsyncStorage.setItem('@font', font);
     }
 
-    background(font) {
+    background(fontInput) {
+        let font = fontInput === 'null' ? null : fontInput;
         return this.props.font === font ? '#0d9488' : '#ffffff';
     }
 

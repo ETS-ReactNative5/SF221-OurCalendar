@@ -30,11 +30,7 @@ class AppNavigator extends React.Component {
     componentDidMount() {
         (async () => {
             const fontValue = await AsyncStorage.getItem('@font');
-            if (fontValue === null) {
-                await AsyncStorage.setItem('@font', 'default');
-            }
-            let locale = fontValue === null ? 'default' : fontValue;
-            await this.props.set(locale);
+            await this.props.set(fontValue);
         })();
     }
 

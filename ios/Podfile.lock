@@ -349,6 +349,8 @@ PODS:
     - React-Core
   - RNCMaskedView (0.1.11):
     - React
+  - RNDeviceInfo (8.7.0):
+    - React-Core
   - RNGestureHandler (1.10.3):
     - React-Core
   - RNReanimated (2.2.4):
@@ -451,6 +453,7 @@ DEPENDENCIES:
   - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
   - "RNCClipboard (from `../node_modules/@react-native-clipboard/clipboard`)"
   - "RNCMaskedView (from `../node_modules/@react-native-community/masked-view`)"
+  - RNDeviceInfo (from `../node_modules/react-native-device-info`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
@@ -546,6 +549,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-clipboard/clipboard"
   RNCMaskedView:
     :path: "../node_modules/@react-native-community/masked-view"
+  RNDeviceInfo:
+    :path: "../node_modules/react-native-device-info"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
   RNReanimated:
@@ -608,6 +613,7 @@ SPEC CHECKSUMS:
   RNCAsyncStorage: 4e17811bcadfdc068cd3e2bb896f0fea0198710d
   RNCClipboard: cc054ad1e8a33d2a74cd13e565588b4ca928d8fd
   RNCMaskedView: 0e1bc4bfa8365eba5fbbb71e07fbdc0555249489
+  RNDeviceInfo: 36286df381fcaf1933ff9d2d3c34ba2abeb2d8d8
   RNGestureHandler: a479ebd5ed4221a810967000735517df0d2db211
   RNReanimated: e28dfaa950064b674fde0a9b736e62b9dff500a7
   RNScreens: 6e1ea5787989f92b0671049b808aef64fa1ef98c

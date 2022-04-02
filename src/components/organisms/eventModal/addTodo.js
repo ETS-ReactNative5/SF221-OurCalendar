@@ -18,14 +18,14 @@ class AddTodo extends React.Component {
             <Modal isOpen={this.props.isOpen} onClose={this.props.onClose}>
                 <Modal.Content style={styles.addModal} maxWidth="400px">
                     <Modal.CloseButton />
-                    <Modal.Header>Add To-do</Modal.Header>
+                    <Modal.Header><Text>Add To-do</Text></Modal.Header>
                     <Modal.Body>
                         <FormControl>
-                            <FormControl.Label>Title</FormControl.Label>
+                            <FormControl.Label><Text>Title</Text></FormControl.Label>
                             <Input bgColor="#f8f8f8"/>
                         </FormControl>
                         <FormControl>
-                            <FormControl.Label>Deadline</FormControl.Label>
+                            <FormControl.Label><Text>Deadline</Text></FormControl.Label>
                             <HStack space={3}>
                                 <Button style={styles.selectDate} onPress={() => this.setState({openDateEndToDo: true})}>
                                     <Text>{moment(this.state.deadlineToDo).format("DD MMMM YYYY")}</Text>
@@ -62,17 +62,19 @@ class AddTodo extends React.Component {
                             </HStack>
                         </FormControl>
                         <FormControl>
-                            <FormControl.Label>Color</FormControl.Label>
+                            <FormControl.Label><Text>Color</Text></FormControl.Label>
                             <Input bgColor="#f8f8f8"/>
                         </FormControl>
                         <FormControl>
-                            <FormControl.Label>Icon</FormControl.Label>
+                            <FormControl.Label><Text>Icon</Text></FormControl.Label>
                             <Input bgColor="#f8f8f8"/>
                         </FormControl>
                     </Modal.Body>
                     <Modal.Footer style={styles.addModal}>
                         <Button>
-                            Create
+                            <Text color="muted.50">
+                                Create
+                            </Text>
                         </Button>
                     </Modal.Footer>
                 </Modal.Content>

@@ -9,7 +9,7 @@ import CalendarTeam from '../scenes/calendarTeam';
 import Setting from '../scenes/setting';
 import ContactUs from '../scenes/contactUs';
 import SideNavigatorApp from '../components/organisms/appNavigator/sideNavApp';
-
+import Fonts from "../utils/fonts";
 
 class AppNavigator extends React.Component {
     constructor(props) {
@@ -20,7 +20,7 @@ class AppNavigator extends React.Component {
         const Drawer = createDrawerNavigator();
 
         return (
-            <NativeBaseProvider>
+            <NativeBaseProvider theme={Fonts}>
                 <NavigationContainer>
                     <Drawer.Navigator initialRouteName="Home" screenOptions={{
                         headerShown: false,

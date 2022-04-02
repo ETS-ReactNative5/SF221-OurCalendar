@@ -27,7 +27,7 @@ class WeekDay extends React.Component {
         return (
             <Box>
                 <Center>
-                    <Text bold fontSize={"2xl"}>{moment.months(this.month)} {this.year}</Text>
+                    <Text fontWeight={700} fontSize={"2xl"}>{moment.months(this.month)} {this.year}</Text>
                 </Center>
                 <HStack>
                     {

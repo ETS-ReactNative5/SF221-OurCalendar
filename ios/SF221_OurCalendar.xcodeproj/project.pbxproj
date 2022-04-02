@@ -14,6 +14,12 @@
 		67B0137829FCE50C8B1984CE /* libPods-SF221_OurCalendar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B609BE837A1E296180CC2A8 /* libPods-SF221_OurCalendar.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		E03E5E7E807C611B9221C640 /* libPods-SF221_OurCalendar-SF221_OurCalendarTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B243EB1E72086D3036A24C1F /* libPods-SF221_OurCalendar-SF221_OurCalendarTests.a */; };
+		24C4AB57A87145B193FC000B /* Raleway-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86854269FE314271927A7593 /* Raleway-Bold.ttf */; };
+		A11FD81AC3B4479ABF7C6BCC /* Raleway-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E260E8CA8104B719B540B8C /* Raleway-Light.ttf */; };
+		437D728F2FF5416A9FF54BCE /* Raleway-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3B94A00C4824796B0EF82F5 /* Raleway-Regular.ttf */; };
+		7ECCE05F5CBD4A8DAC3FD6AF /* Raleway-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FE61AF3F2E284097986AD9B7 /* Raleway-VariableFont_wght.ttf */; };
+		806A71472FFE49D2B7E6948C /* Oswald-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 923691A1B995458187688753 /* Oswald-Regular.ttf */; };
+		34B17B22C5F14E07A2D75C6D /* Oswald-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C7D3BD2CA96A4AFD88CA21EB /* Oswald-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +66,12 @@
 		F986398327EF64C500A2E627 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		F986398427EF64C500A2E627 /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		F986398527EF64C500A2E627 /* Feather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
+		86854269FE314271927A7593 /* Raleway-Bold.ttf */ = {isa = PBXFileReference; name = "Raleway-Bold.ttf"; path = "../src/assets/fonts/Raleway-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		4E260E8CA8104B719B540B8C /* Raleway-Light.ttf */ = {isa = PBXFileReference; name = "Raleway-Light.ttf"; path = "../src/assets/fonts/Raleway-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		E3B94A00C4824796B0EF82F5 /* Raleway-Regular.ttf */ = {isa = PBXFileReference; name = "Raleway-Regular.ttf"; path = "../src/assets/fonts/Raleway-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		FE61AF3F2E284097986AD9B7 /* Raleway-VariableFont_wght.ttf */ = {isa = PBXFileReference; name = "Raleway-VariableFont_wght.ttf"; path = "../src/assets/fonts/Raleway-VariableFont_wght.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		923691A1B995458187688753 /* Oswald-Regular.ttf */ = {isa = PBXFileReference; name = "Oswald-Regular.ttf"; path = "../src/assets/fonts/Oswald-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C7D3BD2CA96A4AFD88CA21EB /* Oswald-Bold.ttf */ = {isa = PBXFileReference; name = "Oswald-Bold.ttf"; path = "../src/assets/fonts/Oswald-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +128,12 @@
 		2C3A3A22940E4655B0A79F76 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				86854269FE314271927A7593 /* Raleway-Bold.ttf */,
+				4E260E8CA8104B719B540B8C /* Raleway-Light.ttf */,
+				E3B94A00C4824796B0EF82F5 /* Raleway-Regular.ttf */,
+				FE61AF3F2E284097986AD9B7 /* Raleway-VariableFont_wght.ttf */,
+				923691A1B995458187688753 /* Oswald-Regular.ttf */,
+				C7D3BD2CA96A4AFD88CA21EB /* Oswald-Bold.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -292,6 +310,12 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				24C4AB57A87145B193FC000B /* Raleway-Bold.ttf in Resources */,
+				A11FD81AC3B4479ABF7C6BCC /* Raleway-Light.ttf in Resources */,
+				437D728F2FF5416A9FF54BCE /* Raleway-Regular.ttf in Resources */,
+				7ECCE05F5CBD4A8DAC3FD6AF /* Raleway-VariableFont_wght.ttf in Resources */,
+				806A71472FFE49D2B7E6948C /* Oswald-Regular.ttf in Resources */,
+				34B17B22C5F14E07A2D75C6D /* Oswald-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,7 +15,7 @@ class AccountSignIn extends React.Component {
 
         return (
             <Box width="100%" paddingBottom="2">
-                        <Text width="60%" fontSize="19" fontWeight="bold" paddingLeft="15%" paddingBottom="2">
+                        <Text width="60%" fontSize="19" fontWeight={700} paddingLeft="15%" paddingBottom="2">
                             {t('setting.account')}
                         </Text>
                 <Pressable alignSelf="center">
@@ -32,7 +32,7 @@ class AccountSignIn extends React.Component {
                         }}>
                             <HStack alignSelf="center" alignContent="center" >
                                 <Image source={GoogleSignIn} alt="googleSignIn" size="8" marginTop="1"/>
-                                <Text mt="2" fontSize={14} fontWeight="medium">
+                                <Text mt="2" fontSize={14} >
                                     {t('setting.sign_in_with_google')}
                                 </Text>
                             </HStack>

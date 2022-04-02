@@ -1,7 +1,5 @@
 import React from 'react';
-import {FormControl, Input} from 'native-base';
-
-
+import {FormControl, Input, Text} from 'native-base';
 
 
 class PasscodeSettingBox extends React.Component {
@@ -12,7 +10,7 @@ class PasscodeSettingBox extends React.Component {
     render() {
         return (
             <FormControl>
-                <FormControl.Label>{this.props.title}</FormControl.Label>
+                <FormControl.Label><Text>{this.props.title}</Text></FormControl.Label>
                 <Input  keyboardType="numeric"/>
             </FormControl>
         );

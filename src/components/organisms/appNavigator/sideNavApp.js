@@ -21,7 +21,7 @@ class SideNavigatorApp extends React.Component {
         return (
             <DrawerContentScrollView {...this.props} safeArea style={{backgroundColor:"#f2efe7"}}>
                     <Center>
-                        <Text alignSelf={"flex-start"} paddingLeft="5" fontSize="3xl" bold="2" paddingTop="2" >Our Calendar</Text>
+                        <Text alignSelf={"flex-start"} paddingLeft="5" fontSize="3xl" fontWeight={700} paddingTop="2" >Our Calendar</Text>
                         <Divider my="0.9%" />
                         <NavAppBox iconFont="AntDesign" colorText="#000000" icon="home" background={this.backgroundColor(0)} border={this.borderColor(0)} colorIcon="#000000" text="Home" onPress={() => navigation.navigate('Home')}/>
                         <NavAppBox iconFont="AntDesign" colorText="#000000" icon="calendar" background={this.backgroundColor(1)} border={this.borderColor(1)} colorIcon="#000000" text="My Calendar" onPress={() => navigation.navigate('Calendar')}/>

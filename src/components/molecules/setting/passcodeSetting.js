@@ -18,7 +18,7 @@ class PasscodeSetting extends React.Component {
             <>
                 <Pressable onPress={() => this.setState({passcodeModal: true})} >
                     <HStack paddingTop="3%">
-                        <Text width="60%" fontSize="19" fontWeight="bold" paddingLeft="14%"> {t('setting.passcode')}</Text>
+                        <Text width="60%" fontSize="19" fontWeight={700} paddingLeft="14%"> {t('setting.passcode')}</Text>
                         <Flex width="30%" flexDirection="row" justify="flex-end">
                             <ChevronRightIcon size="8"/>
                         </Flex>
@@ -27,7 +27,7 @@ class PasscodeSetting extends React.Component {
                 <Modal isOpen={this.state.passcodeModal} onClose={() => this.setState({passcodeModal: false})}>
                     <Modal.Content maxWidth="400px" >
                         <Modal.CloseButton />
-                        <Modal.Header>{t('setting.passcode')}</Modal.Header>
+                        <Modal.Header><Text>{t('setting.passcode')}</Text></Modal.Header>
                         <Modal.Body>
                             <PasscodeSettingBox title={t('setting.old_passcode')}/>
                             <Divider my="2" backgroundColor="#cfd1cf" width="99%" alignSelf="center" marginTop="4"/>
@@ -37,10 +37,14 @@ class PasscodeSetting extends React.Component {
                         <Modal.Footer>
                             <Button.Group space={2}>
                                 <Button colorScheme="danger" onPress={() => {this.setState({passcodeModal: false})}}>
-                                    {t('setting.turn_off')}
+                                    <Text color="muted.50">
+                                        {t('setting.turn_off')}
+                                    </Text>
                                 </Button>
                                 <Button onPress={() => {this.setState({passcodeModal: false})}}>
-                                    {t('setting.save')}
+                                    <Text color="muted.50">
+                                        {t('setting.save')}
+                                    </Text>
                                 </Button>
                             </Button.Group>
                         </Modal.Footer>

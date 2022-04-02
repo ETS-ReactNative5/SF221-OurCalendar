@@ -20,14 +20,14 @@ class AddEvent extends React.Component {
             <Modal isOpen={this.props.isOpen} onClose={this.props.onClose}>
                 <Modal.Content style={styles.addModal} maxWidth="400px">
                     <Modal.CloseButton />
-                    <Modal.Header>Add Event</Modal.Header>
+                    <Modal.Header><Text>Add Event</Text></Modal.Header>
                     <Modal.Body>
                         <FormControl>
-                            <FormControl.Label>Title</FormControl.Label>
+                            <FormControl.Label><Text>Title</Text></FormControl.Label>
                             <Input bgColor="#f8f8f8"/>
                         </FormControl>
                         <FormControl>
-                            <FormControl.Label>Start</FormControl.Label>
+                            <FormControl.Label><Text>Start</Text></FormControl.Label>
                             <HStack space={3}>
                                 <Button style={styles.selectDate} onPress={() => this.setState({openDateStartEvent: true})}>
                                     <Text>{moment(this.state.startEvent).format("DD MMMM YYYY")}</Text>
@@ -64,7 +64,7 @@ class AddEvent extends React.Component {
                             </HStack>
                         </FormControl>
                         <FormControl>
-                            <FormControl.Label>End</FormControl.Label>
+                            <FormControl.Label><Text>End</Text></FormControl.Label>
                             <HStack space={3}>
                                 <Button style={styles.selectDate} onPress={() => this.setState({openDateEndEvent: true})}>
                                     <Text>{moment(this.state.endEvent).format("DD MMMM YYYY")}</Text>
@@ -101,7 +101,7 @@ class AddEvent extends React.Component {
                             </HStack>
                         </FormControl>
                         <FormControl>
-                            <FormControl.Label>Repeat</FormControl.Label>
+                            <FormControl.Label><Text>Repeat</Text></FormControl.Label>
                             <Select bgColor="#f8f8f8" selectedValue={this.state.repeat} minWidth="200" accessibilityLabel="Choose repeat" placeholder="Choose repeat" _selectedItem={{
                                 bg: "teal.600",
                                 endIcon: <CheckIcon size="5" />
@@ -114,17 +114,19 @@ class AddEvent extends React.Component {
                             </Select>
                         </FormControl>
                         <FormControl>
-                            <FormControl.Label>Color</FormControl.Label>
+                            <FormControl.Label><Text>Color</Text></FormControl.Label>
                             <Input bgColor="#f8f8f8"/>
                         </FormControl>
                         <FormControl>
-                            <FormControl.Label>Icon</FormControl.Label>
+                            <FormControl.Label><Text>Icon</Text></FormControl.Label>
                             <Input bgColor="#f8f8f8"/>
                         </FormControl>
                     </Modal.Body>
                     <Modal.Footer style={styles.addModal}>
                         <Button>
-                            Create
+                            <Text color="muted.50">
+                                Create
+                            </Text>
                         </Button>
                     </Modal.Footer>
                 </Modal.Content>

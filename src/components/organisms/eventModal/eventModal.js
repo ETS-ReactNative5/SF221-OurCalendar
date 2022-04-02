@@ -11,7 +11,7 @@ class EventModal extends React.Component {
             <Modal isOpen={this.props.isOpen} onClose={this.props.onClose}>
                 <Modal.Content style={styles.addModal} maxWidth="400px">
                     <Modal.CloseButton />
-                    <Modal.Header>Add Event/To do</Modal.Header>
+                    <Modal.Header><Text>Add Event/To do</Text></Modal.Header>
                     <Modal.Body>
                         <HStack justifyContent={"center"} space={5}>
                             <Button style={styles.addButton} onPress={this.props.eventButton}>

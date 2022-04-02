@@ -18,7 +18,7 @@ class NotificationModalButton extends React.Component {
                 <Modal isOpen={this.state.modal} onClose={() => this.setState({modal: false})}>
                     <Modal.Content maxWidth="400px" style={{marginBottom: "auto", marginTop: '5%'}}>
                         <Modal.CloseButton />
-                        <Modal.Header>Notifications</Modal.Header>
+                        <Modal.Header><Text>Notifications</Text></Modal.Header>
                         <Modal.Body>
                             <NotificationEvent icon="cake" text="hapergergeggegfwggergegrhgrthtrhhthrhtrthrhtrhegergregrgrpy"/>
                             <NotificationEvent icon="cake" text="happy"/>

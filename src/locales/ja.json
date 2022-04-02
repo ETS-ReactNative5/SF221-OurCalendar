@@ -1,15 +1,71 @@
 {
+  "event_modal" : {
+    "add": "イベント/To doを追加",
+    "event": "イベント",
+    "to_do": "To-do"
+  },
+  "event_todo":{
+    "title": "タイトル",
+    "color": "色",
+    "icon": "アイコン",
+    "create": "作成"
+  },
+  "add_todo": {
+    "add": "To-doを追加",
+    "deadline": "デッドライン"
+  },
+  "add_event": {
+    "add": "イベントを追加",
+    "start": "開始",
+    "end": "終了",
+    "repeat": "繰り返す",
+    "choose": "繰り返しを選択",
+    "choose_repeat" : {
+      "none": "繰り返さない",
+      "daily": "毎日",
+      "weekly": "毎週",
+      "monthly": "毎月",
+      "annually": "毎年"
+    }
+  },
+  "team_modal": {
+    "have_team": "すでにチームIDをお持ちですか",
+    "enter_team": "チームIDを入力...",
+    "new_team": "新しいチームを作成",
+    "team_name": "チームの名前",
+    "enter_team_name": "チーム名を入力...",
+    "created_team": "あなたのチームが作成されました",
+    "close": "クローズ",
+    "enter": "入力",
+    "create": "作成"
+  },
+  "side_nav": {
+    "home": "ホーム",
+    "my_calendar": "私のカレンダー",
+    "calendar_team": "่カレンダーチーム",
+    "settings": "設定",
+    "contact_us": "Contact Us"
+  },
+  "day": {
+    "sun": "日",
+    "mon": "月",
+    "tue": "火",
+    "wed": "水",
+    "thu": "木",
+    "fri": "金",
+    "sat": "土"
+  },
   "setting": {
     "language": "言語",
-    "font": "Font",
-    "notifications": "Notifications",
-    "account": "Account",
-    "sign_in_with_google": "Sign in with Google",
-    "passcode": "Passcode",
-    "old_passcode": "Old passcode",
-    "new_passcode": "New passcode",
-    "confirm_new_passcode": "Confirm new passcode",
-    "turn_off": "Turn off",
-    "save": "Save"
+    "font": "フォント",
+    "notifications": "お知らせ",
+    "account": "アカウント",
+    "sign_in_with_google": "Google ログイン",
+    "passcode": "パスコード",
+    "old_passcode": "古い パスコード",
+    "new_passcode": "新しい パスコード",
+    "confirm_new_passcode": "新しい パスコードを確認",
+    "turn_off": "無効にする",
+    "save": "保存"
   }
 }

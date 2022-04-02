@@ -1,4 +1,5 @@
 import React from 'react';
+import { withTranslation } from 'react-i18next';
 import {Button, HStack, Modal, Text} from 'native-base';
 
 class EventModal extends React.Component {
@@ -7,18 +8,19 @@ class EventModal extends React.Component {
     }
 
     render() {
+        const { t } = this.props;
         return (
             <Modal isOpen={this.props.isOpen} onClose={this.props.onClose}>
                 <Modal.Content style={styles.addModal} maxWidth="400px">
                     <Modal.CloseButton />
-                    <Modal.Header><Text>Add Event/To do</Text></Modal.Header>
+                    <Modal.Header>{t('event_modal.add')}</Modal.Header>
                     <Modal.Body>
                         <HStack justifyContent={"center"} space={5}>
                             <Button style={styles.addButton} onPress={this.props.eventButton}>
-                                <Text>Event</Text>
+                                <Text>{t('event_modal.event')}</Text>
                             </Button>
                             <Button style={styles.addButton} onPress={this.props.todoButton}>
-                                <Text>To-do</Text>
+                                <Text>{t('event_modal.to_do')}</Text>
                             </Button>
                         </HStack>
                     </Modal.Body>
@@ -40,4 +42,4 @@ const styles = {
         backgroundColor: "#ebebeb"
     }
 };
-export default EventModal;
+export default withTranslation()(EventModal);

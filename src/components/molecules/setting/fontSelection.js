@@ -1,12 +1,11 @@
 import React from 'react';
 import { withTranslation } from 'react-i18next';
-import {Actionsheet, Box, ChevronRightIcon, extendTheme, Flex, HStack, Pressable, Text} from 'native-base';
-import Fonts from "../../../utils/fonts";
+import {Actionsheet, Box, ChevronRightIcon, Flex, HStack, Pressable, Text} from 'native-base';
 
 const FONTS = {
     Cordia: 'Cordia',
     Tahoma: 'Tahoma',
-    Arial: 'Arial',
+    Arial: 'Arial'
 };
 
 class FontSelection extends React.Component {
@@ -20,7 +19,6 @@ class FontSelection extends React.Component {
     onPress(font) {
         this.props.font = FONTS[font];
         this.setState({actionsheet: false});
-        Fonts.components.Text.baseStyle.fontFamily = "Oswald-Regular";
     }
 
     background(font) {
@@ -34,7 +32,7 @@ class FontSelection extends React.Component {
             <Box width="100%">
                 <Pressable onPress={() => this.setState({actionsheet: true})}>
                     <HStack paddingTop="3%">
-                        <Text width="60%" fontSize="19" fontWeight={700} paddingLeft="14%"> {t('setting.font')}</Text>
+                        <Text width="60%" fontSize="19" fontWeight="bold" paddingLeft="14%"> {t('setting.font')}</Text>
                         <Flex width="30%" flexDirection="row" justify="flex-end">
                             <Text fontSize="19">{this.props.font}</Text>
                             <ChevronRightIcon size="8"/>
@@ -54,5 +52,4 @@ class FontSelection extends React.Component {
         );
     }
 }
-
 export default withTranslation()(FontSelection);

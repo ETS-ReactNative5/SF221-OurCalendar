@@ -23,7 +23,7 @@ class NavAppBox extends React.Component {
                         }}>
                             <HStack alignItems="center">
                                 <Icon as={icons[this.props.iconFont]} name={this.props.icon} size="sm" marginLeft="2" marginTop="2" color={this.props.colorIcon}/>
-                                <Text mt="2" fontSize={14} fontWeight={700} color={this.props.colorText} alignSelf="flex-start" paddingLeft="5%">
+                                <Text mt="2" fontSize={14} fontWeight="medium" color={this.props.colorText} alignSelf="flex-start" paddingLeft="5%">
                                     {this.props.text}
                                 </Text>
                             </HStack>

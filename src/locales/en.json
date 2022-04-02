@@ -1,4 +1,60 @@
 {
+  "event_modal" : {
+    "add": "Add Event/To do",
+    "event": "Event",
+    "to_do": "To-do"
+  },
+  "event_todo":{
+    "title": "Title",
+    "color": "Color",
+    "icon": "Icon",
+    "create": "Create"
+  },
+  "add_todo": {
+    "add": "Add To-do",
+    "deadline": "Deadline"
+  },
+  "add_event": {
+    "add": "Add Event",
+    "start": "Start",
+    "end": "End",
+    "repeat": "Repeat",
+    "choose": "Choose repeat",
+    "choose_repeat" : {
+      "none": "None",
+      "daily": "Daily",
+      "weekly": "Weekly",
+      "monthly": "Monthly",
+      "annually": "Annually"
+    }
+  },
+  "team_modal": {
+    "have_team": "Already have team ID?",
+    "enter_team": "Enter team ID...",
+    "new_team": "Create new team",
+    "team_name": "Team Name",
+    "enter_team_name": "Enter your team name...",
+    "created_team": "Your team has been created",
+    "close": "Close",
+    "enter": "Enter",
+    "create": "Create"
+  },
+  "side_nav": {
+    "home": "Home",
+    "my_calendar": "My Calendar",
+    "calendar_team": "Calendar Team",
+    "settings": "Settings",
+    "contact_us": "Contact Us"
+  },
+  "day": {
+    "sun": "Sun",
+    "mon": "Mon",
+    "tue": "Tue",
+    "wed": "Wed",
+    "thu": "Thu",
+    "fri": "Fri",
+    "sat": "Sat"
+  },
   "setting": {
     "language": "Language",
     "font": "Font",

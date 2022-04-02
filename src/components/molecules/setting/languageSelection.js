@@ -34,7 +34,7 @@ class LanguageSelection extends React.Component {
             <Box width="100%">
                 <Pressable onPress={() => this.setState({actionsheet: true})}>
                     <HStack paddingTop="3%">
-                        <Text width="60%" fontSize="19" fontWeight={700} paddingLeft="14%"> {t('setting.language')}</Text>
+                        <Text width="60%" fontSize="19" fontWeight="bold" paddingLeft="14%"> {t('setting.language')}</Text>
                         <Flex width="30%" flexDirection="row" justify="flex-end">
                             <Text fontSize="19">{LANGUAGES[i18n.language]}</Text>
                             <ChevronRightIcon size="8"/>

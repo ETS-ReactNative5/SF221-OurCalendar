@@ -1,4 +1,5 @@
 import React from 'react';
+import { withTranslation } from 'react-i18next';
 import {Button, FormControl, HStack, Input, Modal, Text} from 'native-base';
 import moment from 'moment';
 import DatePicker from 'react-native-date-picker';
@@ -14,18 +15,19 @@ class AddTodo extends React.Component {
     }
 
     render() {
+        const { t } = this.props;
         return (
             <Modal isOpen={this.props.isOpen} onClose={this.props.onClose}>
                 <Modal.Content style={styles.addModal} maxWidth="400px">
                     <Modal.CloseButton />
-                    <Modal.Header><Text>Add To-do</Text></Modal.Header>
+                    <Modal.Header>{t('add_todo.add')}</Modal.Header>
                     <Modal.Body>
                         <FormControl>
-                            <FormControl.Label><Text>Title</Text></FormControl.Label>
+                            <FormControl.Label>{t('event_todo.title')}</FormControl.Label>
                             <Input bgColor="#f8f8f8"/>
                         </FormControl>
                         <FormControl>
-                            <FormControl.Label><Text>Deadline</Text></FormControl.Label>
+                            <FormControl.Label>{t('add_todo.deadline')}</FormControl.Label>
                             <HStack space={3}>
                                 <Button style={styles.selectDate} onPress={() => this.setState({openDateEndToDo: true})}>
                                     <Text>{moment(this.state.deadlineToDo).format("DD MMMM YYYY")}</Text>
@@ -62,19 +64,17 @@ class AddTodo extends React.Component {
                             </HStack>
                         </FormControl>
                         <FormControl>
-                            <FormControl.Label><Text>Color</Text></FormControl.Label>
+                            <FormControl.Label>{t('event_todo.color')}</FormControl.Label>
                             <Input bgColor="#f8f8f8"/>
                         </FormControl>
                         <FormControl>
-                            <FormControl.Label><Text>Icon</Text></FormControl.Label>
+                            <FormControl.Label>{t('event_todo.icon')}</FormControl.Label>
                             <Input bgColor="#f8f8f8"/>
                         </FormControl>
                     </Modal.Body>
                     <Modal.Footer style={styles.addModal}>
                         <Button>
-                            <Text color="muted.50">
-                                Create
-                            </Text>
+                            {t('event_todo.create')}
                         </Button>
                     </Modal.Footer>
                 </Modal.Content>
@@ -96,4 +96,4 @@ const styles = {
     },
 };
 
-export default AddTodo;
+export default withTranslation()(AddTodo);

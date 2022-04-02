@@ -1,7 +1,4 @@
-import {extendTheme} from "native-base";
-import React from "react";
-
-const Fonts = extendTheme({
+const Fonts = {
     fontConfig: {
         Raleway: {
             400: {
@@ -20,24 +17,10 @@ const Fonts = extendTheme({
             },
         },
     },
-
     fonts: {
-        font_a: "Raleway",
-        font_b: "Oswald",
+        raleway: 'Raleway',
+        oswald: 'Oswald'
     },
-
-    components: {
-        Text: {
-            baseStyle: {
-                fontFamily: "font_a",
-            },
-        },
-        Input: {
-            baseStyle: {
-                fontFamily: "font_a",
-            },
-        },
-    },
-});
+};
 
 export default Fonts;

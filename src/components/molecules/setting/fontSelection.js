@@ -1,13 +1,23 @@
 import React from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
-import {Actionsheet, Box, ChevronRightIcon, extendTheme, Flex, HStack, Pressable, Text} from 'native-base';
-import Fonts from "../../../utils/fonts";
+import {Actionsheet, Box, ChevronRightIcon, Flex, HStack, Pressable, Text} from 'native-base';
+import {set} from '../../../redux/reducers/fontSlice';
 
 const FONTS = {
-    Cordia: 'Cordia',
-    Tahoma: 'Tahoma',
-    Arial: 'Arial',
+    default: 'Default',
+    raleway: 'Raleway',
+    oswald: 'Oswald'
 };
+
+const mapStateToProps = state => ({
+    font: state.font.value
+});
+
+const mapDispatchToProps = () => ({
+    set
+});
 
 class FontSelection extends React.Component {
     constructor(props) {
@@ -17,14 +27,14 @@ class FontSelection extends React.Component {
         };
     }
 
-    onPress(font) {
-        this.props.font = FONTS[font];
+    async onPress(font) {
         this.setState({actionsheet: false});
-        Fonts.components.Text.baseStyle.fontFamily = "Oswald-Regular";
+        this.props.set(font);
+        await AsyncStorage.setItem('@font', font);
     }
 
     background(font) {
-        return this.props.font === FONTS[font] ? '#0d9488' : '#ffffff';
+        return this.props.font === font ? '#0d9488' : '#ffffff';
     }
 
     render() {
@@ -36,7 +46,7 @@ class FontSelection extends React.Component {
                     <HStack paddingTop="3%">
                         <Text width="60%" fontSize="19" fontWeight={700} paddingLeft="14%"> {t('setting.font')}</Text>
                         <Flex width="30%" flexDirection="row" justify="flex-end">
-                            <Text fontSize="19">{this.props.font}</Text>
+                            <Text fontSize="19">{FONTS[this.props.font]}</Text>
                             <ChevronRightIcon size="8"/>
                         </Flex>
                     </HStack>
@@ -45,7 +55,9 @@ class FontSelection extends React.Component {
                     <Actionsheet.Content>
                         {Object.keys(FONTS).map((key, i) => {
                             return (
-                                <Actionsheet.Item onPress={() => this.onPress(key)} key={i} backgroundColor={this.background(key)}>{FONTS[key]}</Actionsheet.Item>
+                                <Actionsheet.Item onPress={() => {
+                                    this.onPress(key)
+                                }} key={i} backgroundColor={this.background(key)}>{FONTS[key]}</Actionsheet.Item>
                             );
                         })}
                     </Actionsheet.Content>
@@ -55,4 +67,4 @@ class FontSelection extends React.Component {
     }
 }
 
-export default withTranslation()(FontSelection);
+export default connect(mapStateToProps, mapDispatchToProps())(withTranslation()(FontSelection));

@@ -27,15 +27,13 @@ class FontSelection extends React.Component {
         };
     }
 
-    async onPress(fontInput) {
-        let font = fontInput === 'null' ? null : fontInput;
+    async onPress(font) {
         this.setState({actionsheet: false});
         await this.props.set(font);
         await AsyncStorage.setItem('@font', font);
     }
 
-    background(fontInput) {
-        let font = fontInput === 'null' ? null : fontInput;
+    background(font) {
         return this.props.font === font ? '#0d9488' : '#ffffff';
     }
 

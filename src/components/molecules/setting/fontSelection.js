@@ -2,13 +2,23 @@ import React from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
-import {Actionsheet, Box, ChevronRightIcon, Flex, HStack, Pressable, Text} from 'native-base';
+import {Actionsheet, Box, ChevronRightIcon, Flex, HStack, Pressable, ScrollView, Text} from 'native-base';
 import {set} from '../../../redux/reducers/fontSlice';
 
 const FONTS = {
     null: 'Default',
-    raleway: 'Raleway',
-    oswald: 'Oswald'
+    raleway: "Raleway",
+    oswald: "Oswald",
+    chakraPetch: "ChakraPetch",
+    inconsolata: "Inconsolata",
+    kaiseiOpti: "KaiseiOpti",
+    mali: "Mali",
+    notoSansJP: "NotoSansJP",
+    nunitoSans: "NunitoSans",
+    zenOldMincho: "ZenOldMincho",
+    concertOne: "ConcertOne",
+    lobster: "Lobster",
+    patrickHand: "PatrickHand",
 };
 
 const mapStateToProps = state => ({
@@ -44,8 +54,8 @@ class FontSelection extends React.Component {
             <Box width="100%">
                 <Pressable onPress={() => this.setState({actionsheet: true})}>
                     <HStack paddingTop="3%">
-                        <Text width="60%" fontSize="19" fontWeight={700} paddingLeft="14%"> {t('setting.font')}</Text>
-                        <Flex width="30%" flexDirection="row" justify="flex-end">
+                        <Text width="50%" fontSize="19" fontWeight={700} paddingLeft="14%"> {t('setting.font')}</Text>
+                        <Flex width="50%" flexDirection="row" justify="flex-end" paddingRight="10%">
                             <Text fontSize="19">{FONTS[this.props.font]}</Text>
                             <ChevronRightIcon size="8"/>
                         </Flex>
@@ -53,13 +63,15 @@ class FontSelection extends React.Component {
                 </Pressable>
                 <Actionsheet isOpen={this.state.actionsheet} onClose={() => this.setState({actionsheet: false})}>
                     <Actionsheet.Content>
-                        {Object.keys(FONTS).map((key, i) => {
-                            return (
-                                <Actionsheet.Item onPress={() => {
-                                    this.onPress(key)
-                                }} key={i} backgroundColor={this.background(key)}>{FONTS[key]}</Actionsheet.Item>
-                            );
-                        })}
+                        <ScrollView w="100%">
+                            {Object.keys(FONTS).map((key, i) => {
+                                return (
+                                    <Actionsheet.Item onPress={() => {
+                                        this.onPress(key)
+                                    }} key={i} backgroundColor={this.background(key)}>{FONTS[key]}</Actionsheet.Item>
+                                );
+                            })}
+                        </ScrollView>
                     </Actionsheet.Content>
                 </Actionsheet>
             </Box>

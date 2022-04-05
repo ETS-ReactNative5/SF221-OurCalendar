@@ -18,6 +18,27 @@
 		806A71472FFE49D2B7E6948C /* Oswald-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 923691A1B995458187688753 /* Oswald-Regular.ttf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		E03E5E7E807C611B9221C640 /* libPods-SF221_OurCalendar-SF221_OurCalendarTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B243EB1E72086D3036A24C1F /* libPods-SF221_OurCalendar-SF221_OurCalendarTests.a */; };
+		F6FDCE43ACDB43A7BD54EE96 /* BIZUDMincho-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA23737FC5AB460D93D1EDDE /* BIZUDMincho-Regular.ttf */; };
+		EAFE6C5F5A014D9DAB585528 /* ChakraPetch-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42AD3518F74B4B14BC421795 /* ChakraPetch-Bold.ttf */; };
+		3A394B4FBFEE4D3ABB7778E2 /* ChakraPetch-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3DDB9C46F63B4391AA8BE91C /* ChakraPetch-Regular.ttf */; };
+		5C807369E2384133AC9534AF /* ConcertOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C822914445A845E3958CC22E /* ConcertOne-Regular.ttf */; };
+		1B05865DE1E5410A90C15443 /* Inconsolata-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAF9D7A9AB0A4CD0ABC05AB9 /* Inconsolata-Bold.ttf */; };
+		9DBF1B611CA84BCA9508623D /* Inconsolata-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BCD1210A7D614D75973B6E37 /* Inconsolata-Regular.ttf */; };
+		0D05206E81B0447592E5A45E /* KaiseiOpti-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 38A76605300F4B48801CA272 /* KaiseiOpti-Bold.ttf */; };
+		3776F6ACA524406CA2CD1101 /* KaiseiOpti-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3A7E24036E5A4B14930EAF99 /* KaiseiOpti-Regular.ttf */; };
+		401C193E2DC0495E85A5BAC6 /* KosugiMaru-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F20A875BEA542A485DF27F0 /* KosugiMaru-Regular.ttf */; };
+		E383055BF0564FE2A1A76F48 /* Lobster-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA373F08F5904032A332B7F5 /* Lobster-Regular.ttf */; };
+		316BEF2E0FF049B4A4384CD4 /* Mali-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 872BE808D54A4DF3B5D478B8 /* Mali-Bold.ttf */; };
+		3EA64662F8C2404D98254261 /* Mali-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4B5BFB293D6F4353A1DA086E /* Mali-Regular.ttf */; };
+		3BF1F6D193444DBFBEB1921C /* NotoSansJP-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6136DF450CFA4C8C8ECC1D72 /* NotoSansJP-Bold.otf */; };
+		2260D32D3D344124A2819475 /* NotoSansJP-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 213E5717C92B4BF79754FF47 /* NotoSansJP-Regular.otf */; };
+		94A55E83D22C40B4B5111649 /* NunitoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5E7F82B3B5654505867997F4 /* NunitoSans-Bold.ttf */; };
+		ECB98098F2894C2B8968E97A /* NunitoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78BE2A34B5004B838824CB9B /* NunitoSans-Regular.ttf */; };
+		D36A117521BD4875BB5CD0F8 /* PatrickHand-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 85093FC4798A4B32BC0719C6 /* PatrickHand-Regular.ttf */; };
+		FEE7DC33C13A43CC965EDD9E /* ShipporiAntiqueB1-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C34BD55AEDFF49D9892ADD70 /* ShipporiAntiqueB1-Regular.ttf */; };
+		4E0B75E11AF34D659EB4C763 /* ZenKurenaido-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8597A7F390D941B888EF6F7B /* ZenKurenaido-Regular.ttf */; };
+		3BCB4588E91F45F8AB0DCF75 /* ZenOldMincho-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BC8AEA10BE5245EA99331008 /* ZenOldMincho-Bold.ttf */; };
+		CB3E3A84B3B44F7BA5FD7175 /* ZenOldMincho-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9AAE28839B1A434EB7D38B0C /* ZenOldMincho-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +89,27 @@
 		F986398327EF64C500A2E627 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		F986398427EF64C500A2E627 /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		F986398527EF64C500A2E627 /* Feather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
+		FA23737FC5AB460D93D1EDDE /* BIZUDMincho-Regular.ttf */ = {isa = PBXFileReference; name = "BIZUDMincho-Regular.ttf"; path = "../src/assets/fonts/BIZUDMincho-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		42AD3518F74B4B14BC421795 /* ChakraPetch-Bold.ttf */ = {isa = PBXFileReference; name = "ChakraPetch-Bold.ttf"; path = "../src/assets/fonts/ChakraPetch-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3DDB9C46F63B4391AA8BE91C /* ChakraPetch-Regular.ttf */ = {isa = PBXFileReference; name = "ChakraPetch-Regular.ttf"; path = "../src/assets/fonts/ChakraPetch-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C822914445A845E3958CC22E /* ConcertOne-Regular.ttf */ = {isa = PBXFileReference; name = "ConcertOne-Regular.ttf"; path = "../src/assets/fonts/ConcertOne-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		BAF9D7A9AB0A4CD0ABC05AB9 /* Inconsolata-Bold.ttf */ = {isa = PBXFileReference; name = "Inconsolata-Bold.ttf"; path = "../src/assets/fonts/Inconsolata-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		BCD1210A7D614D75973B6E37 /* Inconsolata-Regular.ttf */ = {isa = PBXFileReference; name = "Inconsolata-Regular.ttf"; path = "../src/assets/fonts/Inconsolata-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		38A76605300F4B48801CA272 /* KaiseiOpti-Bold.ttf */ = {isa = PBXFileReference; name = "KaiseiOpti-Bold.ttf"; path = "../src/assets/fonts/KaiseiOpti-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3A7E24036E5A4B14930EAF99 /* KaiseiOpti-Regular.ttf */ = {isa = PBXFileReference; name = "KaiseiOpti-Regular.ttf"; path = "../src/assets/fonts/KaiseiOpti-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		8F20A875BEA542A485DF27F0 /* KosugiMaru-Regular.ttf */ = {isa = PBXFileReference; name = "KosugiMaru-Regular.ttf"; path = "../src/assets/fonts/KosugiMaru-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		FA373F08F5904032A332B7F5 /* Lobster-Regular.ttf */ = {isa = PBXFileReference; name = "Lobster-Regular.ttf"; path = "../src/assets/fonts/Lobster-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		872BE808D54A4DF3B5D478B8 /* Mali-Bold.ttf */ = {isa = PBXFileReference; name = "Mali-Bold.ttf"; path = "../src/assets/fonts/Mali-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		4B5BFB293D6F4353A1DA086E /* Mali-Regular.ttf */ = {isa = PBXFileReference; name = "Mali-Regular.ttf"; path = "../src/assets/fonts/Mali-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		6136DF450CFA4C8C8ECC1D72 /* NotoSansJP-Bold.otf */ = {isa = PBXFileReference; name = "NotoSansJP-Bold.otf"; path = "../src/assets/fonts/NotoSansJP-Bold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		213E5717C92B4BF79754FF47 /* NotoSansJP-Regular.otf */ = {isa = PBXFileReference; name = "NotoSansJP-Regular.otf"; path = "../src/assets/fonts/NotoSansJP-Regular.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		5E7F82B3B5654505867997F4 /* NunitoSans-Bold.ttf */ = {isa = PBXFileReference; name = "NunitoSans-Bold.ttf"; path = "../src/assets/fonts/NunitoSans-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		78BE2A34B5004B838824CB9B /* NunitoSans-Regular.ttf */ = {isa = PBXFileReference; name = "NunitoSans-Regular.ttf"; path = "../src/assets/fonts/NunitoSans-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		85093FC4798A4B32BC0719C6 /* PatrickHand-Regular.ttf */ = {isa = PBXFileReference; name = "PatrickHand-Regular.ttf"; path = "../src/assets/fonts/PatrickHand-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C34BD55AEDFF49D9892ADD70 /* ShipporiAntiqueB1-Regular.ttf */ = {isa = PBXFileReference; name = "ShipporiAntiqueB1-Regular.ttf"; path = "../src/assets/fonts/ShipporiAntiqueB1-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		8597A7F390D941B888EF6F7B /* ZenKurenaido-Regular.ttf */ = {isa = PBXFileReference; name = "ZenKurenaido-Regular.ttf"; path = "../src/assets/fonts/ZenKurenaido-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		BC8AEA10BE5245EA99331008 /* ZenOldMincho-Bold.ttf */ = {isa = PBXFileReference; name = "ZenOldMincho-Bold.ttf"; path = "../src/assets/fonts/ZenOldMincho-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		9AAE28839B1A434EB7D38B0C /* ZenOldMincho-Regular.ttf */ = {isa = PBXFileReference; name = "ZenOldMincho-Regular.ttf"; path = "../src/assets/fonts/ZenOldMincho-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +170,27 @@
 				E3B94A00C4824796B0EF82F5 /* Raleway-Regular.ttf */,
 				923691A1B995458187688753 /* Oswald-Regular.ttf */,
 				C7D3BD2CA96A4AFD88CA21EB /* Oswald-Bold.ttf */,
+				FA23737FC5AB460D93D1EDDE /* BIZUDMincho-Regular.ttf */,
+				42AD3518F74B4B14BC421795 /* ChakraPetch-Bold.ttf */,
+				3DDB9C46F63B4391AA8BE91C /* ChakraPetch-Regular.ttf */,
+				C822914445A845E3958CC22E /* ConcertOne-Regular.ttf */,
+				BAF9D7A9AB0A4CD0ABC05AB9 /* Inconsolata-Bold.ttf */,
+				BCD1210A7D614D75973B6E37 /* Inconsolata-Regular.ttf */,
+				38A76605300F4B48801CA272 /* KaiseiOpti-Bold.ttf */,
+				3A7E24036E5A4B14930EAF99 /* KaiseiOpti-Regular.ttf */,
+				8F20A875BEA542A485DF27F0 /* KosugiMaru-Regular.ttf */,
+				FA373F08F5904032A332B7F5 /* Lobster-Regular.ttf */,
+				872BE808D54A4DF3B5D478B8 /* Mali-Bold.ttf */,
+				4B5BFB293D6F4353A1DA086E /* Mali-Regular.ttf */,
+				6136DF450CFA4C8C8ECC1D72 /* NotoSansJP-Bold.otf */,
+				213E5717C92B4BF79754FF47 /* NotoSansJP-Regular.otf */,
+				5E7F82B3B5654505867997F4 /* NunitoSans-Bold.ttf */,
+				78BE2A34B5004B838824CB9B /* NunitoSans-Regular.ttf */,
+				85093FC4798A4B32BC0719C6 /* PatrickHand-Regular.ttf */,
+				C34BD55AEDFF49D9892ADD70 /* ShipporiAntiqueB1-Regular.ttf */,
+				8597A7F390D941B888EF6F7B /* ZenKurenaido-Regular.ttf */,
+				BC8AEA10BE5245EA99331008 /* ZenOldMincho-Bold.ttf */,
+				9AAE28839B1A434EB7D38B0C /* ZenOldMincho-Regular.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -308,6 +371,27 @@
 				437D728F2FF5416A9FF54BCE /* Raleway-Regular.ttf in Resources */,
 				806A71472FFE49D2B7E6948C /* Oswald-Regular.ttf in Resources */,
 				34B17B22C5F14E07A2D75C6D /* Oswald-Bold.ttf in Resources */,
+				F6FDCE43ACDB43A7BD54EE96 /* BIZUDMincho-Regular.ttf in Resources */,
+				EAFE6C5F5A014D9DAB585528 /* ChakraPetch-Bold.ttf in Resources */,
+				3A394B4FBFEE4D3ABB7778E2 /* ChakraPetch-Regular.ttf in Resources */,
+				5C807369E2384133AC9534AF /* ConcertOne-Regular.ttf in Resources */,
+				1B05865DE1E5410A90C15443 /* Inconsolata-Bold.ttf in Resources */,
+				9DBF1B611CA84BCA9508623D /* Inconsolata-Regular.ttf in Resources */,
+				0D05206E81B0447592E5A45E /* KaiseiOpti-Bold.ttf in Resources */,
+				3776F6ACA524406CA2CD1101 /* KaiseiOpti-Regular.ttf in Resources */,
+				401C193E2DC0495E85A5BAC6 /* KosugiMaru-Regular.ttf in Resources */,
+				E383055BF0564FE2A1A76F48 /* Lobster-Regular.ttf in Resources */,
+				316BEF2E0FF049B4A4384CD4 /* Mali-Bold.ttf in Resources */,
+				3EA64662F8C2404D98254261 /* Mali-Regular.ttf in Resources */,
+				3BF1F6D193444DBFBEB1921C /* NotoSansJP-Bold.otf in Resources */,
+				2260D32D3D344124A2819475 /* NotoSansJP-Regular.otf in Resources */,
+				94A55E83D22C40B4B5111649 /* NunitoSans-Bold.ttf in Resources */,
+				ECB98098F2894C2B8968E97A /* NunitoSans-Regular.ttf in Resources */,
+				D36A117521BD4875BB5CD0F8 /* PatrickHand-Regular.ttf in Resources */,
+				FEE7DC33C13A43CC965EDD9E /* ShipporiAntiqueB1-Regular.ttf in Resources */,
+				4E0B75E11AF34D659EB4C763 /* ZenKurenaido-Regular.ttf in Resources */,
+				3BCB4588E91F45F8AB0DCF75 /* ZenOldMincho-Bold.ttf in Resources */,
+				CB3E3A84B3B44F7BA5FD7175 /* ZenOldMincho-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

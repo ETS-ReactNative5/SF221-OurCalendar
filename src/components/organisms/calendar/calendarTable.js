@@ -1,9 +1,10 @@
 import React from 'react';
-import {Box, HStack} from 'native-base';
+import {Box,HStack, Modal,Text, VStack} from 'native-base';
 import moment from 'moment';
 
 import CalendarBox from '../../molecules/calender/calendarBox';
 import EventBoxCalendar from "../../molecules/calender/eventBoxCalendar";
+import EventBoxHome from "../../molecules/home/eventBoxHome";
 
 const COLOR_OUT = '#d4d4d4';
 const BG_COLOR_DATE = 'primary.50';
@@ -22,6 +23,11 @@ class CalendarTable extends React.Component {
         this.day_in_month = moment(this.month + 1, "MM").daysInMonth();
         this.date_count = 0 - moment([this.year, this.month, 1]).day();
         this.event_count = 0 - moment([this.year, this.month, 1]).day();
+
+        this.state = {
+            calendarModal: false,
+            date: 0
+        }
     }
 
     updateDate() {
@@ -99,6 +105,20 @@ class CalendarTable extends React.Component {
         }
     }
 
+    openModal(date) {
+        if (date >= 1) {
+            this.setState({calendarModal: true, date: date});
+            this.date_count = 0 - moment([this.year, this.month, 1]).day();
+            this.event_count = 0 - moment([this.year, this.month, 1]).day();
+        }
+    }
+
+    closeModal() {
+        this.setState({calendarModal: false});
+        this.date_count = 0 - moment([this.year, this.month, 1]).day();
+        this.event_count = 0 - moment([this.year, this.month, 1]).day();
+    }
+
     render() {
         let content = [];
         let column = [0, 1, 2, 3, 4, 5, 6];
@@ -120,22 +140,45 @@ class CalendarTable extends React.Component {
 
                         let attr = {borderColor: this.changeBorderColor(), bgColor: this.changeBgColor(), [round]: "lg"};
                         let ev_attr = {borderColor: this.changeBorderColor(), bgColor: this.changeEventColor()};
+                        const date = this.updateDate();
                         return (
                             <Box key={col} h="100%" w="14.28%">
-                                <CalendarBox attributes={attr} text={this.updateDate()}/>
+                                <CalendarBox attributes={attr} text={date} openModal={() => this.openModal(date)}/>
                                 <EventBoxCalendar event_attr={ev_attr} text={this.updateEvent()}/>
                             </Box>
-
                         );
                     })}
                 </HStack>
             );
         }
-
         return (
-            <Box alignSelf="center" position="absolute" bg="primary.50" width="95%" height="90%" left="2.5%" rounded="lg">
-                {content}
-            </Box>
+            <>
+                <Box alignSelf="center" position="absolute" bg="primary.50" width="95%" height="90%" left="2.5%" rounded="lg">
+                    {content}
+                </Box>
+                <Modal isOpen={this.state.calendarModal} onClose={() => this.closeModal()}>
+                    <Modal.Content maxWidth="400px" >
+                        <Modal.Header borderBottomWidth="0" py="3">
+                            <Text bold="bold" fontSize="20">Events {this.state.date}</Text>
+                        </Modal.Header>
+                        <Modal.Body>
+                            <VStack space="2">
+                                <EventBoxHome name="วิ่ง" time="7:00-8:00" icon="dumbbell" color="#d4d4d4" />
+                                <EventBoxHome name="กินข้าว" time="7:00-8:00" icon="dumbbell" color="#d4d4d4"/>
+                                <EventBoxHome name="กินข้าว" time="7:00-8:00" icon="dumbbell" color="#d4d4d4"/>
+                                <EventBoxHome name="กินข้าว" time="7:00-8:00" icon="dumbbell" color="#d4d4d4"/>
+                                <EventBoxHome name="กินข้าว" time="7:00-8:00" icon="dumbbell" color="#d4d4d4"/>
+                                <EventBoxHome name="กินข้าว" time="7:00-8:00" icon="dumbbell" color="#d4d4d4"/>
+                                <EventBoxHome name="กินข้าว" time="7:00-8:00" icon="dumbbell" color="#d4d4d4"/>
+                                <EventBoxHome name="กินข้าว" time="7:00-8:00" icon="dumbbell" color="#d4d4d4"/>
+                                <EventBoxHome name="กินข้าว" time="7:00-8:00" icon="dumbbell" color="#d4d4d4"/>
+                                <EventBoxHome name="กินข้าว" time="7:00-8:00" icon="dumbbell" color="#d4d4d4"/>
+                                <EventBoxHome name="กินข้าว" time="7:00-8:00" icon="dumbbell" color="#d4d4d4"/>
+                            </VStack>
+                        </Modal.Body>
+                    </Modal.Content>
+                </Modal>
+            </>
         );
     }
 }

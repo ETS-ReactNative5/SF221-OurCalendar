@@ -4,16 +4,12 @@ import AppTemplate from '../components/templates/app';
 import LanguageSelection from '../components/molecules/setting/languageSelection';
 import FontSelection from "../components/molecules/setting/fontSelection";
 import NotificationsSelection from "../components/molecules/setting/notificationsSelection";
-import AccountSignIn from "../components/molecules/setting/accountSignIn";
+import Account from "../components/molecules/setting/account";
 import PasscodeSetting from "../components/molecules/setting/passcodeSetting";
 
 class Setting extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            font:'Cordia',
-        }
-
     }
 
     render() {
@@ -21,13 +17,12 @@ class Setting extends React.Component {
             <AppTemplate  {...this.props}>
                 <View width="100%">
                     <LanguageSelection/>
-                    <FontSelection font={this.state.font}/>
-                    <NotificationsSelection notification={this.state.notification} test={() => this.state.notification}/>
+                    <FontSelection/>
+                    <NotificationsSelection/>
                     <Divider thickness="1.2" backgroundColor="#7B7D7D" width="80%" alignSelf="center" marginTop="2"/>
-                    <AccountSignIn/>
+                    <Account/>
                     <Divider thickness="1" backgroundColor="#7B7D7D" width="80%" alignSelf="center" marginTop="2"/>
                     <PasscodeSetting/>
-
                 </View>
             </AppTemplate>
         );

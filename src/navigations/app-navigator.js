@@ -3,9 +3,10 @@ import { connect } from 'react-redux';
 import {extendTheme, NativeBaseProvider} from 'native-base';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import Fonts from "../utils/fonts";
-import {set} from "../redux/reducers/fontSlice";
+import loadState from '../utils/loadState';
+import Fonts from '../utils/fonts';
+import {set} from '../redux/reducers/fontSlice';
+import {setGoogleAuth, setUserInfo} from '../redux/reducers/authSlice';
 
 import Home from '../scenes/home';
 import Calendar from '../scenes/calendar';
@@ -15,11 +16,17 @@ import ContactUs from '../scenes/contactUs';
 import SideNavigatorApp from '../components/organisms/appNavigator/sideNavApp';
 
 const mapStateToProps = state => ({
-    font: state.font.value
+    font: state.font.value,
+    auth: {
+        googleAuth: state.auth.googleAuth,
+        userInfo: state.auth.userInfo
+    }
 });
 
 const mapDispatchToProps = () => ({
-    set
+    set,
+    setGoogleAuth,
+    setUserInfo
 });
 
 class AppNavigator extends React.Component {
@@ -28,29 +35,24 @@ class AppNavigator extends React.Component {
     }
 
     componentDidMount() {
-        (async () => {
-            const fontValue = await AsyncStorage.getItem('@font');
-            if (fontValue === null) {
-                await AsyncStorage.setItem('@font', 'null');
-            }
-            let locale = fontValue === null ? 'null' : fontValue;
-            await this.props.set(locale);
-        })();
+        loadState(this.props);
     }
 
     theme() {
+        const font = this.props.font === 'null' ? null : this.props.font;
+
         return extendTheme({
             fontConfig: Fonts.fontConfig,
             fonts: Fonts.fonts,
             components: {
                 Text: {
                     baseStyle: {
-                        fontFamily: this.props.font,
+                        fontFamily: font,
                     },
                 },
                 Input: {
                     baseStyle: {
-                        fontFamily: this.props.font,
+                        fontFamily: font,
                     },
                 },
             },

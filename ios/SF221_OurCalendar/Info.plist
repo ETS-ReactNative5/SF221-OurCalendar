@@ -20,6 +20,19 @@
 	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>our</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>our</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
@@ -36,21 +49,7 @@
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string/>
-	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
-	<key>UIRequiredDeviceCapabilities</key>
-	<array>
-		<string>armv7</string>
-	</array>
-	<key>UISupportedInterfaceOrientations</key>
-	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<false/>
+	<string></string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>AntDesign.ttf</string>
@@ -73,7 +72,6 @@
 		<string>Raleway-Regular.ttf</string>
 		<string>Oswald-Regular.ttf</string>
 		<string>Oswald-Bold.ttf</string>
-		<string>BIZUDMincho-Regular.ttf</string>
 		<string>ChakraPetch-Bold.ttf</string>
 		<string>ChakraPetch-Regular.ttf</string>
 		<string>ConcertOne-Regular.ttf</string>
@@ -81,7 +79,6 @@
 		<string>Inconsolata-Regular.ttf</string>
 		<string>KaiseiOpti-Bold.ttf</string>
 		<string>KaiseiOpti-Regular.ttf</string>
-		<string>KosugiMaru-Regular.ttf</string>
 		<string>Lobster-Regular.ttf</string>
 		<string>Mali-Bold.ttf</string>
 		<string>Mali-Regular.ttf</string>
@@ -90,10 +87,22 @@
 		<string>NunitoSans-Bold.ttf</string>
 		<string>NunitoSans-Regular.ttf</string>
 		<string>PatrickHand-Regular.ttf</string>
-		<string>ShipporiAntiqueB1-Regular.ttf</string>
-		<string>ZenKurenaido-Regular.ttf</string>
 		<string>ZenOldMincho-Bold.ttf</string>
 		<string>ZenOldMincho-Regular.ttf</string>
 	</array>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>armv7</string>
+	</array>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>

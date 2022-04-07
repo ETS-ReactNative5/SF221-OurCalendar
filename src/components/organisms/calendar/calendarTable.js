@@ -5,6 +5,7 @@ import moment from 'moment';
 import CalendarBox from '../../molecules/calender/calendarBox';
 import EventBoxCalendar from "../../molecules/calender/eventBoxCalendar";
 import EventBoxHome from "../../molecules/home/eventBoxHome";
+import EditEvent from "../eventModal/editEvent";
 
 const COLOR_OUT = '#d4d4d4';
 const BG_COLOR_DATE = 'primary.50';
@@ -26,8 +27,18 @@ class CalendarTable extends React.Component {
 
         this.state = {
             calendarModal: false,
-            date: 0
+            date: 0,
+            event:1,
+            addEvent: false,
         }
+    }
+    componentDidUpdate() {
+        this.date_count = 0 - moment([this.year, this.month, 1]).day();
+        this.event_count = 0 - moment([this.year, this.month, 1]).day();
+    }
+    componentDidMount() {
+        this.date_count = 0 - moment([this.year, this.month, 1]).day();
+        this.event_count = 0 - moment([this.year, this.month, 1]).day();
     }
 
     updateDate() {
@@ -108,15 +119,19 @@ class CalendarTable extends React.Component {
     openModal(date) {
         if (date >= 1) {
             this.setState({calendarModal: true, date: date});
-            this.date_count = 0 - moment([this.year, this.month, 1]).day();
-            this.event_count = 0 - moment([this.year, this.month, 1]).day();
         }
     }
 
     closeModal() {
         this.setState({calendarModal: false});
-        this.date_count = 0 - moment([this.year, this.month, 1]).day();
-        this.event_count = 0 - moment([this.year, this.month, 1]).day();
+    }
+    showModal(eventId) {
+        this.setState({addEvent: true});
+        this.setState({event:eventId});
+    }
+
+    exitModal() {
+        this.setState({addEvent: false});
     }
 
     render() {
@@ -137,7 +152,6 @@ class CalendarTable extends React.Component {
                         } else if ((row === 4 || row === 5) && col === 6) {
                             round = 'roundedBottomRight';
                         }
-
                         let attr = {borderColor: this.changeBorderColor(), bgColor: this.changeBgColor(), [round]: "lg"};
                         let ev_attr = {borderColor: this.changeBorderColor(), bgColor: this.changeEventColor()};
                         const date = this.updateDate();
@@ -163,21 +177,14 @@ class CalendarTable extends React.Component {
                         </Modal.Header>
                         <Modal.Body>
                             <VStack space="2">
-                                <EventBoxHome name="วิ่ง" time="7:00-8:00" icon="dumbbell" color="#d4d4d4" />
-                                <EventBoxHome name="กินข้าว" time="7:00-8:00" icon="dumbbell" color="#d4d4d4"/>
-                                <EventBoxHome name="กินข้าว" time="7:00-8:00" icon="dumbbell" color="#d4d4d4"/>
-                                <EventBoxHome name="กินข้าว" time="7:00-8:00" icon="dumbbell" color="#d4d4d4"/>
-                                <EventBoxHome name="กินข้าว" time="7:00-8:00" icon="dumbbell" color="#d4d4d4"/>
-                                <EventBoxHome name="กินข้าว" time="7:00-8:00" icon="dumbbell" color="#d4d4d4"/>
-                                <EventBoxHome name="กินข้าว" time="7:00-8:00" icon="dumbbell" color="#d4d4d4"/>
-                                <EventBoxHome name="กินข้าว" time="7:00-8:00" icon="dumbbell" color="#d4d4d4"/>
-                                <EventBoxHome name="กินข้าว" time="7:00-8:00" icon="dumbbell" color="#d4d4d4"/>
-                                <EventBoxHome name="กินข้าว" time="7:00-8:00" icon="dumbbell" color="#d4d4d4"/>
-                                <EventBoxHome name="กินข้าว" time="7:00-8:00" icon="dumbbell" color="#d4d4d4"/>
+                                <EventBoxHome name="วิ่ง" time="7:00-8:00" icon="dumbbell" color="#d4d4d4" openModal={() => this.showModal(1)}/>
+                                <EventBoxHome name="วิ่ง" time="7:00-8:00" icon="dumbbell" color="#d4d4d4" openModal={() => this.showModal(4)}/>
+                                <EventBoxHome name="วิ่ง" time="7:00-8:00" icon="dumbbell" color="#d4d4d4" openModal={() => this.showModal(8)}/>
                             </VStack>
                         </Modal.Body>
                     </Modal.Content>
                 </Modal>
+                <EditEvent isOpen={this.state.addEvent} event={this.state.event} onClose={() => this.exitModal()}/>
             </>
         );
     }

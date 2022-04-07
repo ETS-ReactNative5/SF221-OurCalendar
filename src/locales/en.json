@@ -8,13 +8,16 @@
     "title": "Title",
     "color": "Color",
     "icon": "Icon",
-    "create": "Create"
+    "create": "Create",
+    "save": "Save",
+    "delete": "Delete"
   },
   "add_todo": {
     "add": "Add To-do",
     "deadline": "Deadline"
   },
   "add_event": {
+    "edit": "Edit Event",
     "add": "Add Event",
     "start": "Start",
     "end": "End",
@@ -25,7 +28,7 @@
       "daily": "Daily",
       "weekly": "Weekly",
       "monthly": "Monthly",
-      "annually": "Annually"
+      "annually": "Annually",
     }
   },
   "team_modal": {

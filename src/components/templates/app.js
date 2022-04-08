@@ -1,5 +1,5 @@
 import React from 'react';
-import {NativeBaseProvider, HStack, ScrollView, View} from 'native-base';
+import {HStack, ScrollView, View} from 'native-base';
 import Header from '../organisms/appTemplate/headerApp';
 import Bottom from '../organisms/appTemplate/bottomApp';
 

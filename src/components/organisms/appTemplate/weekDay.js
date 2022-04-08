@@ -3,6 +3,20 @@ import { withTranslation } from 'react-i18next';
 import {Box, Center, HStack, Icon, IconButton, Text} from 'native-base';
 import moment from "moment";
 import Icons from "../../../utils/icons";
+import {setMonth, setYear} from "../../../redux/reducers/calendarSlice";
+import {connect} from "react-redux";
+
+const mapStateToProps = state => ({
+    calendar: {
+        month: state.calendar.month,
+        year: state.calendar.year,
+    }
+});
+
+const mapDispatchToProps = () => ({
+    setMonth,
+    setYear
+});
 
 class WeekDay extends React.Component {
     constructor(props) {
@@ -11,25 +25,29 @@ class WeekDay extends React.Component {
             date: new Date().getDate(),
             month: new Date().getMonth(),
             year: new Date().getFullYear(),
+            today: new Date(),
         }
     }
 
     checkDate(num) {
-        let day_checker = moment([this.state.year, this.state.month, this.state.date]).day();
-        if (num === day_checker) {
+        if (num === this.state.today) {
             return "#90ae4f";
         } else {
             return "#f4be82";
         }
     }
 
+    componentDidMount() {
+        this.setState({today: moment(new Date()).day()});
+    }
+
     componentDidUpdate() {
-        if (this.state.month > 11) {
-            this.setState({month: 0});
-            this.setState({year: this.state.year + 1});
-        } else if (this.state.month < 0) {
-            this.setState({month: 11});
-            this.setState({year: this.state.year - 1});
+        if (this.props.calendar.month > 11) {
+            this.props.setMonth(0);
+            this.props.setYear(this.props.calendar.year + 1);
+        } else if (this.props.calendar.month < 0) {
+            this.props.setMonth(11);
+            this.props.setYear(this.props.calendar.year - 1);
         }
     }
 
@@ -39,11 +57,17 @@ class WeekDay extends React.Component {
 
         return (
             <Box>
-                <HStack>
-                    <IconButton width="15%" icon={<Icon as={Icons.AntDesign} name="leftcircle"/>} onPress={() => this.setState({month: this.state.month - 1})}/>
-                    <Text width="70%" textAlign="center" fontWeight={700} fontSize={"2xl"}>{moment.months(this.state.month)} {this.state.year}</Text>
-                    <IconButton width="15%" icon={<Icon as={Icons.AntDesign} name="rightcircle"/>} onPress={() => this.setState({month: this.state.month + 1})}/>
-                </HStack>
+                {
+                    this.props.changeable ? (
+                        <HStack>
+                            <IconButton width="15%" icon={<Icon as={Icons.AntDesign} name="leftcircle"/>} onPress={() => this.props.setMonth(this.props.calendar.month - 1)}/>
+                            <Text width="70%" pt="1.5" textAlign="center" fontWeight={700} fontSize={"2xl"}>{moment.months(this.props.calendar.month)} {this.props.calendar.year}</Text>
+                            <IconButton width="15%" icon={<Icon as={Icons.AntDesign} name="rightcircle"/>} onPress={() => this.props.setMonth(this.props.calendar.month + 1)}/>
+                        </HStack>
+                    ) : (
+                        <Text textAlign="center" fontWeight={700} fontSize={"2xl"}>{moment.months(this.state.month)} {this.state.year}</Text>
+                    )
+                }
                 <HStack>
                     {
                         date.map((object, i) =>
@@ -66,4 +90,4 @@ class WeekDay extends React.Component {
     }
 }
 
-export default withTranslation()(WeekDay);
+export default connect(mapStateToProps, mapDispatchToProps())(withTranslation()(WeekDay));

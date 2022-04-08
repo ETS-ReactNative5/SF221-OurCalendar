@@ -8,7 +8,7 @@ class CalendarTeam extends React.Component {
 
     render() {
         return (
-            <AppTemplate  {...this.props}>
+            <AppTemplate {...this.props} monthChangeable={true}>
 
             </AppTemplate>
         );

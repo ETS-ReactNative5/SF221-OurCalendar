@@ -11,8 +11,6 @@ class AppTemplate extends React.Component {
         this.state = {
             height: 0
         }
-
-        this.onLayout = this.onLayout.bind(this);
     }
 
     onLayout(event) {
@@ -23,13 +21,13 @@ class AppTemplate extends React.Component {
         const { navigation } = this.props;
 
         return (
-            <View h="100%" onLayout={this.onLayout}>
+            <View h="100%" onLayout={(layout) => this.onLayout(layout)}>
                 <ScrollView>
                     <HStack bg="#f57f6f" w="100%" h="60">
                         <Header navigation={navigation}/>
                     </HStack>
                     <HStack bg="#f4be82" w="100%" h="90">
-                        <WeekDay/>
+                        <WeekDay changeable={this.props.monthChangeable}/>
                     </HStack>
                     <HStack bg="#eedec4" w="100%" minH={this.state.height - 210}>
                         {this.props.children}

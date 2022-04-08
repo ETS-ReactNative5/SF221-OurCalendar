@@ -6,10 +6,18 @@ import CalendarBox from '../../molecules/calender/calendarBox';
 import EventBoxCalendar from "../../molecules/calender/eventBoxCalendar";
 import EventBoxHome from "../../molecules/home/eventBoxHome";
 import EditEvent from "../eventModal/editEvent";
+import {connect} from "react-redux";
 
 const COLOR_OUT = '#d4d4d4';
 const BG_COLOR_DATE = 'primary.50';
 const BORDER_COLOR_DATE = '#eedec4';
+
+const mapStateToProps = state => ({
+    calendar: {
+        month: state.calendar.month,
+        year: state.calendar.year,
+    }
+});
 
 class CalendarTable extends React.Component {
     constructor(props) {
@@ -19,26 +27,29 @@ class CalendarTable extends React.Component {
         this.bg_color_date = BG_COLOR_DATE;
         this.bg_color_event = "primary.200";
         this.border_color_date = BORDER_COLOR_DATE;
-        this.month = props.month;
-        this.year = props.year;
-        this.day_in_month = moment(this.month + 1, "MM").daysInMonth();
-        this.date_count = 0 - moment([this.year, this.month, 1]).day();
-        this.event_count = 0 - moment([this.year, this.month, 1]).day();
+        this.day_in_month = moment(props.calendar.month + 1, "MM").daysInMonth();
+        this.date_count = 0 - moment([props.calendar.year, props.calendar.month, 1]).day();
+        this.event_count = 0 - moment([props.calendar.year, props.calendar.month, 1]).day();
 
         this.state = {
+            month: this.props.calendar.month,
+            year: this.props.calendar.year,
+
             calendarModal: false,
             date: 0,
             event:1,
             addEvent: false,
         }
     }
+
     componentDidUpdate() {
-        this.date_count = 0 - moment([this.year, this.month, 1]).day();
-        this.event_count = 0 - moment([this.year, this.month, 1]).day();
+        this.date_count = 0 - moment([this.props.calendar.year, this.props.calendar.month, 1]).day();
+        this.event_count = 0 - moment([this.props.calendar.year, this.props.calendar.month, 1]).day();
     }
+
     componentDidMount() {
-        this.date_count = 0 - moment([this.year, this.month, 1]).day();
-        this.event_count = 0 - moment([this.year, this.month, 1]).day();
+        this.date_count = 0 - moment([this.props.calendar.year, this.props.calendar.month, 1]).day();
+        this.event_count = 0 - moment([this.props.calendar.year, this.props.calendar.month, 1]).day();
     }
 
     updateDate() {
@@ -99,9 +110,9 @@ class CalendarTable extends React.Component {
     }
 
     calculateHeight() {
-        if (moment([this.year, this.month, 1]).day() === 6 && this.day_in_month >= 30) {
+        if (moment([this.props.calendar.year, this.props.calendar.month, 1]).day() === 6 && this.day_in_month >= 30) {
             return "16.66%";
-        } else if (moment([this.year, this.month, 1]).day() === 5 && this.day_in_month >= 31) {
+        } else if (moment([this.props.calendar.year, this.props.calendar.month, 1]).day() === 5 && this.day_in_month >= 31) {
             return "16.66%";
         } else {
             return "20%";
@@ -109,7 +120,7 @@ class CalendarTable extends React.Component {
     }
 
     calculateCalendarRow() {
-        if ((moment([this.year, this.month, 1]).day() === 6 && this.day_in_month >= 30) || (moment([this.year, this.month, 1]).day() === 5 && this.day_in_month >= 31)) {
+        if ((moment([this.props.calendar.year, this.props.calendar.month, 1]).day() === 6 && this.day_in_month >= 30) || (moment([this.props.calendar.year, this.props.calendar.month, 1]).day() === 5 && this.day_in_month >= 31)) {
             return 6;
         } else {
             return 5;
@@ -135,6 +146,7 @@ class CalendarTable extends React.Component {
     }
 
     render() {
+        console.log(this.props.calendar.month, this.props.calendar.year)
         let content = [];
         let column = [0, 1, 2, 3, 4, 5, 6];
 
@@ -190,4 +202,4 @@ class CalendarTable extends React.Component {
     }
 }
 
-export default CalendarTable;
+export default connect(mapStateToProps)(CalendarTable);

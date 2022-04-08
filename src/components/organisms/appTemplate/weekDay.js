@@ -60,9 +60,9 @@ class WeekDay extends React.Component {
                 {
                     this.props.changeable ? (
                         <HStack>
-                            <IconButton width="15%" icon={<Icon as={Icons.AntDesign} name="leftcircle"/>} onPress={() => this.props.setMonth(this.props.calendar.month - 1)}/>
+                            <IconButton width="15%" icon={<Icon as={Icons.AntDesign} name="left"/>} onPress={() => this.props.setMonth(this.props.calendar.month - 1)}/>
                             <Text width="70%" pt="1.5" textAlign="center" fontWeight={700} fontSize={"2xl"}>{moment.months(this.props.calendar.month)} {this.props.calendar.year}</Text>
-                            <IconButton width="15%" icon={<Icon as={Icons.AntDesign} name="rightcircle"/>} onPress={() => this.props.setMonth(this.props.calendar.month + 1)}/>
+                            <IconButton width="15%" icon={<Icon as={Icons.AntDesign} name="right"/>} onPress={() => this.props.setMonth(this.props.calendar.month + 1)}/>
                         </HStack>
                     ) : (
                         <Text textAlign="center" fontWeight={700} fontSize={"2xl"}>{moment.months(this.state.month)} {this.state.year}</Text>

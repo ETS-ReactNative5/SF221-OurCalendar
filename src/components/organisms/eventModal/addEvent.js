@@ -10,14 +10,28 @@ class AddEvent extends React.Component {
         this.state = {
             openDateStartEvent: false,
             openTimeStartEvent: false,
-            startEvent: new Date(),
-            endEvent: new Date(),
-            repeat: ''
+            openDateEndEvent: false,
+            openTimeEndEvent: false,
+
+            form: {
+                title: '',
+                start: new Date(),
+                end: new Date(),
+                repeat: 'None',
+                color: '',
+                iconFont: '',
+                iconName: ''
+            },
         }
+    }
+
+    onSubmit() {
+        console.log(this.state.form)
     }
 
     render() {
         const { t } = this.props;
+
         return (
             <Modal isOpen={this.props.isOpen} onClose={this.props.onClose}>
                 <Modal.Content style={styles.addModal} maxWidth="400px">
@@ -26,37 +40,38 @@ class AddEvent extends React.Component {
                     <Modal.Body>
                         <FormControl>
                             <FormControl.Label><Text>{t('event_todo.title')}</Text></FormControl.Label>
-                            <Input bgColor="#f8f8f8"/>
+                            <Input onChangeText={(text => this.setState({form: {...this.state.form, title: text}}))} bgColor="#f8f8f8"/>
                         </FormControl>
                         <FormControl>
                             <FormControl.Label><Text>{t('add_event.start')}</Text></FormControl.Label>
                             <HStack space={3}>
                                 <Button style={styles.selectDate} onPress={() => this.setState({openDateStartEvent: true})}>
-                                    <Text>{moment(this.state.startEvent).format("DD MMMM YYYY")}</Text>
+                                    <Text>{moment(this.state.form.start).format("DD MMMM YYYY")}</Text>
                                 </Button>
                                 <DatePicker
                                     modal
                                     open={this.state.openDateStartEvent}
-                                    date={this.state.startEvent}
+                                    date={this.state.form.start}
                                     onConfirm={(date) => {
                                         this.setState({openDateStartEvent: false})
-                                        this.setState({startEvent: date})
+                                        this.setState({form: {...this.state.form, start: date}})
                                     }}
                                     onCancel={() => {
                                         this.setState({openDateStartEvent: false})
                                     }}
+                                    minimumDate={new Date()}
                                     mode={"date"}
                                 />
                                 <Button style={styles.selectTime} onPress={() => this.setState({openTimeStartEvent: true})}>
-                                    <Text>{moment(this.state.startEvent).format("HH:mm")}</Text>
+                                    <Text>{moment(this.state.form.start).format("HH:mm")}</Text>
                                 </Button>
                                 <DatePicker
                                     modal
                                     open={this.state.openTimeStartEvent}
-                                    date={this.state.startEvent}
+                                    date={this.state.form.start}
                                     onConfirm={(date) => {
                                         this.setState({openTimeStartEvent: false})
-                                        this.setState({startEvent: date})
+                                        this.setState({form: {...this.state.form, start: date}})
                                     }}
                                     onCancel={() => {
                                         this.setState({openTimeStartEvent: false})
@@ -68,46 +83,48 @@ class AddEvent extends React.Component {
                         <FormControl>
                             <FormControl.Label><Text>{t('add_event.end')}</Text></FormControl.Label>
                             <HStack space={3}>
-                                <Button style={styles.selectDate} onPress={() => this.setState({openDateEndEvent: true})}>
-                                    <Text>{moment(this.state.endEvent).format("DD MMMM YYYY")}</Text>
+                                <Button style={styles.selectDate} isDisabled={this.state.form.repeat === 'None'} onPress={() => this.setState({openDateEndEvent: true})}>
+                                    <Text>{moment(this.state.form.end).format("DD MMMM YYYY")}</Text>
                                 </Button>
                                 <DatePicker
                                     modal
                                     open={this.state.openDateEndEvent}
-                                    date={this.state.endEvent}
+                                    date={this.state.form.end}
                                     onConfirm={(date) => {
                                         this.setState({openDateEndEvent: false})
-                                        this.setState({endEvent: date})
+                                        this.setState({form: {...this.state.form, end: date}})
                                     }}
                                     onCancel={() => {
                                         this.setState({openDateEndEvent: false})
                                     }}
+                                    minimumDate={new Date()}
                                     mode={"date"}
                                 />
                                 <Button style={styles.selectTime} onPress={() => this.setState({openTimeEndEvent: true})}>
-                                    <Text>{moment(this.state.endEvent).format("HH:mm")}</Text>
+                                    <Text>{moment(this.state.form.end).format("HH:mm")}</Text>
                                 </Button>
                                 <DatePicker
                                     modal
                                     open={this.state.openTimeEndEvent}
-                                    date={this.state.endEvent}
+                                    date={this.state.form.end}
                                     onConfirm={(date) => {
                                         this.setState({openTimeEndEvent: false})
-                                        this.setState({endEvent: date})
+                                        this.setState({form: {...this.state.form, end: date}})
                                     }}
                                     onCancel={() => {
                                         this.setState({openTimeEndEvent: false})
                                     }}
+                                    minimumDate={new Date()}
                                     mode={"time"}
                                 />
                             </HStack>
                         </FormControl>
                         <FormControl>
                             <FormControl.Label><Text>{t('add_event.repeat')}</Text></FormControl.Label>
-                            <Select bgColor="#f8f8f8" selectedValue={this.state.repeat} minWidth="200" accessibilityLabel="Choose repeat" placeholder={t('add_event.choose')} _selectedItem={{
+                            <Select bgColor="#f8f8f8" selectedValue={this.state.form.repeat} minWidth="200" accessibilityLabel="Choose repeat" placeholder={t('add_event.choose')} _selectedItem={{
                                 bg: "teal.600",
                                 endIcon: <CheckIcon size="5" />
-                            }} onValueChange={(item) => this.setState({repeat: item})}>
+                            }} onValueChange={(item) => this.setState({form: {...this.state.form, repeat: item}})}>
                                 <Select.Item label={t('add_event.choose_repeat.none')} value="None" />
                                 <Select.Item label={t('add_event.choose_repeat.daily')} value="Daily" />
                                 <Select.Item label={t('add_event.choose_repeat.weekly')} value="Weekly" />
@@ -125,7 +142,7 @@ class AddEvent extends React.Component {
                         </FormControl>
                     </Modal.Body>
                     <Modal.Footer style={styles.addModal}>
-                        <Button>
+                        <Button onPress={() => this.onSubmit()}>
                             <Text color="muted.50">
                                 {t('event_todo.create')}
                             </Text>

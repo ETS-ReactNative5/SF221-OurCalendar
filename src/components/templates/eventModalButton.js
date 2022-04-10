@@ -38,12 +38,14 @@ class EventModalButton extends React.Component {
     }
 
     render() {
+        const { navigation } = this.props;
+
         return (
             <>
                 <IconButton icon={<Icon as={FontAwesome5} name="calendar-plus" size="md" color="black"/>} style={{paddingEnd:0}} onPress={() => this.setState({eventModal: true})} />
                 <EventModal isOpen={this.state.eventModal} onClose={() => this.closeModal()} eventButton={() => this.openAddEvent()} todoButton={() => this.openAddToDo()}/>
-                <AddEvent isOpen={this.state.addEvent} onClose={() => this.closeEvent()}/>
-                <AddTodo isOpen={this.state.addToDo} onClose={() => this.closeTodo()}/>
+                <AddEvent isOpen={this.state.addEvent} onClose={() => this.closeEvent()} navigation={navigation}/>
+                <AddTodo isOpen={this.state.addToDo} onClose={() => this.closeTodo()} navigation={navigation}/>
             </>
         );
     }

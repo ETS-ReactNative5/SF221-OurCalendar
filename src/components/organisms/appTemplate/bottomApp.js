@@ -16,7 +16,7 @@ class HeaderApp extends React.Component {
         return (
             <HStack justifyContent="space-between" px="2" alignItems="center" w="100%">
                 <IconButton icon={<Icon as={FontAwesome5} name="user-alt" size="md" color="black" />} />
-                <EventModalButton/>
+                <EventModalButton navigation={navigation}/>
                 <TeamModalButton/>
             </HStack>
         );

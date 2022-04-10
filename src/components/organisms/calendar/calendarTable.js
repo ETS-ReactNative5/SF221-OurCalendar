@@ -1,5 +1,5 @@
 import React from 'react';
-import {Box,HStack, Modal,Text, VStack} from 'native-base';
+import {Box, Button, HStack, Modal, Text, VStack} from 'native-base';
 import moment from 'moment';
 
 import CalendarBox from '../../molecules/calender/calendarBox';
@@ -7,6 +7,7 @@ import EventBoxCalendar from "../../molecules/calender/eventBoxCalendar";
 import EventBoxHome from "../../molecules/home/eventBoxHome";
 import EditEvent from "../eventModal/editEvent";
 import {connect} from "react-redux";
+import {setRender} from "../../../redux/reducers/calendarSlice";
 
 const COLOR_OUT = '#d4d4d4';
 const BG_COLOR_DATE = 'primary.50';
@@ -32,17 +33,17 @@ class CalendarTable extends React.Component {
         this.event_count = 0 - moment([props.calendar.year, props.calendar.month, 1]).day();
 
         this.state = {
-            month: this.props.calendar.month,
-            year: this.props.calendar.year,
-
             calendarModal: false,
             date: 0,
             event:1,
             addEvent: false,
+
+            month: props.calendar.month
         }
     }
 
     componentDidUpdate() {
+        this.day_in_month = moment(this.props.calendar.month + 1, "MM").daysInMonth();
         this.date_count = 0 - moment([this.props.calendar.year, this.props.calendar.month, 1]).day();
         this.event_count = 0 - moment([this.props.calendar.year, this.props.calendar.month, 1]).day();
     }
@@ -69,7 +70,7 @@ class CalendarTable extends React.Component {
             return null;
         } else if (this.event_count >= 0) {
             this.event_count += 1;
-            return "Event";
+            return true;
         } else {
             this.event_count += 1;
             return null;
@@ -146,9 +147,12 @@ class CalendarTable extends React.Component {
     }
 
     render() {
-        console.log(this.props.calendar.month, this.props.calendar.year)
         let content = [];
         let column = [0, 1, 2, 3, 4, 5, 6];
+
+        if (this.props.calendar.month !== this.state.month) {
+            this.setState({month: this.props.calendar.month});
+        }
 
         for (let row=0;row<this.calculateCalendarRow();row++) {
             content.push(
@@ -170,7 +174,14 @@ class CalendarTable extends React.Component {
                         return (
                             <Box key={col} h="100%" w="14.28%">
                                 <CalendarBox attributes={attr} text={date} openModal={() => this.openModal(date)}/>
-                                <EventBoxCalendar event_attr={ev_attr} text={this.updateEvent()}/>
+                                {
+                                    this.updateEvent() ? (
+                                        <>
+                                            <EventBoxCalendar event_attr={ev_attr} text="Event1"/>
+                                            <EventBoxCalendar event_attr={ev_attr} text="Event2"/>
+                                        </>
+                                    ) : (<></>)
+                                }
                             </Box>
                         );
                     })}

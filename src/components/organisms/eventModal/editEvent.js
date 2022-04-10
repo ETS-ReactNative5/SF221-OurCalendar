@@ -130,7 +130,7 @@ class EditEvent extends React.Component {
                     <Modal.Footer style={styles.addModal}>
                         <ButtonGroup>
                         <Button>
-                            <Text color="blue.200">
+                            <Text color="#ffffff">
                                 {t('event_todo.save')}
                             </Text>
                         </Button>

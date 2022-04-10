@@ -3,6 +3,9 @@ import { withTranslation } from 'react-i18next';
 import {Button, CheckIcon, FormControl, HStack, Input, Modal, Select, Text} from 'native-base';
 import moment from 'moment';
 import DatePicker from 'react-native-date-picker';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import randomId from '../../../utils/randomId';
+import eventStorage from '../../../utils/eventStorage';
 
 class AddEvent extends React.Component {
     constructor(props) {
@@ -25,8 +28,27 @@ class AddEvent extends React.Component {
         }
     }
 
-    onSubmit() {
-        console.log(this.state.form)
+    async onSubmit() {
+        const id = randomId(4);
+        const eventJson = {
+            id: id,
+            created: new Date(),
+            updated: new Date(),
+            title: this.state.form.title,
+            start: this.state.form.start,
+            end: this.state.form.end,
+            repeat: this.state.form.repeat,
+            color: this.state.form.color,
+            icon: {
+                font: this.state.form.iconFont,
+                name: this.state.form.iconName
+            }
+        };
+
+        await eventStorage.insertJson(id, eventJson, 'events');
+        await eventStorage.insertId(id, 'eventIds');
+
+        this.props.onClose();
     }
 
     render() {

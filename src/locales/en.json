@@ -28,7 +28,7 @@
       "daily": "Daily",
       "weekly": "Weekly",
       "monthly": "Monthly",
-      "annually": "Annually",
+      "annually": "Annually"
     }
   },
   "team_modal": {
@@ -70,5 +70,17 @@
     "confirm_new_passcode": "Confirm new passcode",
     "turn_off": "Turn off",
     "save": "Save"
+  },
+  "contact": {
+    "our_story": "Our Story",
+    "story": {
+      "intro": "Many months ago after the university has the policy to provide teaching and learning online, It gave all 10 of us a chance to get to know each other. Therefore there has been a group together to develop this application.",
+      "last": "We spend a lot of time thinking about and developing this application. We believe this application will be your good assistant and will reach the hearts of users"
+    },
+    "who": "Who we are",
+    "we_are": "We are undergraduate sophomore faculty of engineering at Thammasat University.",
+    "contact": "Contact Us",
+    "sahai": ": SaHai",
+    "email": ": we.are.sahai@gmail.com"
   }
 }

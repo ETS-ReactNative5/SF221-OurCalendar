@@ -1,20 +1,25 @@
 import React from 'react';
 import { withTranslation } from 'react-i18next';
-import {Button, CheckIcon, FormControl, HStack, Input, Modal, Select, Text} from 'native-base';
+import {Button, CheckIcon, FormControl, HStack, Input, Modal, Pressable, Select, Text, View} from 'native-base';
 import moment from 'moment';
 import DatePicker from 'react-native-date-picker';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import randomId from '../../../utils/randomId';
 import eventStorage from '../../../utils/eventStorage';
+import ColorPicker from 'react-native-wheel-color-picker'
 
 class AddEvent extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            currentColor:"#ffffff",
+            swatchesEnabled: true,
+            disc:false,
             openDateStartEvent: false,
             openTimeStartEvent: false,
             openDateEndEvent: false,
             openTimeEndEvent: false,
+
+            colorModal: false,
 
             form: {
                 title: '',
@@ -156,11 +161,24 @@ class AddEvent extends React.Component {
                         </FormControl>
                         <FormControl>
                             <FormControl.Label><Text>{t('event_todo.color')}</Text></FormControl.Label>
-                            <Input bgColor="#f8f8f8"/>
+                            <ColorPicker
+                                ref={r => { this.picker = r }}
+                                color={this.state.currentColor}
+                                swatchesOnly={this.state.swatchesOnly}
+                                onColorChange={this.onColorChange}
+                                onColorChangeComplete={this.onColorChangeComplete}
+                                thumbSize={20}
+                                sliderSize={25}
+                                noSnap={true}
+                                row={false}
+                                swatchesLast={this.state.swatchesLast}
+                                swatches={this.state.swatchesEnabled}
+                                discrete={this.state.disc}
+                            />
                         </FormControl>
                         <FormControl>
                             <FormControl.Label><Text>{t('event_todo.icon')}</Text></FormControl.Label>
-                            <Input bgColor="#f8f8f8"/>
+                            <Button h={30} onPress={this.props.iconButton} />
                         </FormControl>
                     </Modal.Body>
                     <Modal.Footer style={styles.addModal}>

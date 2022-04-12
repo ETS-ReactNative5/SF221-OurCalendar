@@ -43,6 +43,7 @@ class Home extends React.Component {
         let content = [];
         eventArray.map((item, i) => {
             let repeatCheck;
+
             if (new Date(event[item].end) > new Date()) {
                 if (event[item].repeat === "None") {
                     repeatCheck = true;

@@ -42,13 +42,30 @@ class Home extends React.Component {
 
         let content = [];
         eventArray.map((item, i) => {
-            content.push(
-                <EventBoxHome key={i}
-                              name={event[item].title}
-                              time={this.dateToString(event[item].start, event[item].end)}
-                              icon="dumbbell" color="#ffffff"
-                              openModal={() => this.openModal(event[item].id)}/>
-            );
+            let repeatCheck;
+            if (new Date(event[item].end) > new Date()) {
+                if (event[item].repeat === "None") {
+                    repeatCheck = true;
+                }else if (event[item].repeat === "Daily") {
+                    repeatCheck = true;
+                } else if (event[item].repeat === "Weekly" && new Date().getDay() === new Date(event[item].start).getDay()) {
+                    repeatCheck = true;
+                } else if (event[item].repeat === "Monthly" && new Date().getDate() === new Date(event[item].start).getDate() && new Date().getMonth() >= new Date(event[item].start).getMonth()) {
+                    repeatCheck = true;
+                } else if (event[item].repeat === "Annually" && new Date().getDate() === new Date(event[item].start).getDate() && new Date().getMonth() === new Date(event[item].start).getMonth() && new Date().getFullYear() >= new Date(event[item].start).getFullYear()) {
+                    repeatCheck = true;
+                }
+            }
+
+            if (repeatCheck) {
+                content.push(
+                    <EventBoxHome key={i}
+                                  name={event[item].title}
+                                  time={this.dateToString(event[item].start, event[item].end)}
+                                  icon="dumbbell" color="#ffffff"
+                                  openModal={() => this.openModal(event[item].id)}/>
+                );
+            }
         });
         this.setState({content: content});
     };

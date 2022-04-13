@@ -11,13 +11,17 @@ class Home extends React.Component {
         this.state = {
             eventBoxModal: false,
             addEvent: false,
-            event:1,
+            event: {},
             content: []
         }
     }
 
     componentDidMount() {
-        this.retrieveData();
+        this._unsubscribe = this.props.navigation.addListener('focus', () => this.retrieveData())
+    }
+
+    componentWillUnmount() {
+        this._unsubscribe.remove();
     }
 
     openModal(eventId) {

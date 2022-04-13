@@ -12,23 +12,22 @@ class AddEvent extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            currentColor:"#ffffff",
             swatchesEnabled: true,
             disc:false,
             openDateStartEvent: false,
             openTimeStartEvent: false,
             openDateEndEvent: false,
             openTimeEndEvent: false,
-            iconSelection: false,
 
             colorModal: false,
+            iconModal: false,
 
             form: {
                 title: '',
                 start: new Date(),
                 end: new Date(),
                 repeat: 'None',
-                color: '',
+                color: '#ffffff',
                 iconFont: '',
                 iconName: ''
             },
@@ -53,9 +52,13 @@ class AddEvent extends React.Component {
         };
 
         await eventStorage.insertJson(id, eventJson, 'events');
-        await eventStorage.insertId(id, 'eventIds');
 
         this.props.onClose();
+    }
+
+    iconClick(font, name) {
+        this.setState({form: {...this.state.form, iconFont: font, iconName: name}});
+        this.setState({iconModal: false});
     }
 
     render() {
@@ -166,10 +169,9 @@ class AddEvent extends React.Component {
                                 <FormControl.Label><Text>{t('event_todo.color')}</Text></FormControl.Label>
                                 <ColorPicker
                                     ref={r => { this.picker = r }}
-                                    color={this.state.currentColor}
+                                    color={this.state.form.color}
                                     swatchesOnly={this.state.swatchesOnly}
-                                    onColorChange={this.onColorChange}
-                                    onColorChangeComplete={this.onColorChangeComplete}
+                                    onColorChangeComplete={(color) => this.setState({form: {...this.state.form, color: color}})}
                                     thumbSize={20}
                                     sliderSize={25}
                                     noSnap={true}
@@ -178,10 +180,13 @@ class AddEvent extends React.Component {
                                     swatches={this.state.swatchesEnabled}
                                     discrete={this.state.disc}
                                 />
+                                <Input size="sm" isDisabled={true} mt="2" value={this.state.form.color}/>
                             </FormControl>
                             <FormControl>
                                 <FormControl.Label><Text>{t('event_todo.icon')}</Text></FormControl.Label>
-                                <Button h={30} onPress={() => this.setState({iconSelection: true})} />
+                                <Button style={styles.selectIcon} onPress={() => this.setState({iconModal: true})}>
+                                    <Text>{this.state.form.iconFont} {this.state.form.iconName}</Text>
+                                </Button>
                             </FormControl>
                         </Modal.Body>
                         <Modal.Footer style={styles.addModal}>
@@ -193,7 +198,7 @@ class AddEvent extends React.Component {
                         </Modal.Footer>
                     </Modal.Content>
                 </Modal>
-                <IconSelection isOpen={this.state.iconSelection} onClose={() => this.setState({iconSelection: false})}/>
+                <IconSelection isOpen={this.state.iconModal} onClose={() => this.setState({iconModal: false})} iconClick={(font, name) => this.iconClick(font, name)}/>
             </>
         );
     }
@@ -210,6 +215,13 @@ const styles = {
         height: 40,
         backgroundColor:"#f8f8f8"
     },
+    selectIcon: {
+        height: 40,
+        backgroundColor:"#f8f8f8",
+        borderColor: "#e5e5e5",
+        borderWidth: 1,
+        justifyContent: "flex-start",
+    }
 };
 
 export default withTranslation()(AddEvent);

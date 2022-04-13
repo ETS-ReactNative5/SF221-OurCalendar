@@ -4,6 +4,7 @@ import EventBoxHome from "../components/molecules/home/eventBoxHome";
 import {Stack, View} from "native-base";
 import EditEvent from "../components/organisms/eventModal/editEvent";
 import eventStorage from "../utils/eventStorage";
+import moment from 'moment';
 
 class Home extends React.Component {
     constructor(props) {
@@ -24,20 +25,23 @@ class Home extends React.Component {
         this._unsubscribe.remove();
     }
 
-    openModal(eventId) {
+    async openModal(eventId) {
+        const event = await eventStorage.getItem('events');
+
+        await this.setState({event: event[eventId]});
         this.setState({addEvent: true});
-        this.setState({event:eventId});
     }
 
     closeModal() {
         this.setState({addEvent: false});
+        this.setState({event: {}});
     }
 
     dateToString(startDate, endDate) {
-        const start = new Date(startDate);
-        const end = new Date(endDate);
+        const start = moment(startDate).format("HH:mm");
+        const end = moment(endDate).format("HH:mm");
 
-        return start.getHours() + ":" + start.getMinutes() + " - " + end.getHours() + ":" + end.getMinutes();
+        return start + " - " + end;
     }
 
     async retrieveData() {
@@ -83,7 +87,7 @@ class Home extends React.Component {
                         <Stack space="3">
                             {this.state.content}
                         </Stack>
-                        <EditEvent isOpen={this.state.addEvent} event={this.state.event} onClose={() => this.closeModal()}/>
+                        <EditEvent key={this.state.event.id} isOpen={this.state.addEvent} event={this.state.event} onClose={() => this.closeModal()}/>
                     </View>
                 </AppTemplate>
             </>

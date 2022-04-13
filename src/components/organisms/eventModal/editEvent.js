@@ -8,7 +8,7 @@ import eventStorage from '../../../utils/eventStorage';
 import ColorPicker from 'react-native-wheel-color-picker'
 import IconSelection from "./selectIcon";
 
-class AddEvent extends React.Component {
+class EditEvent extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -223,4 +223,4 @@ const styles = {
     }
 };
 
-export default withTranslation()(AddEvent);
+export default withTranslation()(EditEvent);

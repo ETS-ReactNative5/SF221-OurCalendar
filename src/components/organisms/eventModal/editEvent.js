@@ -55,6 +55,14 @@ class EditEvent extends React.Component {
         this.props.onClose();
     }
 
+    async onDelete() {
+        const id = this.props.event.id;
+
+        await eventStorage.deleteJson(id, 'events');
+
+        this.props.onClose();
+    }
+
     iconClick(font, name) {
         this.setState({form: {...this.state.form, iconFont: font, iconName: name}});
         this.setState({iconModal: false});
@@ -195,7 +203,7 @@ class EditEvent extends React.Component {
                                         {t('event_todo.save')}
                                     </Text>
                                 </Button>
-                                <Button colorScheme="danger">
+                                <Button colorScheme="danger" onPress={() => this.onDelete()}>
                                     <Text color="#ffffff">
                                         {t('event_todo.delete')}
                                     </Text>

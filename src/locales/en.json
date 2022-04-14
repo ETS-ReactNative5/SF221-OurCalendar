@@ -14,7 +14,8 @@
   },
   "add_todo": {
     "add": "Add To-do",
-    "deadline": "Deadline"
+    "deadline": "Deadline",
+    "edit_todo": "Edit Todo"
   },
   "add_event": {
     "edit": "Edit Event",

@@ -9,19 +9,22 @@ const Functions = {
         await AsyncStorage.setItem(item, jsonEventValue);
     },
 
-    async insertId(id, item) {
-        const eventIdStorage = await AsyncStorage.getItem(item);
-        let jsonValue = eventIdStorage != null ? JSON.parse(eventIdStorage) : {};
+    async editJson(id, json, item) {
+        const eventStorage = await AsyncStorage.getItem(item);
+        let eventStorageJson = eventStorage != null ? JSON.parse(eventStorage) : {};
+        eventStorageJson[id] = json;
 
-        const currentDate = new Date().getFullYear() + "_" + new Date().getMonth();
+        const jsonEventValue = JSON.stringify(eventStorageJson);
+        await AsyncStorage.setItem(item, jsonEventValue);
+    },
 
-        if (jsonValue[currentDate]) {
-            jsonValue[currentDate].push(id);
-        } else {
-            jsonValue = {...jsonValue, [currentDate]: [id]};
-        }
+    async deleteJson(id, item) {
+        const eventStorage = await AsyncStorage.getItem(item);
+        let eventStorageJson = eventStorage != null ? JSON.parse(eventStorage) : {};
+        delete eventStorageJson[id];
 
-        await AsyncStorage.setItem(item, JSON.stringify(jsonValue));
+        const jsonEventValue = JSON.stringify(eventStorageJson);
+        await AsyncStorage.setItem(item, jsonEventValue);
     },
 
     async getItem(item) {

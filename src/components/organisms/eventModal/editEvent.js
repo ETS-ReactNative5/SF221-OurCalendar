@@ -3,7 +3,6 @@ import { withTranslation } from 'react-i18next';
 import {Button, CheckIcon, FormControl, HStack, Input, Modal, Select, Text} from 'native-base';
 import moment from 'moment';
 import DatePicker from 'react-native-date-picker';
-import randomId from '../../../utils/randomId';
 import eventStorage from '../../../utils/eventStorage';
 import ColorPicker from 'react-native-wheel-color-picker'
 import IconSelection from "./selectIcon";
@@ -23,22 +22,22 @@ class EditEvent extends React.Component {
             iconModal: false,
 
             form: {
-                title: '',
-                start: new Date(),
-                end: new Date(),
-                repeat: 'None',
-                color: '#ffffff',
-                iconFont: '',
-                iconName: ''
+                title: this.props.event.title,
+                start: new Date(this.props.event.start),
+                end: new Date(this.props.event.end),
+                repeat: this.props.event.repeat,
+                color: this.props.event.color,
+                iconFont: this.props.event.icon ? this.props.event.icon.font : '',
+                iconName: this.props.event.icon ? this.props.event.icon.name : '',
             },
         }
     }
 
     async onSubmit() {
-        const id = randomId(4);
+        const id = this.props.event.id;
         const eventJson = {
             id: id,
-            created: new Date(),
+            created: this.props.event.created,
             updated: new Date(),
             title: this.state.form.title,
             start: this.state.form.start,
@@ -51,7 +50,16 @@ class EditEvent extends React.Component {
             }
         };
 
-        console.log(eventJson);
+        await eventStorage.editJson(id, eventJson, 'events');
+
+        this.props.onClose();
+    }
+
+    async onDelete() {
+        const id = this.props.event.id;
+
+        await eventStorage.deleteJson(id, 'events');
+
         this.props.onClose();
     }
 
@@ -68,11 +76,11 @@ class EditEvent extends React.Component {
                 <Modal isOpen={this.props.isOpen} onClose={this.props.onClose}>
                     <Modal.Content style={styles.addModal} maxWidth="400px">
                         <Modal.CloseButton />
-                        <Modal.Header><Text>{t('add_event.add')}</Text></Modal.Header>
+                        <Modal.Header><Text>{t('add_event.edit')}</Text></Modal.Header>
                         <Modal.Body>
                             <FormControl>
                                 <FormControl.Label><Text>{t('event_todo.title')}</Text></FormControl.Label>
-                                <Input onChangeText={(text => this.setState({form: {...this.state.form, title: text}}))} bgColor="#f8f8f8"/>
+                                <Input value={this.state.form.title} onChangeText={(text => this.setState({form: {...this.state.form, title: text}}))} bgColor="#f8f8f8"/>
                             </FormControl>
                             <FormControl>
                                 <FormControl.Label><Text>{t('add_event.start')}</Text></FormControl.Label>
@@ -91,7 +99,7 @@ class EditEvent extends React.Component {
                                         onCancel={() => {
                                             this.setState({openDateStartEvent: false})
                                         }}
-                                        minimumDate={new Date()}
+                                        minimumDate={new Date(this.props.event.start)}
                                         mode={"date"}
                                     />
                                     <Button style={styles.selectTime} onPress={() => this.setState({openTimeStartEvent: true})}>
@@ -129,7 +137,7 @@ class EditEvent extends React.Component {
                                         onCancel={() => {
                                             this.setState({openDateEndEvent: false})
                                         }}
-                                        minimumDate={new Date()}
+                                        minimumDate={new Date(this.props.event.start)}
                                         mode={"date"}
                                     />
                                     <Button style={styles.selectTime} onPress={() => this.setState({openTimeEndEvent: true})}>
@@ -146,7 +154,7 @@ class EditEvent extends React.Component {
                                         onCancel={() => {
                                             this.setState({openTimeEndEvent: false})
                                         }}
-                                        minimumDate={new Date()}
+                                        minimumDate={new Date(this.props.event.start)}
                                         mode={"time"}
                                     />
                                 </HStack>
@@ -189,11 +197,18 @@ class EditEvent extends React.Component {
                             </FormControl>
                         </Modal.Body>
                         <Modal.Footer style={styles.addModal}>
-                            <Button onPress={() => this.onSubmit()}>
-                                <Text color="muted.50">
-                                    {t('event_todo.create')}
-                                </Text>
-                            </Button>
+                            <Button.Group>
+                                <Button onPress={() => this.onSubmit()}>
+                                    <Text color="#ffffff">
+                                        {t('event_todo.save')}
+                                    </Text>
+                                </Button>
+                                <Button colorScheme="danger" onPress={() => this.onDelete()}>
+                                    <Text color="#ffffff">
+                                        {t('event_todo.delete')}
+                                    </Text>
+                                </Button>
+                            </Button.Group>
                         </Modal.Footer>
                     </Modal.Content>
                 </Modal>

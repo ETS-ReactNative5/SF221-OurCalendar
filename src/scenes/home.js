@@ -4,6 +4,8 @@ import EventBoxHome from "../components/molecules/home/eventBoxHome";
 import {Stack, View} from "native-base";
 import EditEvent from "../components/organisms/eventModal/editEvent";
 import eventStorage from "../utils/eventStorage";
+import moment from 'moment';
+import fontColorContrast from "font-color-contrast";
 
 class Home extends React.Component {
     constructor(props) {
@@ -11,29 +13,36 @@ class Home extends React.Component {
         this.state = {
             eventBoxModal: false,
             addEvent: false,
-            event:1,
+            event: {},
             content: []
         }
     }
 
     componentDidMount() {
-        this.retrieveData();
+        this._unsubscribe = this.props.navigation.addListener('focus', () => this.retrieveData())
     }
 
-    openModal(eventId) {
+    componentWillUnmount() {
+        this._unsubscribe.remove();
+    }
+
+    async openModal(eventId) {
+        const event = await eventStorage.getItem('events');
+
+        await this.setState({event: event[eventId]});
         this.setState({addEvent: true});
-        this.setState({event:eventId});
     }
 
     closeModal() {
         this.setState({addEvent: false});
+        this.setState({event: {}});
     }
 
     dateToString(startDate, endDate) {
-        const start = new Date(startDate);
-        const end = new Date(endDate);
+        const start = moment(startDate).format("HH:mm");
+        const end = moment(endDate).format("HH:mm");
 
-        return start.getHours() + ":" + start.getMinutes() + " - " + end.getHours() + ":" + end.getMinutes();
+        return start + " - " + end;
     }
 
     async retrieveData() {
@@ -63,7 +72,8 @@ class Home extends React.Component {
                     <EventBoxHome key={i}
                                   name={event[item].title}
                                   time={this.dateToString(event[item].start, event[item].end)}
-                                  icon="dumbbell" color="#ffffff"
+                                  iconFamily={event[item].icon.font} iconName={event[item].icon.name}
+                                  color={event[item].color} colorContrast={fontColorContrast(event[item].color)}
                                   openModal={() => this.openModal(event[item].id)}/>
                 );
             }
@@ -79,7 +89,7 @@ class Home extends React.Component {
                         <Stack space="3">
                             {this.state.content}
                         </Stack>
-                        <EditEvent isOpen={this.state.addEvent} event={this.state.event} onClose={() => this.closeModal()}/>
+                        <EditEvent key={this.state.event.id} isOpen={this.state.addEvent} event={this.state.event} onClose={() => this.closeModal()}/>
                     </View>
                 </AppTemplate>
             </>

@@ -14,8 +14,6 @@ class Calendar extends React.Component {
     constructor(props) {
         super(props);
 
-        this.month = new Date().getMonth();
-        this.year = new Date().getFullYear();
     }
 
     render() {

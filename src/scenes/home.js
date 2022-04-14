@@ -5,6 +5,7 @@ import {Stack, View} from "native-base";
 import EditEvent from "../components/organisms/eventModal/editEvent";
 import eventStorage from "../utils/eventStorage";
 import moment from 'moment';
+import fontColorContrast from "font-color-contrast";
 
 class Home extends React.Component {
     constructor(props) {
@@ -71,7 +72,8 @@ class Home extends React.Component {
                     <EventBoxHome key={i}
                                   name={event[item].title}
                                   time={this.dateToString(event[item].start, event[item].end)}
-                                  icon="dumbbell" color="#ffffff"
+                                  iconFamily={event[item].icon.font} iconName={event[item].icon.name}
+                                  color={event[item].color} colorContrast={fontColorContrast(event[item].color)}
                                   openModal={() => this.openModal(event[item].id)}/>
                 );
             }

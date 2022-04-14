@@ -5,13 +5,22 @@ import moment from 'moment';
 import DatePicker from 'react-native-date-picker';
 import randomId from "../../../utils/randomId";
 import todoStorage from "../../../utils/eventStorage";
+import ColorPicker from "react-native-wheel-color-picker";
+import IconSelection from "./selectIcon";
 
 class AddTodo extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            swatchesEnabled: true,
+            disc:false,
+            openDateStartToDo: false,
+            openTimeStartToDo: false,
             openDateEndToDo: false,
             openTimeEndToDo: false,
+
+            colorModal: false,
+            iconModal: false,
 
             form: {
                 title: '',
@@ -40,14 +49,19 @@ class AddTodo extends React.Component {
             }
         };
 
-        await todoStorage.insertJson(id, eventJson, 'todos');
-        await todoStorage.insertId(id, 'todoIds');
+        console.log(eventJson);
 
         this.props.onClose();
     }
+    iconClick(font, name) {
+        this.setState({form: {...this.state.form, iconFont: font, iconName: name}});
+        this.setState({iconModal: false});
+    }
+
     render() {
         const { t } = this.props;
         return (
+      <>
             <Modal isOpen={this.props.isOpen} onClose={this.props.onClose}>
                 <Modal.Content style={styles.addModal} maxWidth="400px">
                     <Modal.CloseButton />
@@ -98,11 +112,26 @@ class AddTodo extends React.Component {
                         </FormControl>
                         <FormControl>
                             <FormControl.Label><Text>{t('event_todo.color')}</Text></FormControl.Label>
-                            <Input bgColor="#f8f8f8"/>
+                            <ColorPicker
+                                ref={r => { this.picker = r }}
+                                color={this.state.form.color}
+                                swatchesOnly={this.state.swatchesOnly}
+                                onColorChangeComplete={(color) => this.setState({form: {...this.state.form, color: color}})}
+                                thumbSize={20}
+                                sliderSize={25}
+                                noSnap={true}
+                                row={false}
+                                swatchesLast={this.state.swatchesLast}
+                                swatches={this.state.swatchesEnabled}
+                                discrete={this.state.disc}
+                            />
+                            <Input size="sm" isDisabled={true} mt="2" value={this.state.form.color}/>
                         </FormControl>
                         <FormControl>
                             <FormControl.Label><Text>{t('event_todo.icon')}</Text></FormControl.Label>
-                            <Input bgColor="#f8f8f8"/>
+                            <Button style={styles.selectIcon} onPress={() => this.setState({iconModal: true})}>
+                                <Text>{this.state.form.iconFont} {this.state.form.iconName}</Text>
+                            </Button>
                         </FormControl>
                     </Modal.Body>
                     <Modal.Footer style={styles.addModal}>
@@ -114,7 +143,9 @@ class AddTodo extends React.Component {
                     </Modal.Footer>
                 </Modal.Content>
             </Modal>
-        );
+        <IconSelection isOpen={this.state.iconModal} onClose={() => this.setState({iconModal: false})} iconClick={(font, name) => this.iconClick(font, name)}/>
+</>
+    );
     }
 }
 
@@ -128,6 +159,13 @@ const styles = {
         width: "30%",
         height: 40,
         backgroundColor:"#f8f8f8"
+    },
+    selectIcon: {
+        height: 40,
+        backgroundColor:"#f8f8f8",
+        borderColor: "#e5e5e5",
+        borderWidth: 1,
+        justifyContent: "flex-start",
     },
 };
 

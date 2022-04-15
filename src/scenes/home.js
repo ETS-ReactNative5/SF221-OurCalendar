@@ -22,11 +22,12 @@ class Home extends React.Component {
     }
 
     componentDidMount() {
-        this._unsubscribe = this.props.navigation.addListener('focus', () => this.retrieveData());
+        //this._unsubscribe = this.props.navigation.addListener('focus', () => this.retrieveData());
+        this.retrieveData();
     }
 
     componentWillUnmount() {
-        this._unsubscribe.remove();
+        //this._unsubscribe.remove();
     }
 
     async openEventModal(eventId) {
@@ -103,7 +104,7 @@ class Home extends React.Component {
                 todoContent.push(
                     <EventBoxHome key={i}
                                   name={todo[item].title}
-                                  time={moment(todo[item].end).calendar()}
+                                  time={moment(todo[item].end).format('L HH:mm')}
                                   iconFamily={todo[item].icon.font} iconName={todo[item].icon.name}
                                   color={todo[item].color} colorContrast={fontColorContrast(todo[item].color)}
                                   openModal={() => this.openTodoModal(todo[item].id)}/>

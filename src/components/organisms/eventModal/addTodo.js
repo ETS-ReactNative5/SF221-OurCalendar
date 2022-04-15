@@ -4,7 +4,7 @@ import {Button, FormControl, HStack, Input, Modal, Text} from 'native-base';
 import moment from 'moment';
 import DatePicker from 'react-native-date-picker';
 import randomId from "../../../utils/randomId";
-import todoStorage from "../../../utils/eventStorage";
+import eventStorage from "../../../utils/eventStorage";
 import ColorPicker from "react-native-wheel-color-picker";
 import IconSelection from "./selectIcon";
 
@@ -49,7 +49,7 @@ class AddTodo extends React.Component {
             }
         };
 
-        console.log(eventJson);
+        await eventStorage.insertJson(id, eventJson, 'todos');
 
         this.props.onClose();
     }
@@ -61,90 +61,90 @@ class AddTodo extends React.Component {
     render() {
         const { t } = this.props;
         return (
-      <>
-            <Modal isOpen={this.props.isOpen} onClose={this.props.onClose}>
-                <Modal.Content style={styles.addModal} maxWidth="400px">
-                    <Modal.CloseButton />
-                    <Modal.Header><Text>{t('add_todo.add')}</Text></Modal.Header>
-                    <Modal.Body>
-                        <FormControl>
-                            <FormControl.Label><Text>{t('event_todo.title')}</Text></FormControl.Label>
-                            <Input onChangeText={(text => this.setState({form: {...this.state.form, title: text}}))} bgColor="#f8f8f8"/>
-                        </FormControl>
-                        <FormControl>
-                            <FormControl.Label><Text>{t('add_todo.deadline')}</Text></FormControl.Label>
-                            <HStack space={3}>
-                                <Button style={styles.selectDate} onPress={() => this.setState({openDateEndToDo: true})}>
-                                    <Text>{moment(this.state.form.end).format("DD MMMM YYYY")}</Text>
-                                </Button>
-                                <DatePicker
-                                    modal
-                                    open={this.state.openDateEndToDo}
-                                    date={this.state.form.end}
-                                    onConfirm={(date) => {
-                                        this.setState({openDateEndToDo: false})
-                                        this.setState({form: {...this.state.form, end: date}})
-                                    }}
-                                    onCancel={() => {
-                                        this.setState({openDateEndToDo: false})
-                                    }}
-                                    minimumDate={new Date()}
-                                    mode={"date"}
+            <>
+                <Modal isOpen={this.props.isOpen} onClose={this.props.onClose}>
+                    <Modal.Content style={styles.addModal} maxWidth="400px">
+                        <Modal.CloseButton />
+                        <Modal.Header><Text>{t('add_todo.add')}</Text></Modal.Header>
+                        <Modal.Body>
+                            <FormControl>
+                                <FormControl.Label><Text>{t('event_todo.title')}</Text></FormControl.Label>
+                                <Input onChangeText={(text => this.setState({form: {...this.state.form, title: text}}))} bgColor="#f8f8f8"/>
+                            </FormControl>
+                            <FormControl>
+                                <FormControl.Label><Text>{t('add_todo.deadline')}</Text></FormControl.Label>
+                                <HStack space={3}>
+                                    <Button style={styles.selectDate} onPress={() => this.setState({openDateEndToDo: true})}>
+                                        <Text>{moment(this.state.form.end).format("DD MMMM YYYY")}</Text>
+                                    </Button>
+                                    <DatePicker
+                                        modal
+                                        open={this.state.openDateEndToDo}
+                                        date={this.state.form.end}
+                                        onConfirm={(date) => {
+                                            this.setState({openDateEndToDo: false})
+                                            this.setState({form: {...this.state.form, end: date}})
+                                        }}
+                                        onCancel={() => {
+                                            this.setState({openDateEndToDo: false})
+                                        }}
+                                        minimumDate={new Date()}
+                                        mode={"date"}
+                                    />
+                                    <Button style={styles.selectTime} onPress={() => this.setState({openTimeEndToDo: true})}>
+                                        <Text>{moment(this.state.form.end).format("HH:mm")}</Text>
+                                    </Button>
+                                    <DatePicker
+                                        modal
+                                        open={this.state.openTimeEndToDo}
+                                        date={this.state.form.end}
+                                        onConfirm={(date) => {
+                                            this.setState({openTimeEndToDo: false})
+                                            this.setState({form: {...this.state.form, end: date}})
+                                        }}
+                                        onCancel={() => {
+                                            this.setState({openTimeEndToDo: false})
+                                        }}
+                                        minimumDate={new Date()}
+                                        mode={"time"}
+                                    />
+                                </HStack>
+                            </FormControl>
+                            <FormControl>
+                                <FormControl.Label><Text>{t('event_todo.color')}</Text></FormControl.Label>
+                                <ColorPicker
+                                    ref={r => { this.picker = r }}
+                                    color={this.state.form.color}
+                                    swatchesOnly={this.state.swatchesOnly}
+                                    onColorChangeComplete={(color) => this.setState({form: {...this.state.form, color: color}})}
+                                    thumbSize={20}
+                                    sliderSize={25}
+                                    noSnap={true}
+                                    row={false}
+                                    swatchesLast={this.state.swatchesLast}
+                                    swatches={this.state.swatchesEnabled}
+                                    discrete={this.state.disc}
                                 />
-                                <Button style={styles.selectTime} onPress={() => this.setState({openTimeEndToDo: true})}>
-                                    <Text>{moment(this.state.form.end).format("HH:mm")}</Text>
+                                <Input size="sm" isDisabled={true} mt="2" value={this.state.form.color}/>
+                            </FormControl>
+                            <FormControl>
+                                <FormControl.Label><Text>{t('event_todo.icon')}</Text></FormControl.Label>
+                                <Button style={styles.selectIcon} onPress={() => this.setState({iconModal: true})}>
+                                    <Text>{this.state.form.iconFont} {this.state.form.iconName}</Text>
                                 </Button>
-                                <DatePicker
-                                    modal
-                                    open={this.state.openTimeEndToDo}
-                                    date={this.state.form.end}
-                                    onConfirm={(date) => {
-                                        this.setState({openTimeEndToDo: false})
-                                        this.setState({form: {...this.state.form, end: date}})
-                                    }}
-                                    onCancel={() => {
-                                        this.setState({openTimeEndToDo: false})
-                                    }}
-                                    minimumDate={new Date()}
-                                    mode={"time"}
-                                />
-                            </HStack>
-                        </FormControl>
-                        <FormControl>
-                            <FormControl.Label><Text>{t('event_todo.color')}</Text></FormControl.Label>
-                            <ColorPicker
-                                ref={r => { this.picker = r }}
-                                color={this.state.form.color}
-                                swatchesOnly={this.state.swatchesOnly}
-                                onColorChangeComplete={(color) => this.setState({form: {...this.state.form, color: color}})}
-                                thumbSize={20}
-                                sliderSize={25}
-                                noSnap={true}
-                                row={false}
-                                swatchesLast={this.state.swatchesLast}
-                                swatches={this.state.swatchesEnabled}
-                                discrete={this.state.disc}
-                            />
-                            <Input size="sm" isDisabled={true} mt="2" value={this.state.form.color}/>
-                        </FormControl>
-                        <FormControl>
-                            <FormControl.Label><Text>{t('event_todo.icon')}</Text></FormControl.Label>
-                            <Button style={styles.selectIcon} onPress={() => this.setState({iconModal: true})}>
-                                <Text>{this.state.form.iconFont} {this.state.form.iconName}</Text>
+                            </FormControl>
+                        </Modal.Body>
+                        <Modal.Footer style={styles.addModal}>
+                            <Button onPress={() => this.onSubmit()}>
+                                <Text color="muted.50">
+                                    {t('event_todo.create')}
+                                </Text>
                             </Button>
-                        </FormControl>
-                    </Modal.Body>
-                    <Modal.Footer style={styles.addModal}>
-                        <Button onPress={() => this.onSubmit()}>
-                            <Text color="muted.50">
-                                {t('event_todo.create')}
-                            </Text>
-                        </Button>
-                    </Modal.Footer>
-                </Modal.Content>
-            </Modal>
-        <IconSelection isOpen={this.state.iconModal} onClose={() => this.setState({iconModal: false})} iconClick={(font, name) => this.iconClick(font, name)}/>
-</>
+                        </Modal.Footer>
+                    </Modal.Content>
+                </Modal>
+                <IconSelection isOpen={this.state.iconModal} onClose={() => this.setState({iconModal: false})} iconClick={(font, name) => this.iconClick(font, name)}/>
+            </>
     );
     }
 }

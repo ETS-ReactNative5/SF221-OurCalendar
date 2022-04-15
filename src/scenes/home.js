@@ -1,41 +1,56 @@
 import React from 'react';
 import AppTemplate from '../components/templates/app';
 import EventBoxHome from "../components/molecules/home/eventBoxHome";
-import {Stack, View} from "native-base";
+import {Stack, Text, View} from "native-base";
 import EditEvent from "../components/organisms/eventModal/editEvent";
 import eventStorage from "../utils/eventStorage";
 import moment from 'moment';
 import fontColorContrast from "font-color-contrast";
+import EditTodo from "../components/organisms/eventModal/editTodo";
 
 class Home extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            eventBoxModal: false,
-            addEvent: false,
+            editEvent: false,
+            editTodo: false,
             event: {},
-            content: []
+            todo: {},
+            eventContent: [],
+            todoContent: [],
         }
     }
 
     componentDidMount() {
-        this._unsubscribe = this.props.navigation.addListener('focus', () => this.retrieveData())
+        this._unsubscribe = this.props.navigation.addListener('focus', () => this.retrieveData());
     }
 
     componentWillUnmount() {
         this._unsubscribe.remove();
     }
 
-    async openModal(eventId) {
+    async openEventModal(eventId) {
         const event = await eventStorage.getItem('events');
 
         await this.setState({event: event[eventId]});
-        this.setState({addEvent: true});
+        this.setState({editEvent: true});
     }
 
-    closeModal() {
-        this.setState({addEvent: false});
+    closeEventModal() {
+        this.setState({editEvent: false});
         this.setState({event: {}});
+    }
+
+    async openTodoModal(todoId) {
+        const todo = await eventStorage.getItem('todos');
+
+        await this.setState({todo: todo[todoId]});
+        this.setState({editTodo: true});
+    }
+
+    closeTodoModal() {
+        this.setState({editTodo: false});
+        this.setState({todo: {}});
     }
 
     dateToString(startDate, endDate) {
@@ -49,7 +64,7 @@ class Home extends React.Component {
         const event = await eventStorage.getItem('events');
         const eventArray = Object.keys(event);
 
-        let content = [];
+        let eventContent = [];
         eventArray.map((item, i) => {
             let repeatCheck;
 
@@ -68,28 +83,64 @@ class Home extends React.Component {
             }
 
             if (repeatCheck) {
-                content.push(
+                eventContent.push(
                     <EventBoxHome key={i}
                                   name={event[item].title}
                                   time={this.dateToString(event[item].start, event[item].end)}
                                   iconFamily={event[item].icon.font} iconName={event[item].icon.name}
                                   color={event[item].color} colorContrast={fontColorContrast(event[item].color)}
-                                  openModal={() => this.openModal(event[item].id)}/>
+                                  openModal={() => this.openEventModal(event[item].id)}/>
                 );
             }
         });
-        this.setState({content: content});
+
+        const todo = await eventStorage.getItem('todos');
+        const todoArray = Object.keys(todo);
+
+        let todoContent = [];
+        todoArray.map((item, i) => {
+            if (new Date(todo[item].end) > new Date()) {
+                todoContent.push(
+                    <EventBoxHome key={i}
+                                  name={todo[item].title}
+                                  time={moment(todo[item].end).calendar()}
+                                  iconFamily={todo[item].icon.font} iconName={todo[item].icon.name}
+                                  color={todo[item].color} colorContrast={fontColorContrast(todo[item].color)}
+                                  openModal={() => this.openTodoModal(todo[item].id)}/>
+                );
+            }
+        });
+
+        this.setState({eventContent: eventContent, todoContent: todoContent});
     };
 
     render() {
         return (
             <>
                 <AppTemplate {...this.props}>
-                    <View width="100%" marginTop="7%" marginBottom="7%">
-                        <Stack space="3">
-                            {this.state.content}
-                        </Stack>
-                        <EditEvent key={this.state.event.id} isOpen={this.state.addEvent} event={this.state.event} onClose={() => this.closeModal()}/>
+                    <View width="100%" marginTop="4%" marginBottom="4%">
+                        {
+                            this.state.todoContent.length !== 0 ? (
+                                <>
+                                    <Text fontSize="xl" fontWeight="700" width="80%" alignSelf="center" mb="1">Todos</Text>
+                                    <Stack space="3" mb="2">
+                                        {this.state.todoContent}
+                                    </Stack>
+                                </>
+                            ) : (<></>)
+                        }
+                        {
+                            this.state.eventContent.length !== 0 ? (
+                                <>
+                                    <Text fontSize="xl" fontWeight="700" width="80%" alignSelf="center" mb="1">Events</Text>
+                                    <Stack space="3">
+                                        {this.state.eventContent}
+                                    </Stack>
+                                </>
+                            ) : (<></>)
+                        }
+                        <EditEvent key={this.state.event.id} isOpen={this.state.editEvent} event={this.state.event} onClose={() => this.closeEventModal()}/>
+                        <EditTodo key={this.state.todo.id} isOpen={this.state.editTodo} todo={this.state.todo} onClose={() => this.closeTodoModal()}/>
                     </View>
                 </AppTemplate>
             </>

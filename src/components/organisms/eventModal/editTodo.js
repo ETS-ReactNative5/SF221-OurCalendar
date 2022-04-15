@@ -3,10 +3,9 @@ import { withTranslation } from 'react-i18next';
 import {Button, FormControl, HStack, Input, Modal, Text} from 'native-base';
 import moment from 'moment';
 import DatePicker from 'react-native-date-picker';
-import randomId from "../../../utils/randomId";
-import todoStorage from "../../../utils/eventStorage";
 import ColorPicker from "react-native-wheel-color-picker";
 import IconSelection from "./selectIcon";
+import eventStorage from "../../../utils/eventStorage";
 
 class EditTodo extends React.Component {
     constructor(props) {
@@ -23,24 +22,24 @@ class EditTodo extends React.Component {
             iconModal: false,
 
             form: {
-                title: '',
-                start: new Date(),
-                end: new Date(),
-                repeat: 'None',
-                color: '',
-                iconFont: '',
-                iconName: ''
+                title: this.props.todo.title,
+                end: new Date(this.props.todo.end),
+                repeat: this.props.todo.repeat,
+                color: this.props.todo.color,
+                iconFont: this.props.todo.icon ? this.props.todo.icon.font : '',
+                iconName: this.props.todo.icon ? this.props.todo.icon.name : '',
             },
         }
     }
+
     async onSubmit() {
-        const id = randomId(4);
+        const id = this.props.todo.id;
         const eventJson = {
             id: id,
             created: new Date(),
             updated: new Date(),
             title: this.state.form.title,
-            start: new Date(),
+            start: this.props.todo.start,
             end: this.state.form.end,
             color: this.state.form.color,
             icon: {
@@ -49,10 +48,19 @@ class EditTodo extends React.Component {
             }
         };
 
-        console.log(eventJson);
+        await eventStorage.editJson(id, eventJson, 'todos');
 
         this.props.onClose();
     }
+
+    async onDelete() {
+        const id = this.props.todo.id;
+
+        await eventStorage.deleteJson(id, 'todos');
+
+        this.props.onClose();
+    }
+
     iconClick(font, name) {
         this.setState({form: {...this.state.form, iconFont: font, iconName: name}});
         this.setState({iconModal: false});
@@ -69,7 +77,7 @@ class EditTodo extends React.Component {
                         <Modal.Body>
                             <FormControl>
                                 <FormControl.Label><Text>{t('event_todo.title')}</Text></FormControl.Label>
-                                <Input onChangeText={(text => this.setState({form: {...this.state.form, title: text}}))} bgColor="#f8f8f8"/>
+                                <Input value={this.state.form.title} onChangeText={(text => this.setState({form: {...this.state.form, title: text}}))} bgColor="#f8f8f8"/>
                             </FormControl>
                             <FormControl>
                                 <FormControl.Label><Text>{t('add_todo.deadline')}</Text></FormControl.Label>
@@ -135,11 +143,18 @@ class EditTodo extends React.Component {
                             </FormControl>
                         </Modal.Body>
                         <Modal.Footer style={styles.addModal}>
-                            <Button onPress={() => this.onSubmit()}>
-                                <Text color="muted.50">
-                                    {t('event_todo.create')}
-                                </Text>
-                            </Button>
+                            <Button.Group>
+                                <Button onPress={() => this.onSubmit()}>
+                                    <Text color="#ffffff">
+                                        {t('event_todo.save')}
+                                    </Text>
+                                </Button>
+                                <Button colorScheme="danger" onPress={() => this.onDelete()}>
+                                    <Text color="#ffffff">
+                                        {t('event_todo.delete')}
+                                    </Text>
+                                </Button>
+                            </Button.Group>
                         </Modal.Footer>
                     </Modal.Content>
                 </Modal>

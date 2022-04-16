@@ -1,5 +1,5 @@
 import React from 'react';
-import {Box, Checkbox, HStack, Icon, Pressable, Text} from 'native-base';
+import {Box, Checkbox, Flex, HStack, Icon, Pressable, Text} from 'native-base';
 import {StyleSheet} from "react-native";
 import icons from "../../../utils/icons";
 
@@ -11,18 +11,18 @@ class EventBoxHome extends React.Component {
     render() {
         return (
             <Pressable onPress={this.props.openModal}>
-                <Box style={styles.boxEvent} backgroundColor={this.props.color}>
-                    <HStack justifyContent="flex-end" paddingTop="4%" paddingRight="10%" paddingLeft="20%">
-                        <Text fontSize="13" color={this.props.colorContrast}>{this.props.name}</Text>
-                    </HStack>
-                    <HStack justifyContent="flex-end"  paddingRight="10%">
-                        <Text fontSize="13" color={this.props.colorContrast}>{this.props.time}</Text>
-                    </HStack>
-                    <HStack justifyContent="flex-start">
-                        <Icon as={icons[this.props.iconFamily]} name={this.props.iconName} color={this.props.colorContrast} marginTop="-8" marginLeft="13%"/>
-                    </HStack>
-                    <HStack justifyContent="flex-start"  paddingLeft="2" marginTop="-45">
-                        {this.props.checkbox == 'true'&& <Checkbox accessibilityLabel="Checkbox"/> }
+                <Box style={styles.boxEvent} backgroundColor={this.props.color} px="5" py="3" maxHeight="100%">
+                    <HStack width="100%">
+                        <Box w="25%">
+                            <HStack space="2">
+                                {this.props.checkbox && <Checkbox accessibilityLabel="Checkbox"/>}
+                                <Icon as={icons[this.props.iconFamily]} name={this.props.iconName} color={this.props.colorContrast}/>
+                            </HStack>
+                        </Box>
+                        <Flex width="75%" paddingLeft="2">
+                            <Text fontSize="13" color={this.props.colorContrast} textAlign="right">{this.props.name}</Text>
+                            <Text fontSize="13" color={this.props.colorContrast} textAlign="right">{this.props.time}</Text>
+                        </Flex>
                     </HStack>
                 </Box>
             </Pressable>
@@ -33,10 +33,9 @@ class EventBoxHome extends React.Component {
 const styles = StyleSheet.create({
     boxEvent: {
         width:"80%",
-        height: 70,
         borderRadius: 12,
         alignSelf:"center",
     },
-
 });
-export default EventBoxHome ;
+
+export default EventBoxHome;

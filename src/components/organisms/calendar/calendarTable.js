@@ -1,6 +1,7 @@
 import React from 'react';
 import {Box, HStack, Modal, Text, VStack} from 'native-base';
 import moment from 'moment';
+import fontColorContrast from "font-color-contrast";
 
 import CalendarBox from '../../molecules/calender/calendarBox';
 import EventBoxCalendar from "../../molecules/calender/eventBoxCalendar";
@@ -33,7 +34,8 @@ class CalendarTable extends React.Component {
             month: this.props.month,
             year: this.props.year,
 
-            events: {}
+            events: {},
+            todos: {},
         }
     }
 
@@ -51,12 +53,14 @@ class CalendarTable extends React.Component {
 
     async loadEvents() {
         const event = await eventStorage.getItem('events');
+        const todo = await eventStorage.getItem('todos');
 
-        this.setState({events: event});
+        this.setState({events: event, todos: todo});
     }
 
     updateDate() {
         if (this.date_count >= this.day_in_month) {
+            this.date_count += 1;
             return null;
         } else if (this.date_count >= 0) {
             this.date_count += 1;
@@ -80,9 +84,9 @@ class CalendarTable extends React.Component {
     }
 
     changeBorderColor() {
-        if (this.date_count === this.day_in_month) {
+        if (this.date_count > this.day_in_month) {
             this.border_color = this.color_out;
-        } else if (this.date_count >= 0) {
+        } else if (this.date_count > 0) {
             this.border_color = this.border_color_date;
         } else {
             this.border_color = this.color_out;
@@ -91,21 +95,10 @@ class CalendarTable extends React.Component {
     }
 
     changeBgColor() {
-        if (this.date_count === this.day_in_month) {
+        if (this.date_count > this.day_in_month) {
             this.bg_color = this.color_out;
-        } else if (this.date_count >= 0) {
+        } else if (this.date_count > 0) {
             this.bg_color = this.bg_color_date;
-        } else {
-            this.bg_color = this.color_out;
-        }
-        return this.bg_color;
-    }
-
-    changeEventColor() {
-        if (this.event_count === this.day_in_month) {
-            this.bg_color = this.color_out;
-        } else if (this.event_count >= 0) {
-            this.bg_color = this.bg_color_event;
         } else {
             this.bg_color = this.color_out;
         }
@@ -128,6 +121,13 @@ class CalendarTable extends React.Component {
         } else {
             return 5;
         }
+    }
+
+    dateToString(startDate, endDate) {
+        const start = moment(startDate).format("HH:mm");
+        const end = moment(endDate).format("HH:mm");
+
+        return start + " - " + end;
     }
 
     openModal(date) {
@@ -153,10 +153,76 @@ class CalendarTable extends React.Component {
 
         const event = this.state.events;
         const eventArray = Object.keys(event);
+
+        const todo = this.state.todos;
+        const todoArray = Object.keys(todo);
+
+
         const startCurrentDate = new Date(this.state.year, this.state.month, date+1);
         const endCurrentDate = new Date(this.state.year, this.state.month, date);
 
         let eventContent = [];
+
+        todoArray.map((item, i) => {
+            if (new Date(todo[item].end) > endCurrentDate && new Date(todo[item].start) < startCurrentDate && eventContent.length < 5) {
+                eventContent.push(
+                    <EventBoxCalendar key={todo[item].id} event_attr={ev_attr} eventColor={todo[item].color} colorContrast={fontColorContrast(todo[item].color)} text={todo[item].title}/>
+                );
+            }
+        });
+
+        eventArray.map((item, i) => {
+            let repeatCheck;
+
+            const start = new Date(event[item].start);
+            const end = new Date(event[item].end);
+            if (startCurrentDate >= start && endCurrentDate <= end) {
+                if (event[item].repeat === "None" || event[item].repeat === "Daily") {
+                    repeatCheck = true;
+                } else if (event[item].repeat === "Weekly" && endCurrentDate.getDay() === new Date(event[item].start).getDay()) {
+                    repeatCheck = true;
+                } else if (event[item].repeat === "Monthly" && endCurrentDate.getDate() === new Date(event[item].start).getDate() && endCurrentDate.getMonth() >= new Date(event[item].start).getMonth()) {
+                    repeatCheck = true;
+                } else if (event[item].repeat === "Annually" && endCurrentDate.getDate() === new Date(event[item].start).getDate() && endCurrentDate.getMonth() === new Date(event[item].start).getMonth() && endCurrentDate.getFullYear() >= new Date(event[item].start).getFullYear()) {
+                    repeatCheck = true;
+                }
+            }
+
+            if (repeatCheck && eventContent.length < 5) {
+                eventContent.push(
+                    <EventBoxCalendar key={i} event_attr={ev_attr} eventColor={event[item].color} colorContrast={fontColorContrast(event[item].color)} text={event[item].title}/>
+                );
+            }
+        });
+
+        return eventContent;
+    }
+
+    eventListing(date) {
+        const event = this.state.events;
+        const eventArray = Object.keys(event);
+
+        const todo = this.state.todos;
+        const todoArray = Object.keys(todo);
+
+        const startCurrentDate = new Date(this.state.year, this.state.month, date+1);
+        const endCurrentDate = new Date(this.state.year, this.state.month, date);
+
+        let eventList = [];
+
+        todoArray.map((item, i) => {
+            if (new Date(todo[item].end) > endCurrentDate && new Date(todo[item].start) < startCurrentDate) {
+                eventList.push(
+                    <EventBoxHome key={todo[item].id}
+                                  name={todo[item].title}
+                                  time={moment(todo[item].end).format('L HH:mm')}
+                                  iconFamily={todo[item].icon.font} iconName={todo[item].icon.name}
+                                  color={todo[item].color} colorContrast={fontColorContrast(todo[item].color)}
+                                  openModal={() => this.showModal(todo[item].id)}/>
+                );
+            }
+        });
+
         eventArray.map((item, i) => {
             let repeatCheck;
 
@@ -175,13 +241,19 @@ class CalendarTable extends React.Component {
             }
 
             if (repeatCheck) {
-                eventContent.push(
-                    <EventBoxCalendar key={i} event_attr={ev_attr} text={event[item].title}/>
+                eventList.push(
+                    <EventBoxHome key={event[item].id}
+                                  name={event[item].title}
+                                  time={this.dateToString(event[item].start, event[item].end)}
+                                  iconFamily={event[item].icon.font} iconName={event[item].icon.name}
+                                  color={event[item].color} colorContrast={fontColorContrast(event[item].color)}
+                                  openModal={() => this.openEventModal(event[item].id)}/>
                 );
             }
         });
 
-        return eventContent;
+
+        return eventList;
     }
 
     render() {
@@ -202,12 +274,18 @@ class CalendarTable extends React.Component {
                         } else if ((row === 4 || row === 5) && col === 6) {
                             round = 'roundedBottomRight';
                         }
-                        let attr = {borderColor: this.changeBorderColor(), bgColor: this.changeBgColor(), [round]: "lg"};
-                        let ev_attr = {borderColor: this.changeBorderColor(), bgColor: this.changeEventColor()};
+                        let attr = {[round]: "lg"};
+                        let ev_attr = {borderColor: this.changeBorderColor()};
                         const date = this.updateDate();
                         return (
                             <Box key={col} h="100%" w="14.28%">
-                                <CalendarBox attributes={attr} text={date} openModal={() => this.openModal(date)}/>
+                                {
+                                    date >= 1 && date <= this.day_in_month ? (
+                                        <CalendarBox bdColor={this.changeBorderColor()} attributes={attr} text={date} openModal={() => this.openModal(date)}/>
+                                    ) : (
+                                        <CalendarBox bdColor={this.changeBorderColor()} backColor={this.changeBgColor()} attributes={attr} openModal={() => this.openModal(date)}/>
+                                    )
+                                }
                                 {
                                     this.updateEvent() ? (
                                         <>
@@ -229,13 +307,11 @@ class CalendarTable extends React.Component {
                 <Modal isOpen={this.state.calendarModal} onClose={() => this.closeModal()}>
                     <Modal.Content maxWidth="400px" >
                         <Modal.Header borderBottomWidth="0" py="3">
-                            <Text bold="bold" fontSize="20">Events {this.state.date}</Text>
+                            <Text bold="bold" fontSize="20">{this.state.date} {moment.months(this.state.month)} {this.state.year}</Text>
                         </Modal.Header>
                         <Modal.Body>
                             <VStack space="2">
-                                <EventBoxHome name="วิ่ง" time="7:00-8:00" icon="dumbbell" color="#d4d4d4" openModal={() => this.showModal(1)}/>
-                                <EventBoxHome name="วิ่ง" time="7:00-8:00" icon="dumbbell" color="#d4d4d4" openModal={() => this.showModal(4)}/>
-                                <EventBoxHome name="วิ่ง" time="7:00-8:00" icon="dumbbell" color="#d4d4d4" openModal={() => this.showModal(8)}/>
+                                {this.eventListing(this.state.date)}
                             </VStack>
                         </Modal.Body>
                     </Modal.Content>

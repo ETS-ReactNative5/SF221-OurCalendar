@@ -8,7 +8,7 @@ class EventBoxCalendar extends React.Component {
 
     render() {
         return (
-            <Box zIndex={1} bottom="67.5%" marginTop="2%" borderLeftWidth="1" borderRightWidth="1" {...this.props.event_attr}><Text fontSize="2xs" lineHeight="xs" isTruncated>{this.props.text}</Text></Box>
+            <Box zIndex={1} bottom="67.5%" marginTop="2%" borderLeftWidth="1" borderRightWidth="1" bgColor={this.props.eventColor} {...this.props.event_attr}><Text fontSize="2xs" lineHeight="xs" color={this.props.colorContrast} isTruncated>{this.props.text}</Text></Box>
         );
     }
 }

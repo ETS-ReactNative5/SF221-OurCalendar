@@ -13,7 +13,7 @@ class PasscodeHead extends React.Component {
         return (
             <Box style={styles.boxLogo}>
                 <Image style={styles.logo} source={Logo} alt="Logo"/>
-                <Text fontSize="3xl" marginX="-15%" marginTop="-4">Our calendar</Text>
+                <Text fontSize="3xl" marginX="-15%" marginTop="-4">Our Calendar</Text>
             </Box>
         );
     }

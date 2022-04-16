@@ -2,11 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import {extendTheme, NativeBaseProvider} from 'native-base';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { NavigationContainer } from '@react-navigation/native';
+import {NavigationContainer} from '@react-navigation/native';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import loadState from '../utils/loadState';
 import Fonts from '../utils/fonts';
 import {set} from '../redux/reducers/fontSlice';
-import {setGoogleAuth, setUserInfo} from '../redux/reducers/authSlice';
+import {setGoogleAuth, setUserInfo, setPasscode} from '../redux/reducers/authSlice';
 
 import Home from '../scenes/home';
 import Calendar from '../scenes/calendar';
@@ -14,28 +15,42 @@ import CalendarTeam from '../scenes/calendarTeam';
 import Setting from '../scenes/setting';
 import ContactUs from '../scenes/contactUs';
 import SideNavigatorApp from '../components/organisms/appNavigator/sideNavApp';
+import Auth from '../scenes/auth';
 
 const mapStateToProps = state => ({
     font: state.font.value,
     auth: {
         googleAuth: state.auth.googleAuth,
-        userInfo: state.auth.userInfo
+        userInfo: state.auth.userInfo,
+        passcode: state.auth.passcode
     }
 });
 
 const mapDispatchToProps = () => ({
     set,
     setGoogleAuth,
-    setUserInfo
+    setUserInfo,
+    setPasscode
 });
 
 class AppNavigator extends React.Component {
     constructor(props) {
         super(props);
+        this.navigationRef = React.createRef();
     }
 
     componentDidMount() {
         loadState(this.props);
+        this.loadPasscode();
+    }
+
+    async loadPasscode() {
+        const passcodeHash = await AsyncStorage.getItem('passcodeHash');
+
+        if (passcodeHash) {
+            this.props.setPasscode(true);
+            this.navigationRef.current.navigate('Auth');
+        }
     }
 
     theme() {
@@ -61,9 +76,10 @@ class AppNavigator extends React.Component {
 
     render() {
         const Drawer = createDrawerNavigator();
+
         return (
             <NativeBaseProvider theme={this.theme()}>
-                <NavigationContainer>
+                <NavigationContainer ref={this.navigationRef}>
                     <Drawer.Navigator initialRouteName="Home" screenOptions={{
                         headerShown: false,
                         drawerPosition: "right",
@@ -76,6 +92,8 @@ class AppNavigator extends React.Component {
                         <Drawer.Screen name="CalendarTeam" component={CalendarTeam} />
                         <Drawer.Screen name="Setting" component={Setting} />
                         <Drawer.Screen name="ContactUs" component={ContactUs} />
+
+                        <Drawer.Screen name="Auth" component={Auth} />
                     </Drawer.Navigator>
                 </NavigationContainer>
             </NativeBaseProvider>

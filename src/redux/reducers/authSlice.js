@@ -3,6 +3,7 @@ import {createSlice} from '@reduxjs/toolkit'
 export const authSlice = createSlice({
     name: 'auth',
     initialState: {
+        passcode: false,
         googleAuth: false,
         userInfo: {}
     },
@@ -13,9 +14,12 @@ export const authSlice = createSlice({
         setUserInfo: (state, action) => {
             state.userInfo = action.payload
         },
+        setPasscode: (state, action) => {
+            state.passcode = action.payload
+        },
     },
 });
 
-export const { setGoogleAuth, setUserInfo } = authSlice.actions;
+export const { setGoogleAuth, setUserInfo, setPasscode } = authSlice.actions;
 
 export default authSlice.reducer;

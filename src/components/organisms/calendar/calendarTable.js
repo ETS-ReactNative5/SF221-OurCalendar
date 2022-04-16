@@ -6,6 +6,7 @@ import CalendarBox from '../../molecules/calender/calendarBox';
 import EventBoxCalendar from "../../molecules/calender/eventBoxCalendar";
 import EventBoxHome from "../../molecules/home/eventBoxHome";
 import EditEvent from "../eventModal/editEvent";
+import eventStorage from "../../../utils/eventStorage";
 
 const COLOR_OUT = '#d4d4d4';
 const BG_COLOR_DATE = 'primary.50';
@@ -30,7 +31,9 @@ class CalendarTable extends React.Component {
             addEvent: false,
 
             month: this.props.month,
-            year: this.props.year
+            year: this.props.year,
+
+            events: {}
         }
     }
 
@@ -41,8 +44,15 @@ class CalendarTable extends React.Component {
     }
 
     componentDidMount() {
+        this.loadEvents();
         this.date_count = 0 - moment([this.state.year, this.state.month, 1]).day();
         this.event_count = 0 - moment([this.state.year, this.state.month, 1]).day();
+    }
+
+    async loadEvents() {
+        const event = await eventStorage.getItem('events');
+
+        this.setState({events: event});
     }
 
     updateDate() {
@@ -138,6 +148,42 @@ class CalendarTable extends React.Component {
         this.setState({addEvent: false});
     }
 
+    getEvent(date, ev_attr) {
+        if (date === null) return;
+
+        const event = this.state.events;
+        const eventArray = Object.keys(event);
+        const startCurrentDate = new Date(this.state.year, this.state.month, date+1);
+        const endCurrentDate = new Date(this.state.year, this.state.month, date);
+
+        let eventContent = [];
+        eventArray.map((item, i) => {
+            let repeatCheck;
+
+            const start = new Date(event[item].start);
+            const end = new Date(event[item].end);
+            if (startCurrentDate >= start && endCurrentDate <= end) {
+                if (event[item].repeat === "None" || event[item].repeat === "Daily") {
+                    repeatCheck = true;
+                } else if (event[item].repeat === "Weekly" && endCurrentDate.getDay() === new Date(event[item].start).getDay()) {
+                    repeatCheck = true;
+                } else if (event[item].repeat === "Monthly" && endCurrentDate.getDate() === new Date(event[item].start).getDate() && endCurrentDate.getMonth() >= new Date(event[item].start).getMonth()) {
+                    repeatCheck = true;
+                } else if (event[item].repeat === "Annually" && endCurrentDate.getDate() === new Date(event[item].start).getDate() && endCurrentDate.getMonth() === new Date(event[item].start).getMonth() && endCurrentDate.getFullYear() >= new Date(event[item].start).getFullYear()) {
+                    repeatCheck = true;
+                }
+            }
+
+            if (repeatCheck) {
+                eventContent.push(
+                    <EventBoxCalendar key={i} event_attr={ev_attr} text={event[item].title}/>
+                );
+            }
+        });
+
+        return eventContent;
+    }
+
     render() {
         let content = [];
         let column = [0, 1, 2, 3, 4, 5, 6];
@@ -165,8 +211,7 @@ class CalendarTable extends React.Component {
                                 {
                                     this.updateEvent() ? (
                                         <>
-                                            <EventBoxCalendar event_attr={ev_attr} text="Event1"/>
-                                            <EventBoxCalendar event_attr={ev_attr} text="Event2"/>
+                                            {this.getEvent(date, ev_attr)}
                                         </>
                                     ) : (<></>)
                                 }

@@ -1,4 +1,8 @@
 PODS:
+  - BCrypt (1.0.0)
+  - bcrypt-react-native (1.1.1):
+    - BCrypt
+    - React
   - boost (1.76.0)
   - CocoaAsyncSocket (7.6.5)
   - DoubleConversion (1.1.6)
@@ -394,6 +398,7 @@ PODS:
     - Yoga (~> 1.14)
 
 DEPENDENCIES:
+  - bcrypt-react-native (from `../node_modules/bcrypt-react-native`)
   - boost (from `../node_modules/react-native/third-party-podspecs/boost.podspec`)
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector`)
@@ -463,6 +468,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - BCrypt
     - CocoaAsyncSocket
     - Flipper
     - Flipper-Boost-iOSX
@@ -479,6 +485,8 @@ SPEC REPOS:
     - YogaKit
 
 EXTERNAL SOURCES:
+  bcrypt-react-native:
+    :path: "../node_modules/bcrypt-react-native"
   boost:
     :podspec: "../node_modules/react-native/third-party-podspecs/boost.podspec"
   DoubleConversion:
@@ -565,6 +573,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
+  BCrypt: 712b656110e5020d319c547e4d8f3053ded82b2a
+  bcrypt-react-native: 399775585257ae6c8717370a1119c7da0113e3bf
   boost: a7c83b31436843459a1961bfd74b96033dc77234
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
   DoubleConversion: 831926d9b8bf8166fd87886c4abab286c2422662

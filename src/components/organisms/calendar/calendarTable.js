@@ -304,8 +304,7 @@ class CalendarTable extends React.Component {
                                   name={googleEvent[item].title}
                                   time={this.dateToString(googleEvent[item].start, googleEvent[item].end)}
                                   iconFamily={googleEvent[item].icon.font} iconName={googleEvent[item].icon.name}
-                                  color={googleEvent[item].color} colorContrast={fontColorContrast(googleEvent[item].color)}
-                                  openModal={() => this.openEventModal(googleEvent[item].id)}/>
+                                  color={googleEvent[item].color} colorContrast={fontColorContrast(googleEvent[item].color)}/>
                 );
             }
         });

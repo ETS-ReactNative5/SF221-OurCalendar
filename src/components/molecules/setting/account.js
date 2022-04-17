@@ -26,6 +26,7 @@ class Account extends React.Component {
 
             importSuccess: false,
             exportSuccess: false,
+            googleSuccess: false
         };
     }
 
@@ -68,6 +69,23 @@ class Account extends React.Component {
         });
     }
 
+    async onClickGoogle() {
+        const appToken = await AsyncStorage.getItem('appSecretToken');
+
+        axios.get(API_URL + '/calendar/list', {
+            headers: {
+                Authorization: appToken,
+                Device: base64.encode(getUniqueId())
+            }
+        }).then(async (res) => {
+            if (res.data) {
+                await AsyncStorage.setItem('googleEvents', JSON.stringify(res.data));
+
+                this.setState({googleSuccess: true});
+            }
+        });
+    }
+
     render() {
         const { t } = this.props;
 
@@ -82,7 +100,7 @@ class Account extends React.Component {
                             </Flex>
                         </HStack>
                     </Pressable>
-                    <Modal isOpen={this.state.accountModal} onClose={() => this.setState({accountModal: false, importSuccess: false, exportSuccess: false})}>
+                    <Modal isOpen={this.state.accountModal} onClose={() => this.setState({accountModal: false, importSuccess: false, exportSuccess: false, googleSuccess: false})}>
                         <Modal.Content maxWidth="400px" >
                             <Modal.CloseButton />
                             <Modal.Header><Text>{t('setting.account')}</Text></Modal.Header>
@@ -104,6 +122,13 @@ class Account extends React.Component {
                                     <Button variant="outline" onPress={() => this.onClickExport()}>Export to Cloud</Button>
                                     {this.state.exportSuccess ? (
                                         <Text color="success.500">Successfully exported to cloud</Text>
+                                    ) : (<></>)}
+                                </Box>
+                                <Divider mb="4"/>
+                                <Box mb="4">
+                                    <Button onPress={() => this.onClickGoogle()}>Import from Google Calendar</Button>
+                                    {this.state.googleSuccess ? (
+                                        <Text color="success.500">Successfully imported Google Calendar</Text>
                                     ) : (<></>)}
                                 </Box>
                                 <Divider mb="4"/>

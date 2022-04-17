@@ -22,12 +22,11 @@ class Home extends React.Component {
     }
 
     componentDidMount() {
-        //this._unsubscribe = this.props.navigation.addListener('focus', () => this.retrieveData());
-        this.retrieveData();
+        this._unsubscribe = this.props.navigation.addListener('focus', () => this.retrieveData());
     }
 
     componentWillUnmount() {
-        //this._unsubscribe.remove();
+        this._unsubscribe.remove();
     }
 
     async openEventModal(eventId) {

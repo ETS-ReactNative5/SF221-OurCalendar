@@ -8,6 +8,7 @@ import EventBoxCalendar from "../../molecules/calender/eventBoxCalendar";
 import EventBoxHome from "../../molecules/home/eventBoxHome";
 import EditEvent from "../eventModal/editEvent";
 import eventStorage from "../../../utils/eventStorage";
+import EditTodo from "../eventModal/editTodo";
 
 const COLOR_OUT = '#d4d4d4';
 const BG_COLOR_DATE = 'primary.50';
@@ -28,8 +29,11 @@ class CalendarTable extends React.Component {
         this.state = {
             calendarModal: false,
             date: 0,
-            event:1,
-            addEvent: false,
+
+            event: {},
+            editEvent: false,
+            todo: {},
+            editTodo: false,
 
             month: this.props.month,
             year: this.props.year,
@@ -139,14 +143,6 @@ class CalendarTable extends React.Component {
     closeModal() {
         this.setState({calendarModal: false});
     }
-    showModal(eventId) {
-        this.setState({addEvent: true});
-        this.setState({event:eventId});
-    }
-
-    exitModal() {
-        this.setState({addEvent: false});
-    }
 
     getEvent(date, ev_attr) {
         if (date === null) return;
@@ -218,7 +214,7 @@ class CalendarTable extends React.Component {
                                   time={moment(todo[item].end).format('L HH:mm')}
                                   iconFamily={todo[item].icon.font} iconName={todo[item].icon.name}
                                   color={todo[item].color} colorContrast={fontColorContrast(todo[item].color)}
-                                  openModal={() => this.showModal(todo[item].id)}/>
+                                  openModal={() => this.openTodoModal(todo[item].id)}/>
                 );
             }
         });
@@ -254,6 +250,30 @@ class CalendarTable extends React.Component {
 
 
         return eventList;
+    }
+
+    async openEventModal(eventId) {
+        const event = await eventStorage.getItem('events');
+
+        await this.setState({event: event[eventId]});
+        this.setState({editEvent: true});
+    }
+
+    closeEventModal() {
+        this.setState({editEvent: false});
+        this.setState({event: {}});
+    }
+
+    async openTodoModal(todoId) {
+        const todo = await eventStorage.getItem('todos');
+
+        await this.setState({todo: todo[todoId]});
+        this.setState({editTodo: true});
+    }
+
+    closeTodoModal() {
+        this.setState({editTodo: false});
+        this.setState({todo: {}});
     }
 
     render() {
@@ -316,7 +336,8 @@ class CalendarTable extends React.Component {
                         </Modal.Body>
                     </Modal.Content>
                 </Modal>
-                <EditEvent isOpen={this.state.addEvent} event={this.state.event} onClose={() => this.exitModal()}/>
+                <EditEvent key={this.state.event.id} isOpen={this.state.editEvent} event={this.state.event} onClose={() => this.closeEventModal()}/>
+                <EditTodo key={this.state.todo.id} isOpen={this.state.editTodo} todo={this.state.todo} onClose={() => this.closeTodoModal()}/>
             </>
         );
     }

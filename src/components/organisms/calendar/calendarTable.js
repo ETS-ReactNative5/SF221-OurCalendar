@@ -40,6 +40,7 @@ class CalendarTable extends React.Component {
 
             events: {},
             todos: {},
+            googleEvents: {},
         }
     }
 
@@ -58,8 +59,9 @@ class CalendarTable extends React.Component {
     async loadEvents() {
         const event = await eventStorage.getItem('events');
         const todo = await eventStorage.getItem('todos');
+        const googleEvent = await eventStorage.getItem('googleEvents');
 
-        this.setState({events: event, todos: todo});
+        this.setState({events: event, todos: todo, googleEvents: googleEvent});
     }
 
     updateDate() {
@@ -153,6 +155,8 @@ class CalendarTable extends React.Component {
         const todo = this.state.todos;
         const todoArray = Object.keys(todo);
 
+        const googleEvent = this.state.googleEvents;
+        const googleEventArray = Object.keys(googleEvent);
 
         const startCurrentDate = new Date(this.state.year, this.state.month, date+1);
         const endCurrentDate = new Date(this.state.year, this.state.month, date);
@@ -191,6 +195,30 @@ class CalendarTable extends React.Component {
             }
         });
 
+        googleEventArray.map((item, i) => {
+            let googleRepeatCheck;
+
+            const start = new Date(googleEvent[item].start);
+            const end = new Date(googleEvent[item].end);
+            if (startCurrentDate >= start && endCurrentDate <= end) {
+                if (googleEvent[item].repeat === "None" || googleEvent[item].repeat === "Daily") {
+                    googleRepeatCheck = true;
+                } else if (googleEvent[item].repeat === "Weekly" && endCurrentDate.getDay() === new Date(googleEvent[item].start).getDay()) {
+                    googleRepeatCheck = true;
+                } else if (googleEvent[item].repeat === "Monthly" && endCurrentDate.getDate() === new Date(googleEvent[item].start).getDate() && endCurrentDate.getMonth() >= new Date(googleEvent[item].start).getMonth()) {
+                    googleRepeatCheck = true;
+                } else if (googleEvent[item].repeat === "Annually" && endCurrentDate.getDate() === new Date(googleEvent[item].start).getDate() && endCurrentDate.getMonth() === new Date(googleEvent[item].start).getMonth() && endCurrentDate.getFullYear() >= new Date(googleEvent[item].start).getFullYear()) {
+                    googleRepeatCheck = true;
+                }
+            }
+
+            if (googleRepeatCheck && eventContent.length < 5) {
+                eventContent.push(
+                    <EventBoxCalendar key={i} event_attr={ev_attr} eventColor={googleEvent[item].color} colorContrast={fontColorContrast(googleEvent[item].color)} text={googleEvent[item].title}/>
+                );
+            }
+        });
+
         return eventContent;
     }
 
@@ -200,6 +228,9 @@ class CalendarTable extends React.Component {
 
         const todo = this.state.todos;
         const todoArray = Object.keys(todo);
+
+        const googleEvent = this.state.googleEvents;
+        const googleEventArray = Object.keys(googleEvent);
 
         const startCurrentDate = new Date(this.state.year, this.state.month, date+1);
         const endCurrentDate = new Date(this.state.year, this.state.month, date);
@@ -248,6 +279,36 @@ class CalendarTable extends React.Component {
             }
         });
 
+        googleEventArray.map((item, i) => {
+            let googleRepeatCheck;
+
+            const googleStart = new Date(googleEvent[item].start);
+            const googleEnd = new Date(googleEvent[item].end);
+            if (startCurrentDate >= googleStart && endCurrentDate <= googleEnd) {
+                if (googleEvent[item].repeat === "None") {
+                    googleRepeatCheck = true;
+                }else if (googleEvent[item].repeat === "Daily") {
+                    googleRepeatCheck = true;
+                } else if (googleEvent[item].repeat === "Weekly" && new Date().getDay() === new Date(googleEvent[item].start).getDay()) {
+                    googleRepeatCheck = true;
+                } else if (googleEvent[item].repeat === "Monthly" && new Date().getDate() === new Date(googleEvent[item].start).getDate() && new Date().getMonth() >= new Date(googleEvent[item].start).getMonth()) {
+                    googleRepeatCheck = true;
+                } else if (googleEvent[item].repeat === "Annually" && new Date().getDate() === new Date(googleEvent[item].start).getDate() && new Date().getMonth() === new Date(googleEvent[item].start).getMonth() && new Date().getFullYear() >= new Date(googleEvent[item].start).getFullYear()) {
+                    googleRepeatCheck = true;
+                }
+            }
+
+            if (googleRepeatCheck) {
+                eventList.push(
+                    <EventBoxHome key={i}
+                                  name={googleEvent[item].title}
+                                  time={this.dateToString(googleEvent[item].start, googleEvent[item].end)}
+                                  iconFamily={googleEvent[item].icon.font} iconName={googleEvent[item].icon.name}
+                                  color={googleEvent[item].color} colorContrast={fontColorContrast(googleEvent[item].color)}
+                                  openModal={() => this.openEventModal(googleEvent[item].id)}/>
+                );
+            }
+        });
 
         return eventList;
     }

@@ -18,6 +18,7 @@ class Home extends React.Component {
             todo: {},
             eventContent: [],
             todoContent: [],
+            googleEventContent: [],
         }
     }
 
@@ -111,7 +112,42 @@ class Home extends React.Component {
             }
         });
 
-        this.setState({eventContent: eventContent, todoContent: todoContent});
+        const googleEvent = await eventStorage.getItem('googleEvents');
+        const googleEventArray = Object.keys(googleEvent);
+
+        let googleEventContent = [];
+
+
+        googleEventArray.map((item, i) => {
+            let googleRepeatCheck;
+
+            if (new Date().getDate() >= new Date(googleEvent[item].start).getDate() && new Date() <= new Date(googleEvent[item].end)) {
+                if (googleEvent[item].repeat === "None") {
+                    googleRepeatCheck = true;
+                }else if (googleEvent[item].repeat === "Daily") {
+                    googleRepeatCheck = true;
+                } else if (googleEvent[item].repeat === "Weekly" && new Date().getDay() === new Date(googleEvent[item].start).getDay()) {
+                    googleRepeatCheck = true;
+                } else if (googleEvent[item].repeat === "Monthly" && new Date().getDate() === new Date(googleEvent[item].start).getDate() && new Date().getMonth() >= new Date(googleEvent[item].start).getMonth()) {
+                    googleRepeatCheck = true;
+                } else if (googleEvent[item].repeat === "Annually" && new Date().getDate() === new Date(googleEvent[item].start).getDate() && new Date().getMonth() === new Date(googleEvent[item].start).getMonth() && new Date().getFullYear() >= new Date(googleEvent[item].start).getFullYear()) {
+                    googleRepeatCheck = true;
+                }
+            }
+
+            if (googleRepeatCheck) {
+                googleEventContent.push(
+                    <EventBoxHome key={i}
+                                  name={googleEvent[item].title}
+                                  time={this.dateToString(googleEvent[item].start, googleEvent[item].end)}
+                                  iconFamily={googleEvent[item].icon.font} iconName={googleEvent[item].icon.name}
+                                  color={googleEvent[item].color} colorContrast={fontColorContrast(googleEvent[item].color)}
+                                  openModal={() => this.openEventModal(googleEvent[item].id)}/>
+                );
+            }
+        });
+
+        this.setState({eventContent: eventContent, todoContent: todoContent, googleEventContent: googleEventContent});
     };
 
     render() {
@@ -135,6 +171,16 @@ class Home extends React.Component {
                                     <Text fontSize="xl" fontWeight="700" width="80%" alignSelf="center" mb="1">Events</Text>
                                     <Stack space="3">
                                         {this.state.eventContent}
+                                    </Stack>
+                                </>
+                            ) : (<></>)
+                        }
+                        {
+                            this.state.googleEventContent.length !== 0 ? (
+                                <>
+                                    <Text fontSize="xl" fontWeight="700" width="80%" alignSelf="center" mb="1">Google Events</Text>
+                                    <Stack space="3">
+                                        {this.state.googleEventContent}
                                     </Stack>
                                 </>
                             ) : (<></>)

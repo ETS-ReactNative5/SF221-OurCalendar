@@ -289,11 +289,11 @@ class CalendarTable extends React.Component {
                     googleRepeatCheck = true;
                 }else if (googleEvent[item].repeat === "Daily") {
                     googleRepeatCheck = true;
-                } else if (googleEvent[item].repeat === "Weekly" && new Date().getDay() === new Date(googleEvent[item].start).getDay()) {
+                } else if (googleEvent[item].repeat === "Weekly" && endCurrentDate.getDay() === new Date(googleEvent[item].start).getDay()) {
                     googleRepeatCheck = true;
-                } else if (googleEvent[item].repeat === "Monthly" && new Date().getDate() === new Date(googleEvent[item].start).getDate() && new Date().getMonth() >= new Date(googleEvent[item].start).getMonth()) {
+                } else if (googleEvent[item].repeat === "Monthly" && endCurrentDate.getDate() === new Date(googleEvent[item].start).getDate() && endCurrentDate.getMonth() >= new Date(googleEvent[item].start).getMonth()) {
                     googleRepeatCheck = true;
-                } else if (googleEvent[item].repeat === "Annually" && new Date().getDate() === new Date(googleEvent[item].start).getDate() && new Date().getMonth() === new Date(googleEvent[item].start).getMonth() && new Date().getFullYear() >= new Date(googleEvent[item].start).getFullYear()) {
+                } else if (googleEvent[item].repeat === "Annually" && endCurrentDate.getDate() === new Date(googleEvent[item].start).getDate() && endCurrentDate.getMonth() === new Date(googleEvent[item].start).getMonth() && endCurrentDate.getFullYear() >= new Date(googleEvent[item].start).getFullYear()) {
                     googleRepeatCheck = true;
                 }
             }

@@ -15,4 +15,11 @@ export default async function (props) {
         await props.setGoogleAuth(true);
         await props.setUserInfo(JSON.parse(userInfo));
     }
+
+    // Load team info from storage.
+    const teamInfo = await AsyncStorage.getItem('teamInfo');
+    if (teamInfo !== null) {
+        await props.setTeam(true);
+        await props.setTeamInfo(JSON.parse(teamInfo));
+    }
 };

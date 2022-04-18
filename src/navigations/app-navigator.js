@@ -8,6 +8,7 @@ import loadState from '../utils/loadState';
 import Fonts from '../utils/fonts';
 import {set} from '../redux/reducers/fontSlice';
 import {setGoogleAuth, setUserInfo, setPasscode} from '../redux/reducers/authSlice';
+import {setTeam, setTeamInfo} from '../redux/reducers/teamSlice';
 
 import Home from '../scenes/home';
 import Calendar from '../scenes/calendar';
@@ -19,18 +20,15 @@ import Auth from '../scenes/auth';
 
 const mapStateToProps = state => ({
     font: state.font.value,
-    auth: {
-        googleAuth: state.auth.googleAuth,
-        userInfo: state.auth.userInfo,
-        passcode: state.auth.passcode
-    }
 });
 
 const mapDispatchToProps = () => ({
     set,
     setGoogleAuth,
     setUserInfo,
-    setPasscode
+    setPasscode,
+    setTeam,
+    setTeamInfo
 });
 
 class AppNavigator extends React.Component {

@@ -35,6 +35,7 @@ class teamModalButton extends React.Component {
             teamSetting: false,
 
             showTeamId: false,
+            syncSuccess: false,
             copiedText: '',
 
             teamId: '',
@@ -147,6 +148,29 @@ class teamModalButton extends React.Component {
                 this.props.setTeamInfo(res.data);
             }
         });
+
+        axios.get(API_URL + '/team/event/list?team_id=' + this.props.team.teamInfo.teamId + '&type=event', {
+            headers: {
+                Authorization: appToken,
+                Device: base64.encode(getUniqueId())
+            }
+        }).then(async (res) => {
+            if (res.data) {
+                await AsyncStorage.setItem('teamEvents', JSON.stringify(res.data));
+            }
+        });
+
+        axios.get(API_URL + '/team/event/list?team_id=' + this.props.team.teamInfo.teamId + '&type=todo', {
+            headers: {
+                Authorization: appToken,
+                Device: base64.encode(getUniqueId())
+            }
+        }).then(async (res) => {
+            if (res.data) {
+                await AsyncStorage.setItem('teamTodos', JSON.stringify(res.data));
+            }
+        });
+        this.setState({syncSuccess: true});
     }
 
     render() {
@@ -243,6 +267,9 @@ class teamModalButton extends React.Component {
                                         }}
                                     />
                                     <Button colorScheme="success" onPress={() => this.clickSyncNow()}><Text color="white">Sync Now</Text></Button>
+                                    {this.state.syncSuccess ? (
+                                        <Text color="success.500">Successfully to synced</Text>
+                                    ) : (<></>)}
                                 </VStack>
                             </Modal.Body>
                             <Modal.Footer>

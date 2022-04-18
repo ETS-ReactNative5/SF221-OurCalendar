@@ -50,7 +50,7 @@ class IconSelection extends React.Component {
                     <Modal.Body>
                         <VStack space={4}>
                             <FormControl>
-                                <Input onSubmitEditing={(e => this.search(e.nativeEvent.text))}/>
+                                <Input onSubmitEditing={(e => this.search(e.nativeEvent.text))} placeholder="Search icon..."/>
                             </FormControl>
                             {
                                 this.state.search.map((row, i) => (

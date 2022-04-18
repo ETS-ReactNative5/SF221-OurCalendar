@@ -3,19 +3,23 @@ import { withTranslation } from 'react-i18next';
 import {Box, Center, HStack, Icon, IconButton, Text} from 'native-base';
 import moment from "moment";
 import Icons from "../../../utils/icons";
-import {setMonth, setYear} from "../../../redux/reducers/calendarSlice";
+import {setMonth, setYear, setTeamMonth, setTeamYear} from "../../../redux/reducers/calendarSlice";
 import {connect} from "react-redux";
 
 const mapStateToProps = state => ({
     calendar: {
         month: state.calendar.month,
         year: state.calendar.year,
+        teamMonth: state.calendar.teamMonth,
+        teamYear: state.calendar.teamYear,
     }
 });
 
 const mapDispatchToProps = () => ({
     setMonth,
-    setYear
+    setYear,
+    setTeamMonth,
+    setTeamYear
 });
 
 class WeekDay extends React.Component {
@@ -42,12 +46,46 @@ class WeekDay extends React.Component {
     }
 
     componentDidUpdate() {
-        if (this.props.calendar.month > 11) {
-            this.props.setMonth(0);
-            this.props.setYear(this.props.calendar.year + 1);
-        } else if (this.props.calendar.month < 0) {
-            this.props.setMonth(11);
-            this.props.setYear(this.props.calendar.year - 1);
+        if (this.props.route === 'CalendarTeam') {
+            if (this.props.calendar.teamMonth > 11) {
+                this.props.setTeamMonth(0);
+                this.props.setTeamYear(this.props.calendar.teamYear + 1);
+            } else if (this.props.calendar.teamMonth < 0) {
+                this.props.setTeamMonth(11);
+                this.props.setTeamYear(this.props.calendar.teamYear - 1);
+            }
+        } else if (this.props.route === 'Calendar') {
+            if (this.props.calendar.month > 11) {
+                this.props.setMonth(0);
+                this.props.setYear(this.props.calendar.year + 1);
+            } else if (this.props.calendar.month < 0) {
+                this.props.setMonth(11);
+                this.props.setYear(this.props.calendar.year - 1);
+            }
+        }
+    }
+
+    decMonth() {
+        if (this.props.route === 'CalendarTeam') {
+            this.props.setTeamMonth(this.props.calendar.teamMonth - 1);
+        } else if (this.props.route === 'Calendar') {
+            this.props.setMonth(this.props.calendar.month - 1);
+        }
+    }
+
+    incMonth() {
+        if (this.props.route === 'CalendarTeam') {
+            this.props.setTeamMonth(this.props.calendar.teamMonth + 1);
+        } else if (this.props.route === 'Calendar') {
+            this.props.setMonth(this.props.calendar.month + 1);
+        }
+    }
+
+    dateDisplay() {
+        if (this.props.route === 'CalendarTeam') {
+            return moment.months(this.props.calendar.teamMonth) + " " + this.props.calendar.teamYear;
+        } else if (this.props.route === 'Calendar') {
+            return moment.months(this.props.calendar.month) + " " + this.props.calendar.year;
         }
     }
 
@@ -60,9 +98,9 @@ class WeekDay extends React.Component {
                 {
                     this.props.changeable ? (
                         <HStack>
-                            <IconButton width="15%" icon={<Icon as={Icons.AntDesign} name="left"/>} onPress={() => this.props.setMonth(this.props.calendar.month - 1)}/>
-                            <Text width="70%" pt="1.5" textAlign="center" fontWeight={700} fontSize={"2xl"}>{moment.months(this.props.calendar.month)} {this.props.calendar.year}</Text>
-                            <IconButton width="15%" icon={<Icon as={Icons.AntDesign} name="right"/>} onPress={() => this.props.setMonth(this.props.calendar.month + 1)}/>
+                            <IconButton width="15%" icon={<Icon as={Icons.AntDesign} name="left"/>} onPress={() => this.decMonth()}/>
+                            <Text width="70%" pt="1.5" textAlign="center" fontWeight={700} fontSize={"2xl"}>{this.dateDisplay()}</Text>
+                            <IconButton width="15%" icon={<Icon as={Icons.AntDesign} name="right"/>} onPress={() => this.incMonth()}/>
                         </HStack>
                     ) : (
                         <Text textAlign="center" fontWeight={700} fontSize={"2xl"}>{moment.months(this.state.month)} {this.state.year}</Text>

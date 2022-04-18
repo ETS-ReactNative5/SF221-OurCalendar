@@ -18,7 +18,7 @@ class Calendar extends React.Component {
 
     render() {
         return (
-            <AppTemplate {...this.props} monthChangeable={true}>
+            <AppTemplate {...this.props} monthChangeable={true} route="Calendar">
                 <CalendarTable key={this.props.calendar.month} month={this.props.calendar.month} year={this.props.calendar.year}/>
             </AppTemplate>
         );

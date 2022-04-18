@@ -10,7 +10,7 @@ class CalendarTeam extends React.Component {
 
     render() {
         return (
-            <AppTemplate {...this.props} monthChangeable={true}>
+            <AppTemplate {...this.props} monthChangeable={true} route="CalendarTeam">
                 <Button onPress={async () => console.log(await eventStorage.getItem('teamEvents'))}>event</Button>
                 <Button onPress={async () => console.log(await eventStorage.getItem('teamTodos'))}>todo</Button>
             </AppTemplate>

@@ -27,7 +27,7 @@ class AppTemplate extends React.Component {
                         <Header navigation={navigation}/>
                     </HStack>
                     <HStack bg="#f4be82" w="100%" h="90">
-                        <WeekDay changeable={this.props.monthChangeable}/>
+                        <WeekDay changeable={this.props.monthChangeable} route={this.props.route}/>
                     </HStack>
                     <HStack bg="#eedec4" w="100%" minH={this.state.height - 210}>
                         {this.props.children}

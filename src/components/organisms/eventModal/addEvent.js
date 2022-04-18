@@ -1,12 +1,24 @@
 import React from 'react';
 import { withTranslation } from 'react-i18next';
+import {connect} from "react-redux";
+import axios from 'axios';
 import {Button, CheckIcon, FormControl, HStack, Input, Modal, Select, Text} from 'native-base';
+import {API_URL} from '@env';
 import moment from 'moment';
 import DatePicker from 'react-native-date-picker';
 import randomId from '../../../utils/randomId';
 import eventStorage from '../../../utils/eventStorage';
 import ColorPicker from 'react-native-wheel-color-picker'
 import IconSelection from "./selectIcon";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import base64 from "react-native-base64";
+import {getUniqueId} from "react-native-device-info";
+
+const mapStateToProps = state => ({
+    team: {
+        teamInfo: state.team.teamInfo
+    }
+});
 
 class AddEvent extends React.Component {
     constructor(props) {
@@ -34,7 +46,16 @@ class AddEvent extends React.Component {
         }
     }
 
-    async onSubmit() {
+    onSubmit() {
+        const navState = this.props.navigation.getState();
+        if (navState.index === 2) {
+            this.onSubmitTeam();
+        } else {
+            this.onSubmitDevice();
+        }
+    }
+
+    async onSubmitDevice() {
         const id = randomId(4);
         const eventJson = {
             id: id,
@@ -54,6 +75,42 @@ class AddEvent extends React.Component {
         await eventStorage.insertJson(id, eventJson, 'events');
 
         this.props.onClose();
+    }
+
+    async onSubmitTeam() {
+        const eventJson = {
+            created: new Date(),
+            updated: new Date(),
+            title: this.state.form.title,
+            start: this.state.form.start,
+            end: this.state.form.end,
+            repeat: this.state.form.repeat,
+            color: this.state.form.color,
+            icon: {
+                font: this.state.form.iconFont,
+                name: this.state.form.iconName
+            }
+        };
+
+        const appToken = await AsyncStorage.getItem('appSecretToken');
+
+        axios.post(API_URL + '/team/event/add', {
+            team_id: this.props.team.teamInfo.teamId,
+            event: JSON.stringify(eventJson),
+            type: 'event'
+        }, {
+            headers: {
+                Authorization: appToken,
+                Device: base64.encode(getUniqueId())
+            }
+        }).then(async (res) => {
+            if (res.data.id) {
+                const id = res.data.id;
+                await eventStorage.insertJson(id, {id: id, ...eventJson}, 'teamEvents');
+
+                this.props.onClose();
+            }
+        });
     }
 
     iconClick(font, name) {
@@ -224,4 +281,4 @@ const styles = {
     }
 };
 
-export default withTranslation()(AddEvent);
+export default connect(mapStateToProps)(withTranslation()(AddEvent));

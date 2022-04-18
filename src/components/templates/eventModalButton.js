@@ -43,7 +43,7 @@ class EventModalButton extends React.Component {
         return (
             <>
                 <IconButton icon={<Icon as={FontAwesome5} name="calendar-plus" size="md" color="black"/>} style={{paddingEnd:0}} onPress={() => this.setState({eventModal: true})} />
-                <EventModal isOpen={this.state.eventModal} onClose={() => this.closeModal()} eventButton={() => this.openAddEvent()} todoButton={() => this.openAddToDo()}/>
+                <EventModal isOpen={this.state.eventModal} onClose={() => this.closeModal()} eventButton={() => this.openAddEvent()} todoButton={() => this.openAddToDo()} navigation={navigation}/>
                 <AddEvent isOpen={this.state.addEvent} onClose={() => this.closeEvent()} navigation={navigation}/>
                 <AddTodo isOpen={this.state.addToDo} onClose={() => this.closeTodo()} navigation={navigation}/>
             </>

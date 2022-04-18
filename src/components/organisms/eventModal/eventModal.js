@@ -8,12 +8,13 @@ class EventModal extends React.Component {
     }
 
     render() {
-        const { t } = this.props;
+        const { t, navigation } = this.props;
+
         return (
             <Modal isOpen={this.props.isOpen} onClose={this.props.onClose}>
                 <Modal.Content style={styles.addModal} maxWidth="400px">
                     <Modal.CloseButton />
-                    <Modal.Header><Text>{t('event_modal.add')}</Text></Modal.Header>
+                    <Modal.Header><Text>{t('event_modal.add')} {navigation.getState().index === 2 ? '(Team)' : null}</Text></Modal.Header>
                     <Modal.Body>
                         <HStack justifyContent={"center"} space={5}>
                             <Button style={styles.addButton} onPress={this.props.eventButton}>

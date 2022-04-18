@@ -1,7 +1,7 @@
 import React from 'react';
 import {HStack, Icon, IconButton} from 'native-base';
 
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import Icons from '../../../utils/icons';
 import EventModalButton from '../../templates/eventModalButton';
 import TeamModalButton from './teamModalButton';
 
@@ -15,7 +15,7 @@ class HeaderApp extends React.Component {
 
         return (
             <HStack justifyContent="space-between" px="2" alignItems="center" w="100%">
-                <IconButton icon={<Icon as={FontAwesome5} name="user-alt" size="md" color="black" />} />
+                <IconButton icon={<Icon as={Icons.FontAwesome5} name="user-alt" size="md" color="black" onPress={() => navigation.navigate('Calendar')} />} />
                 <EventModalButton navigation={navigation}/>
                 <TeamModalButton/>
             </HStack>

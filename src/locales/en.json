@@ -1,0 +1,135 @@
+{
+  "passcode": {
+    "enter": "Enter your passcode",
+    "forget": "Forget Passcode?"
+  },
+  "notification" :{
+    "coming": "Coming soon..."
+  },
+  "event_modal" : {
+    "add": "Add Event/To do",
+    "event": "Event",
+    "to_do": "To-do"
+  },
+  "event_todo":{
+    "title": "Title",
+    "color": "Color",
+    "icon": "Icon",
+    "create": "Create",
+    "save": "Save",
+    "delete": "Delete"
+  },
+  "add_todo": {
+    "add": "Add To-do",
+    "deadline": "Deadline",
+    "edit_todo": "Edit Todo"
+  },
+  "add_event": {
+    "edit": "Edit Event",
+    "add": "Add Event",
+    "start": "Start",
+    "end": "End",
+    "repeat": "Repeat",
+    "choose": "Choose repeat",
+    "choose_repeat" : {
+      "none": "None",
+      "daily": "Daily",
+      "weekly": "Weekly",
+      "monthly": "Monthly",
+      "annually": "Annually"
+    }
+  },
+  "team_modal": {
+    "have_team": "Already have team ID?",
+    "enter_team": "Enter team ID...",
+    "new_team": "Create new team",
+    "team_name": "Team Name",
+    "enter_team_name": "Enter your team name...",
+    "created_team": "Your team has been created",
+    "close": "Close",
+    "enter": "Enter",
+    "create": "Create",
+    "team_setting": "Team Settings",
+    "team_ID": "Team ID Code",
+    "team_logo": "Team Logo",
+    "image": "Upload Image",
+    "member": "Team Member",
+    "sync": "Sync Now",
+    "success_sync": "Successfully to synced",
+    "leave": "Leave Team"
+  },
+  "icon" : {
+    "select": "Select Icon",
+    "search": "Search icon..."
+  },
+  "side_nav": {
+    "home": "Home",
+    "my_calendar": "My Calendar",
+    "calendar_team": "Calendar Team",
+    "settings": "Settings",
+    "contact_us": "Contact Us"
+  },
+  "day": {
+    "sun": "Sun",
+    "mon": "Mon",
+    "tue": "Tue",
+    "wed": "Wed",
+    "thu": "Thu",
+    "fri": "Fri",
+    "sat": "Sat"
+  },
+  "month": {
+    "January": "January",
+    "February": "February",
+    "March": "March",
+    "April": "April",
+    "May": "May",
+    "June": "June",
+    "July": "July",
+    "August": "August",
+    "September": "September",
+    "October": "October",
+    "November": "November",
+    "December": "December"
+  },
+  "setting": {
+    "language": "Language",
+    "font": "Font",
+    "notifications": "Notifications",
+    "account": "Account",
+    "sign_in_with_google": "Sign in with Google",
+    "passcode": "Passcode",
+    "old_passcode": "Old passcode",
+    "new_passcode": "New passcode",
+    "confirm_new_passcode": "Confirm new passcode",
+    "turn_off": "Turn off",
+    "save": "Save"
+  },
+  "account": {
+    "import_cloud": {
+      "import": "Import from Cloud",
+      "success": "Successfully imported from cloud"
+    },
+    "export_cloud": {
+      "export": "Export to Cloud",
+      "success": "Successfully exported to cloud"
+    },
+    "google_calendar": {
+      "import": "Import from Google Calendar",
+      "success": "Successfully imported Google Calendar"
+    }
+  },
+  "contact": {
+    "our_story": "Our Story",
+    "story": {
+      "intro": "Many months ago after the university has the policy to provide teaching and learning online, It gave all 10 of us a chance to get to know each other. Therefore there has been a group together to develop this application.",
+      "last": "We spend a lot of time thinking about and developing this application. We believe this application will be your good assistant and will reach the hearts of users"
+    },
+    "who": "Who we are",
+    "we_are": "We are undergraduate sophomore faculty of engineering at Thammasat University.",
+    "contact": "Contact Us",
+    "sahai": ": SaHai",
+    "email": ": we.are.sahai@gmail.com"
+  },
+  "logout": "Logout"
+}

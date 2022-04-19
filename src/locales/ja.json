@@ -1,0 +1,135 @@
+{
+  "passcode": {
+    "enter": "パスコード入力",
+    "forget": "パスコードを忘れた場合"
+  },
+  "notification" :{
+    "coming": "Coming soon..."
+  },
+  "event_modal" : {
+    "add": "イベント/To-doを追加",
+    "event": "イベント",
+    "to_do": "To-do"
+  },
+  "event_todo":{
+    "title": "タイトル",
+    "color": "色",
+    "icon": "アイコン",
+    "create": "作成",
+    "save": "保存",
+    "delete": "破棄"
+  },
+  "add_todo": {
+    "add": "To-doを追加",
+    "deadline": "デッドライン",
+    "edit_todo": "To-doを編集"
+  },
+  "add_event": {
+    "edit": "イベントを編集",
+    "add": "イベントを追加",
+    "start": "開始",
+    "end": "終了",
+    "repeat": "繰り返す",
+    "choose": "繰り返しを選択",
+    "choose_repeat" : {
+      "none": "繰り返さない",
+      "daily": "毎日",
+      "weekly": "毎週",
+      "monthly": "毎月",
+      "annually": "毎年"
+    }
+  },
+  "team_modal": {
+    "have_team": "すでにチームIDをお持ちですか",
+    "enter_team": "チームIDを入力...",
+    "new_team": "新しいチームを作成",
+    "team_name": "チームの名前",
+    "enter_team_name": "チーム名を入力...",
+    "created_team": "あなたのチームが作成されました",
+    "close": "クローズ",
+    "enter": "入力",
+    "create": "作成",
+    "team_setting": "チーム設定",
+    "team_ID": "チームIDコード",
+    "team_logo": "チームロゴ",
+    "image": "画像をアップロード",
+    "member": "チームメンバー",
+    "sync": "今すぐ同期",
+    "success_sync": "正常に同期されました",
+    "leave": "チームを離れる"
+  },
+  "icon" : {
+    "select": "アイコンを選択",
+    "search": "アイコンを検索..."
+  },
+  "side_nav": {
+    "home": "ホーム",
+    "my_calendar": "私のカレンダー",
+    "calendar_team": "่カレンダーチーム",
+    "settings": "設定",
+    "contact_us": "Contact Us"
+  },
+  "day": {
+    "sun": "日",
+    "mon": "月",
+    "tue": "火",
+    "wed": "水",
+    "thu": "木",
+    "fri": "金",
+    "sat": "土"
+  },
+  "month": {
+    "January": "1月",
+    "February": "2月",
+    "March": "3月",
+    "April": "4月",
+    "May": "5月",
+    "June": "6月",
+    "July": "7月",
+    "August": "8月",
+    "September": "9月",
+    "October": "10月",
+    "November": "11月",
+    "December": "12月"
+  },
+  "setting": {
+    "language": "言語",
+    "font": "フォント",
+    "notifications": "お知らせ",
+    "account": "アカウント",
+    "sign_in_with_google": "Google ログイン",
+    "passcode": "パスコード",
+    "old_passcode": "古い パスコード",
+    "new_passcode": "新しい パスコード",
+    "confirm_new_passcode": "新しい パスコードを確認",
+    "turn_off": "無効にする",
+    "save": "保存"
+  },
+  "account": {
+    "import_cloud": {
+      "import": "クラウドからインポート",
+      "success": "正常にクラウドからインポートされました"
+    },
+    "export_cloud": {
+      "export": "クラウドにエクスポート",
+      "success": "正常にクラウドにエクスポートされました"
+    },
+    "google_calendar": {
+      "import": "Google Calendarからインポート",
+      "success": "正常にGoogle Calendarからインポートされました"
+    }
+  },
+  "contact": {
+    "our_story": "Our Story",
+    "story": {
+      "intro": "Many months ago after the university has the policy to provide teaching and learning online, It gave all 10 of us a chance to get to know each other. Therefore there has been a group together to develop this application.",
+      "last": "We spend a lot of time thinking about and developing this application. We believe this application will be your good assistant and will reach the hearts of users"
+    },
+    "who": "Who we are",
+    "we_are": "We are undergraduate sophomore faculty of engineering at Thammasat University.",
+    "contact": "Contact Us",
+    "sahai": ": SaHai",
+    "email": ": we.are.sahai@gmail.com"
+  },
+  "logout": "ログアウト"
+}

@@ -80,6 +80,7 @@ class teamModalButton extends React.Component {
                 });
                 await AsyncStorage.setItem('teamInfo', JSON.stringify(teamInfo.data))
                 this.props.setTeamInfo(teamInfo.data);
+                await this.fetchEvent(teamInfo.data.teamId);
 
                 this.props.setTeam(true);
                 this.setState({teamModal: false});
@@ -127,10 +128,17 @@ class teamModalButton extends React.Component {
         }).then(async (res) => {
             if (res.data.status === 'success') {
                 await AsyncStorage.removeItem('teamInfo');
+                await AsyncStorage.removeItem('teamEvents');
+                await AsyncStorage.removeItem('teamTodos');
+
                 this.props.setTeamInfo({});
 
                 this.props.setTeam(false);
                 this.setState({teamSetting: false});
+
+                if (this.props.navigation.getState().index === 2) {
+                    this.props.navigation.navigate('Home');
+                }
             }
         });
     }
@@ -149,7 +157,14 @@ class teamModalButton extends React.Component {
             }
         });
 
-        axios.get(API_URL + '/team/event/list?team_id=' + this.props.team.teamInfo.teamId + '&type=event', {
+        await this.fetchEvent(this.props.team.teamInfo.teamId);
+        this.setState({syncSuccess: true});
+    }
+
+    async fetchEvent(teamId) {
+        const appToken = await AsyncStorage.getItem('appSecretToken');
+
+        axios.get(API_URL + '/team/event/list?team_id=' + teamId + '&type=event', {
             headers: {
                 Authorization: appToken,
                 Device: base64.encode(getUniqueId())
@@ -160,7 +175,7 @@ class teamModalButton extends React.Component {
             }
         });
 
-        axios.get(API_URL + '/team/event/list?team_id=' + this.props.team.teamInfo.teamId + '&type=todo', {
+        axios.get(API_URL + '/team/event/list?team_id=' + teamId + '&type=todo', {
             headers: {
                 Authorization: appToken,
                 Device: base64.encode(getUniqueId())
@@ -170,7 +185,6 @@ class teamModalButton extends React.Component {
                 await AsyncStorage.setItem('teamTodos', JSON.stringify(res.data));
             }
         });
-        this.setState({syncSuccess: true});
     }
 
     render() {

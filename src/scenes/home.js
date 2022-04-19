@@ -19,6 +19,8 @@ class Home extends React.Component {
             eventContent: [],
             todoContent: [],
             googleEventContent: [],
+            teamEventContent: [],
+            teamTodoContent: [],
         }
     }
 
@@ -65,6 +67,18 @@ class Home extends React.Component {
         const event = await eventStorage.getItem('events');
         const eventArray = Object.keys(event);
 
+        const todo = await eventStorage.getItem('todos');
+        const todoArray = Object.keys(todo);
+
+        const teamEvent = await eventStorage.getItem('teamEvents');
+        const teamEventArray = Object.keys(teamEvent);
+
+        const teamTodo = await eventStorage.getItem('teamTodos');
+        const teamTodoArray = Object.keys(teamTodo);
+
+        const googleEvent = await eventStorage.getItem('googleEvents');
+        const googleEventArray = Object.keys(googleEvent);
+
         let eventContent = [];
         eventArray.map((item, i) => {
             let repeatCheck;
@@ -95,9 +109,6 @@ class Home extends React.Component {
             }
         });
 
-        const todo = await eventStorage.getItem('todos');
-        const todoArray = Object.keys(todo);
-
         let todoContent = [];
         todoArray.map((item, i) => {
             if (new Date(todo[item].end) > new Date()) {
@@ -112,12 +123,51 @@ class Home extends React.Component {
             }
         });
 
-        const googleEvent = await eventStorage.getItem('googleEvents');
-        const googleEventArray = Object.keys(googleEvent);
+        let teamEventContent = [];
+        teamEventArray.map((item, i) => {
+            let teamRepeatCheck;
+
+            if (new Date(teamEvent[item].end) > new Date()) {
+                if (teamEvent[item].repeat === "None") {
+                    teamRepeatCheck = true;
+                }else if (teamEvent[item].repeat === "Daily") {
+                    teamRepeatCheck = true;
+                } else if (teamEvent[item].repeat === "Weekly" && new Date().getDay() === new Date(teamEvent[item].start).getDay()) {
+                    teamRepeatCheck = true;
+                } else if (teamEvent[item].repeat === "Monthly" && new Date().getDate() === new Date(teamEvent[item].start).getDate() && new Date().getMonth() >= new Date(teamEvent[item].start).getMonth()) {
+                    teamRepeatCheck = true;
+                } else if (teamEvent[item].repeat === "Annually" && new Date().getDate() === new Date(teamEvent[item].start).getDate() && new Date().getMonth() === new Date(teamEvent[item].start).getMonth() && new Date().getFullYear() >= new Date(teamEvent[item].start).getFullYear()) {
+                    teamRepeatCheck = true;
+                }
+            }
+
+            if (teamRepeatCheck) {
+                teamEventContent.push(
+                    <EventBoxHome key={i}
+                                  name={teamEvent[item].title}
+                                  time={this.dateToString(teamEvent[item].start, teamEvent[item].end)}
+                                  iconFamily={teamEvent[item].icon.font} iconName={teamEvent[item].icon.name}
+                                  color={teamEvent[item].color} colorContrast={fontColorContrast(teamEvent[item].color)}
+                                  openModal={() => this.openEventModal(teamEvent[item].id)}/>
+                );
+            }
+        });
+
+        let teamTodoContent = [];
+        teamTodoArray.map((item, i) => {
+            if (new Date(teamTodo[item].end) > new Date()) {
+                teamTodoContent.push(
+                    <EventBoxHome key={i}
+                                  name={teamTodo[item].title}
+                                  time={moment(teamTodo[item].end).format('L HH:mm')}
+                                  iconFamily={teamTodo[item].icon.font} iconName={teamTodo[item].icon.name}
+                                  color={teamTodo[item].color} colorContrast={fontColorContrast(teamTodo[item].color)}
+                                  openModal={() => this.openTodoModal(teamTodo[item].id)}/>
+                );
+            }
+        });
 
         let googleEventContent = [];
-
-
         googleEventArray.map((item, i) => {
             let googleRepeatCheck;
 
@@ -146,7 +196,7 @@ class Home extends React.Component {
             }
         });
 
-        this.setState({eventContent: eventContent, todoContent: todoContent, googleEventContent: googleEventContent});
+        this.setState({eventContent: eventContent, todoContent: todoContent, teamEventContent: teamEventContent, teamTodoContent: teamTodoContent, googleEventContent: googleEventContent});
     };
 
     render() {
@@ -170,6 +220,26 @@ class Home extends React.Component {
                                     <Text fontSize="xl" fontWeight="700" width="80%" alignSelf="center" mb="1">Events</Text>
                                     <Stack space="3">
                                         {this.state.eventContent}
+                                    </Stack>
+                                </>
+                            ) : (<></>)
+                        }
+                        {
+                            this.state.teamTodoContent.length !== 0 ? (
+                                <>
+                                    <Text fontSize="xl" fontWeight="700" width="80%" alignSelf="center" mb="1">Team Todos</Text>
+                                    <Stack space="3" mb="2">
+                                        {this.state.teamTodoContent}
+                                    </Stack>
+                                </>
+                            ) : (<></>)
+                        }
+                        {
+                            this.state.teamEventContent.length !== 0 ? (
+                                <>
+                                    <Text fontSize="xl" fontWeight="700" width="80%" alignSelf="center" mb="1">Team Events</Text>
+                                    <Stack space="3">
+                                        {this.state.teamEventContent}
                                     </Stack>
                                 </>
                             ) : (<></>)

@@ -1,11 +1,23 @@
 import React from 'react';
 import { withTranslation } from 'react-i18next';
 import {Button, CheckIcon, FormControl, HStack, Input, Modal, Select, Text} from 'native-base';
+import {API_URL} from '@env';
 import moment from 'moment';
 import DatePicker from 'react-native-date-picker';
 import eventStorage from '../../../utils/eventStorage';
 import ColorPicker from 'react-native-wheel-color-picker'
 import IconSelection from "./selectIcon";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import axios from "axios";
+import base64 from "react-native-base64";
+import {getUniqueId} from "react-native-device-info";
+import {connect} from "react-redux";
+
+const mapStateToProps = state => ({
+    team: {
+        teamInfo: state.team.teamInfo
+    }
+});
 
 class EditEvent extends React.Component {
     constructor(props) {
@@ -34,6 +46,14 @@ class EditEvent extends React.Component {
     }
 
     async onSubmit() {
+        if (this.props.team) {
+            await this.onSubmitTeam();
+        } else {
+            await this.onSubmitDevice();
+        }
+    }
+
+    async onSubmitDevice() {
         const id = this.props.event.id;
         const eventJson = {
             id: id,
@@ -55,12 +75,77 @@ class EditEvent extends React.Component {
         this.props.onClose();
     }
 
+    async onSubmitTeam() {
+        const eventJson = {
+            created: this.props.event.created,
+            updated: new Date(),
+            title: this.state.form.title,
+            start: this.state.form.start,
+            end: this.state.form.end,
+            repeat: this.state.form.repeat,
+            color: this.state.form.color,
+            icon: {
+                font: this.state.form.iconFont,
+                name: this.state.form.iconName
+            }
+        };
+
+        const appToken = await AsyncStorage.getItem('appSecretToken');
+
+        axios.post(API_URL + '/team/event/edit', {
+            team_id: this.props.team.teamInfo.teamId,
+            event: JSON.stringify(eventJson),
+            event_id: this.props.event.id
+        }, {
+            headers: {
+                Authorization: appToken,
+                Device: base64.encode(getUniqueId())
+            }
+        }).then(async (res) => {
+            if (res.data.status === 'success') {
+                const id = this.props.event.id;
+                await eventStorage.editJson(id, {id: id, ...eventJson}, 'teamEvents');
+
+                this.props.onClose();
+            }
+        });
+    }
+
     async onDelete() {
+        if (this.props.team) {
+            await this.onDeleteTeam();
+        } else {
+            await this.onDeleteDevice();
+        }
+    }
+
+    async onDeleteDevice() {
         const id = this.props.event.id;
 
         await eventStorage.deleteJson(id, 'events');
 
         this.props.onClose();
+    }
+
+    async onDeleteTeam() {
+        const appToken = await AsyncStorage.getItem('appSecretToken');
+
+        axios.post(API_URL + '/team/event/delete', {
+            team_id: this.props.team.teamInfo.teamId,
+            event_id: this.props.event.id
+        }, {
+            headers: {
+                Authorization: appToken,
+                Device: base64.encode(getUniqueId())
+            }
+        }).then(async (res) => {
+            if (res.data.status === 'success') {
+                const id = this.props.event.id;
+                await eventStorage.deleteJson(id, 'teamEvents');
+
+                this.props.onClose();
+            }
+        });
     }
 
     iconClick(font, name) {
@@ -238,4 +323,4 @@ const styles = {
     }
 };
 
-export default withTranslation()(EditEvent);
+export default connect(mapStateToProps)(withTranslation()(EditEvent));

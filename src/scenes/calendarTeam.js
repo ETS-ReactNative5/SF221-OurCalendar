@@ -1,7 +1,5 @@
 import React from 'react';
 import AppTemplate from '../components/templates/app';
-import eventStorage from "../utils/eventStorage";
-import {Button} from "native-base";
 import {connect} from "react-redux";
 import CalendarTableTeam from "../components/organisms/calendar/calendarTableTeam";
 

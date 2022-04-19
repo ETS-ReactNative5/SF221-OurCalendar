@@ -1,13 +1,13 @@
 {
   "passcode": {
-    "enter": "Enter your passcode",
-    "forget": "Forget Passcode?"
+    "enter": "パスコード入力",
+    "forget": "パスコードを忘れた場合"
   },
   "notification" :{
     "coming": "Coming soon..."
   },
   "event_modal" : {
-    "add": "イベント/To doを追加",
+    "add": "イベント/To-doを追加",
     "event": "イベント",
     "to_do": "To-do"
   },
@@ -16,16 +16,16 @@
     "color": "色",
     "icon": "アイコン",
     "create": "作成",
-    "save": "Save",
-    "delete": "Delete"
+    "save": "保存",
+    "delete": "破棄"
   },
   "add_todo": {
     "add": "To-doを追加",
     "deadline": "デッドライン",
-    "edit_todo": "Edit Todo"
+    "edit_todo": "To-doを編集"
   },
   "add_event": {
-    "edit": "Edit Event",
+    "edit": "イベントを編集",
     "add": "イベントを追加",
     "start": "開始",
     "end": "終了",
@@ -49,18 +49,18 @@
     "close": "クローズ",
     "enter": "入力",
     "create": "作成",
-    "team_setting": "Team Settings",
-    "team_ID": "Team ID Code",
-    "team_logo": "Team Logo",
-    "image": "Upload Image",
-    "member": "Team Member",
-    "sync": "Sync Now",
-    "success_sync": "Successfully to synced",
-    "leave": "Leave Team"
+    "team_setting": "チーム設定",
+    "team_ID": "チームIDコード",
+    "team_logo": "チームロゴ",
+    "image": "画像をアップロード",
+    "member": "チームメンバー",
+    "sync": "今すぐ同期",
+    "success_sync": "正常に同期されました",
+    "leave": "チームを離れる"
   },
   "icon" : {
-    "select": "SSelect Icon",
-    "search": "SSearch icon..."
+    "select": "アイコンを選択",
+    "search": "アイコンを検索..."
   },
   "side_nav": {
     "home": "ホーム",
@@ -79,18 +79,18 @@
     "sat": "土"
   },
   "month": {
-    "January": "January",
-    "February": "February",
-    "March": "March",
-    "April": "April",
-    "May": "May",
-    "June": "June",
-    "July": "July",
-    "August": "August",
-    "September": "September",
-    "October": "October",
-    "November": "November",
-    "December": "December"
+    "January": "1月",
+    "February": "2月",
+    "March": "3月",
+    "April": "4月",
+    "May": "5月",
+    "June": "6月",
+    "July": "7月",
+    "August": "8月",
+    "September": "9月",
+    "October": "10月",
+    "November": "11月",
+    "December": "12月"
   },
   "setting": {
     "language": "言語",
@@ -107,16 +107,16 @@
   },
   "account": {
     "import_cloud": {
-      "import": "Import from Cloud",
-      "success": "Successfully imported from cloud"
+      "import": "クラウドからインポート",
+      "success": "正常にクラウドからインポートされました"
     },
     "export_cloud": {
-      "export": "Export to Cloud",
-      "success": "Successfully exported to cloud"
+      "export": "クラウドにエクスポート",
+      "success": "正常にクラウドにエクスポートされました"
     },
     "google_calendar": {
-      "import": "Import from Google Calendar",
-      "success": "Successfully imported Google Calendar"
+      "import": "Google Calendarからインポート",
+      "success": "正常にGoogle Calendarからインポートされました"
     }
   },
   "contact": {
@@ -131,5 +131,5 @@
     "sahai": ": SaHai",
     "email": ": we.are.sahai@gmail.com"
   },
-  "logout": "Logout"
+  "logout": "ログアウト"
 }

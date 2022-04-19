@@ -3,6 +3,8 @@ import {Button} from 'native-base';
 import {connect} from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {setGoogleAuth, setUserInfo} from '../../../redux/reducers/authSlice';
+import {setTeam, setTeamInfo} from "../../../redux/reducers/teamSlice";
+
 
 const mapStateToProps = state => ({
     auth: {
@@ -13,7 +15,9 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = () => ({
     setGoogleAuth,
-    setUserInfo
+    setUserInfo,
+    setTeam,
+    setTeamInfo
 });
 
 class AccountLogout extends React.Component {
@@ -29,9 +33,14 @@ class AccountLogout extends React.Component {
 
         await AsyncStorage.removeItem('appSecretToken');
         await AsyncStorage.removeItem('userInfo');
+        await AsyncStorage.removeItem('teamInfo');
+        await AsyncStorage.removeItem('teamEvents');
+        await AsyncStorage.removeItem('teamTodos');
 
         this.props.setGoogleAuth(false);
         this.props.setUserInfo({});
+        this.props.setTeam(false);
+        this.props.setTeamInfo({});
     }
 
     render() {

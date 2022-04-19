@@ -2,6 +2,15 @@ import React from 'react';
 import AppTemplate from '../components/templates/app';
 import eventStorage from "../utils/eventStorage";
 import {Button} from "native-base";
+import {connect} from "react-redux";
+import CalendarTableTeam from "../components/organisms/calendar/calendarTableTeam";
+
+const mapStateToProps = state => ({
+    calendar: {
+        teamMonth: state.calendar.teamMonth,
+        teamYear: state.calendar.teamYear,
+    }
+});
 
 class CalendarTeam extends React.Component {
     constructor(props) {
@@ -11,11 +20,10 @@ class CalendarTeam extends React.Component {
     render() {
         return (
             <AppTemplate {...this.props} monthChangeable={true} route="CalendarTeam">
-                <Button onPress={async () => console.log(await eventStorage.getItem('teamEvents'))}>event</Button>
-                <Button onPress={async () => console.log(await eventStorage.getItem('teamTodos'))}>todo</Button>
+                <CalendarTableTeam key={this.props.calendar.teamMonth} month={this.props.calendar.teamMonth} year={this.props.calendar.teamYear} />
             </AppTemplate>
         );
     }
 }
 
-export default CalendarTeam;
+export default connect(mapStateToProps)(CalendarTeam);

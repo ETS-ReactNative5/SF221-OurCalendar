@@ -1,10 +1,10 @@
 {
   "passcode": {
-    "enter": "Enter your passcodee",
-    "forget": "FForget Passcode?"
+    "enter": "ใส่รหัสผ่านของคุณ",
+    "forget": "ลืมรหัสผ่าน?"
   },
   "notification" :{
-    "coming": "CComing soon..."
+    "coming": "มาเร็วๆนี้..."
   },
   "event_modal" : {
     "add": "เพิ่มกิจกรรม/สิ่งที่ต้องทำ",
@@ -47,20 +47,20 @@
     "enter_team_name": "ป้อนชื่อทีม...",
     "created_team": "สร้างทีมของคุณเเล้ว",
     "close": "ปิด",
-    "enter": "Enterr",
+    "enter": "ตกลง",
     "create": "สร้าง",
-    "team_setting": "Team Settingss",
-    "team_ID": "Team ID Codee",
-    "team_logo": "Team Logoo",
-    "image": "Upload Imagee",
-    "member": "Team Memberr",
-    "sync": "Sync Noww",
-    "success_sync": "Successfully to syncedd",
-    "leave": "Leave Teamm"
+    "team_setting": "ตั้งค่าทีม",
+    "team_ID": "ไอดีทีม",
+    "team_logo": "โลโก้ทีม",
+    "image": "อัพโหลดรูป",
+    "member": "สมาชิกทีม",
+    "sync": "ซิงค์ข้อมูล",
+    "success_sync": "สำเร็จในการซิงค์ข้อมูล",
+    "leave": "ออกทีม"
   },
   "icon" : {
-    "select": "SSelect Icon",
-    "search": "SSearch icon..."
+    "select": "เลือกไอคอน",
+    "search": "พิมพ์ไอคอน..."
   },
   "side_nav": {
     "home": "หน้าหลัก",
@@ -78,6 +78,20 @@
     "fri": "ศ.",
     "sat": "ส."
   },
+  "month": {
+    "January": "มกราคม",
+    "February": "กุมภาพันธ์",
+    "March": "มีนาคม",
+    "April": "เมษายน",
+    "May": "พฤษภาคม",
+    "June": "มิถุนายน",
+    "July": "กรกฎาคม",
+    "August": "สิงหาคม",
+    "September": "กันยายน",
+    "October": "ตุลาคม",
+    "November": "พฤศจิกายน",
+    "December": "ธันวาคม"
+  },
   "setting": {
     "language": "ภาษา",
     "font": "ฟอนต์",
@@ -93,16 +107,16 @@
   },
   "account": {
     "import_cloud": {
-      "import": "Import from Cloudd",
-      "success": "Successfully imported from cloudd"
+      "import": "นำเข้าข้อมูลจากคราวด์",
+      "success": "สำเร็จในการนำเข้าข้อมูลจากคราวด์"
     },
     "export_cloud": {
-      "export": "Export to Cloudd",
-      "success": "Successfully exported to cloudd"
+      "export": "ส่งออกข้อมูลขึ้นคราวด์",
+      "success": "สำเร็จในการส่งออกข้อมูลขึ้นคราวด์"
     },
     "google_calendar": {
-      "import": "Import from Google Calendarr",
-      "success": "Successfully imported Google Calendarr"
+      "import": "นำเข้าข้อมูลจาก Google Calendar",
+      "success": "สำเร็จในการนำเข้าข้อมูล Google Calendar"
     }
   },
   "contact": {
@@ -117,5 +131,5 @@
     "sahai": ": SaHai",
     "email": ": we.are.sahai@gmail.com"
   },
-  "logout": "Logoutt"
+  "logout": "ออกจากระบบ"
 }

@@ -9,6 +9,7 @@ import EventBoxHome from "../../molecules/home/eventBoxHome";
 import EditEvent from "../eventModal/editEvent";
 import eventStorage from "../../../utils/eventStorage";
 import EditTodo from "../eventModal/editTodo";
+import {withTranslation} from "react-i18next";
 
 const COLOR_OUT = '#d4d4d4';
 const BG_COLOR_DATE = 'primary.50';
@@ -275,6 +276,8 @@ class CalendarTableTeam extends React.Component {
     }
 
     render() {
+        const { t } = this.props;
+
         let content = [];
         let column = [0, 1, 2, 3, 4, 5, 6];
 
@@ -325,7 +328,7 @@ class CalendarTableTeam extends React.Component {
                 <Modal isOpen={this.state.calendarModal} onClose={() => this.closeModal()}>
                     <Modal.Content maxWidth="400px" >
                         <Modal.Header borderBottomWidth="0" py="3">
-                            <Text bold="bold" fontSize="20">{this.state.date} {moment.months(this.state.month)} {this.state.year}</Text>
+                            <Text bold="bold" fontSize="20">{this.state.date} {'month.'+moment.months(this.state.month)} {this.state.year}</Text>
                         </Modal.Header>
                         <Modal.Body>
                             <VStack space="2">
@@ -341,4 +344,4 @@ class CalendarTableTeam extends React.Component {
     }
 }
 
-export default CalendarTableTeam;
+export default withTranslation()(CalendarTableTeam);

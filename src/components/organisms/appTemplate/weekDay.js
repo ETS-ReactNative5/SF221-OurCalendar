@@ -83,9 +83,9 @@ class WeekDay extends React.Component {
 
     dateDisplay() {
         if (this.props.route === 'CalendarTeam') {
-            return moment.months(this.props.calendar.teamMonth) + " " + this.props.calendar.teamYear;
+            return this.props.t('month.'+moment.months(this.props.calendar.teamMonth)) + " " + this.props.calendar.teamYear;
         } else if (this.props.route === 'Calendar') {
-            return moment.months(this.props.calendar.month) + " " + this.props.calendar.year;
+            return this.props.t('month.'+moment.months(this.props.calendar.month)) + " " + this.props.calendar.year;
         }
     }
 
@@ -103,7 +103,7 @@ class WeekDay extends React.Component {
                             <IconButton width="15%" icon={<Icon as={Icons.AntDesign} name="right"/>} onPress={() => this.incMonth()}/>
                         </HStack>
                     ) : (
-                        <Text textAlign="center" fontWeight={700} fontSize={"2xl"}>{moment.months(this.state.month)} {this.state.year}</Text>
+                        <Text textAlign="center" fontWeight={700} fontSize={"2xl"}>{t('month.'+moment.months(this.state.month))} {this.state.year}</Text>
                     )
                 }
                 <HStack>

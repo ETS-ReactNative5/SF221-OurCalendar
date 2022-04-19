@@ -76,7 +76,8 @@ const styles = StyleSheet.create({
     },
     boxForgetPass: {
         color: "#ffffff",
-        marginLeft: "61%",
+        alignSelf: "flex-end",
+        paddingRight: 30,
         fontSize: 15,
         marginTop: 10,
     },

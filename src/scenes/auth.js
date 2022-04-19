@@ -8,6 +8,7 @@ import AuthTemplate from "../components/templates/auth";
 import PasscodeHead from "../components/molecules/auth/passcodeHead";
 import SmoothPinCodeInput from "react-native-smooth-pincode-input";
 import {setPasscode} from "../redux/reducers/authSlice";
+import {withTranslation} from "react-i18next";
 
 const mapDispatchToProps = () => ({
     setPasscode
@@ -35,11 +36,12 @@ class Auth extends React.Component {
     }
 
     render() {
+        const { t } = this.props;
         return (
             <AuthTemplate {...this.props}>
                 <Box style={styles.boxCenter}>
                     <PasscodeHead/>
-                    <Text style={styles.boxEnterPasscode}>Enter your passcode</Text>
+                    <Text style={styles.boxEnterPasscode}>{t('passcode.enter')}</Text>
                     <View mt="4">
                         <Center>
                             <SmoothPinCodeInput
@@ -55,7 +57,7 @@ class Auth extends React.Component {
                             />
                         </Center>
                     </View>
-                    <Text style={styles.boxForgetPass}>Forget Passcode?</Text>
+                    <Text style={styles.boxForgetPass}>{t('passcode.forget')}</Text>
                 </Box>
             </AuthTemplate>
         );
@@ -86,4 +88,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default connect(null, mapDispatchToProps())(Auth);
+export default connect(null, mapDispatchToProps())(withTranslation()(Auth));

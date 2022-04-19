@@ -251,17 +251,17 @@ class teamModalButton extends React.Component {
                         <Modal.Content>
                             <Modal.CloseButton/>
                             <Modal.Header>
-                                <Text>Team Settings</Text>
+                                <Text>{t('team_modal.team_setting')}</Text>
                             </Modal.Header>
                             <Modal.Body>
                                 <VStack space={2}>
-                                    <Text>Team Name</Text>
+                                    <Text>{t('team_modal.team_name')}</Text>
                                     <Input bgColor="info.50" value={this.props.team.teamInfo.teamName} onChangeText={(text) => this.setState({teamName: text})}/>
-                                    <Text>Team ID Code</Text>
+                                    <Text>{t('team_modal.team_ID')}</Text>
                                     <Button colorScheme="warning" onPress={() => Clipboard.setString(this.props.team.teamInfo.teamId)}><Text color="white">{this.props.team.teamInfo.teamId}</Text></Button>
-                                    <Text>Team Logo</Text>
-                                    <Button colorScheme="warning"><Text color="white">Upload Image</Text></Button>
-                                    <Text>Team Member</Text>
+                                    <Text>{t('team_modal.team_logo')}</Text>
+                                    <Button colorScheme="warning"><Text color="white">{t('team_modal.image')}</Text></Button>
+                                    <Text>{t('team_modal.member')}</Text>
                                     {
                                         this.props.team.teamInfo.teamMember ? this.props.team.teamInfo.teamMember.map((i) => (
                                             <HStack space={3} key={i.googleId}>
@@ -280,14 +280,14 @@ class teamModalButton extends React.Component {
                                             borderTopWidth: 1,
                                         }}
                                     />
-                                    <Button colorScheme="success" onPress={() => this.clickSyncNow()}><Text color="white">Sync Now</Text></Button>
+                                    <Button colorScheme="success" onPress={() => this.clickSyncNow()}><Text color="white">{t('team_modal.sync')}</Text></Button>
                                     {this.state.syncSuccess ? (
-                                        <Text color="success.500">Successfully to synced</Text>
+                                        <Text color="success.500">{t('team_modal.success_sync')}</Text>
                                     ) : (<></>)}
                                 </VStack>
                             </Modal.Body>
                             <Modal.Footer>
-                                <Button colorScheme="danger" onPress={() => this.onLeaveTeam()}><Text color="white">Leave Team</Text></Button>
+                                <Button colorScheme="danger" onPress={() => this.onLeaveTeam()}><Text color="white">{t('team_modal.leave')}</Text></Button>
                             </Modal.Footer>
                         </Modal.Content>
                     </Modal>

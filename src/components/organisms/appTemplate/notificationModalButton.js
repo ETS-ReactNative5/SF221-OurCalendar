@@ -22,7 +22,7 @@ class NotificationModalButton extends React.Component {
                         <Modal.CloseButton />
                         <Modal.Header><Text>{t('setting.notifications')}</Text></Modal.Header>
                         <Modal.Body>
-                            <NotificationEvent icon="message-question" text="Coming soon..."/>
+                            <NotificationEvent icon="message-question" text={t('notification.coming')}/>
                         </Modal.Body>
                     </Modal.Content>
                 </Modal>

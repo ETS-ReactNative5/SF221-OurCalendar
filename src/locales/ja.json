@@ -1,4 +1,11 @@
 {
+  "passcode": {
+    "enter": "Enter your passcode",
+    "forget": "Forget Passcode?"
+  },
+  "notification" :{
+    "coming": "Coming soon..."
+  },
   "event_modal" : {
     "add": "イベント/To doを追加",
     "event": "イベント",
@@ -8,13 +15,17 @@
     "title": "タイトル",
     "color": "色",
     "icon": "アイコン",
-    "create": "作成"
+    "create": "作成",
+    "save": "Save",
+    "delete": "Delete"
   },
   "add_todo": {
     "add": "To-doを追加",
-    "deadline": "デッドライン"
+    "deadline": "デッドライン",
+    "edit_todo": "Edit Todo"
   },
   "add_event": {
+    "edit": "Edit Event",
     "add": "イベントを追加",
     "start": "開始",
     "end": "終了",
@@ -37,7 +48,19 @@
     "created_team": "あなたのチームが作成されました",
     "close": "クローズ",
     "enter": "入力",
-    "create": "作成"
+    "create": "作成",
+    "team_setting": "Team Settings",
+    "team_ID": "Team ID Code",
+    "team_logo": "Team Logo",
+    "image": "Upload Image",
+    "member": "Team Member",
+    "sync": "Sync Now",
+    "success_sync": "Successfully to synced",
+    "leave": "Leave Team"
+  },
+  "icon" : {
+    "select": "SSelect Icon",
+    "search": "SSearch icon..."
   },
   "side_nav": {
     "home": "ホーム",
@@ -67,5 +90,32 @@
     "confirm_new_passcode": "新しい パスコードを確認",
     "turn_off": "無効にする",
     "save": "保存"
-  }
+  },
+  "account": {
+    "import_cloud": {
+      "import": "Import from Cloud",
+      "success": "Successfully imported from cloud"
+    },
+    "export_cloud": {
+      "export": "Export to Cloud",
+      "success": "Successfully exported to cloud"
+    },
+    "google_calendar": {
+      "import": "Import from Google Calendar",
+      "success": "Successfully imported Google Calendar"
+    }
+  },
+  "contact": {
+    "our_story": "Our Story",
+    "story": {
+      "intro": "Many months ago after the university has the policy to provide teaching and learning online, It gave all 10 of us a chance to get to know each other. Therefore there has been a group together to develop this application.",
+      "last": "We spend a lot of time thinking about and developing this application. We believe this application will be your good assistant and will reach the hearts of users"
+    },
+    "who": "Who we are",
+    "we_are": "We are undergraduate sophomore faculty of engineering at Thammasat University.",
+    "contact": "Contact Us",
+    "sahai": ": SaHai",
+    "email": ": we.are.sahai@gmail.com"
+  },
+  "logout": "Logout"
 }

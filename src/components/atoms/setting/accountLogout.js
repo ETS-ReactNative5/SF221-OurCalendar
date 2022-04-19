@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {setGoogleAuth, setUserInfo} from '../../../redux/reducers/authSlice';
 import {setTeam, setTeamInfo} from "../../../redux/reducers/teamSlice";
+import {withTranslation} from "react-i18next";
 
 
 const mapStateToProps = state => ({
@@ -44,9 +45,11 @@ class AccountLogout extends React.Component {
     }
 
     render() {
+        const { t } = this.props;
+
         return (
-            <Button isDisabled={this.state.isDisable} onPress={() => this.logout()} colorScheme="danger" size="md">Logout</Button>
+            <Button isDisabled={this.state.isDisable} onPress={() => this.logout()} colorScheme="danger" size="md">{t('logout')}</Button>
         );
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps())(AccountLogout);
+export default connect(mapStateToProps, mapDispatchToProps())(withTranslation()(AccountLogout));

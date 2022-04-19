@@ -46,11 +46,11 @@ class IconSelection extends React.Component {
             <Modal isOpen={this.props.isOpen} onClose={this.props.onClose}>
                 <Modal.Content maxWidth="400px">
                     <Modal.CloseButton />
-                    <Modal.Header><Text>Select Icon</Text></Modal.Header>
+                    <Modal.Header><Text>{t('icon.select')}</Text></Modal.Header>
                     <Modal.Body>
                         <VStack space={4}>
                             <FormControl>
-                                <Input onSubmitEditing={(e => this.search(e.nativeEvent.text))} placeholder="Search icon..."/>
+                                <Input onSubmitEditing={(e => this.search(e.nativeEvent.text))} placeholder={t('icon.search')}/>
                             </FormControl>
                             {
                                 this.state.search.map((row, i) => (

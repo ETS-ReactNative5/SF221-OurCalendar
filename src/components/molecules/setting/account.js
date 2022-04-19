@@ -113,22 +113,22 @@ class Account extends React.Component {
                                     </Box>
                                 </HStack>
                                 <Box mb="2">
-                                    <Button variant="outline" onPress={() => this.onClickImport()}>Import from Cloud</Button>
+                                    <Button variant="outline" onPress={() => this.onClickImport()}>{t('account.import_cloud.import')}</Button>
                                     {this.state.importSuccess ? (
-                                        <Text color="success.500">Successfully imported to cloud</Text>
+                                        <Text color="success.500">{t('account.import_cloud.success')}</Text>
                                     ) : (<></>)}
                                 </Box>
                                 <Box mb="4">
-                                    <Button variant="outline" onPress={() => this.onClickExport()}>Export to Cloud</Button>
+                                    <Button variant="outline" onPress={() => this.onClickExport()}>{t('account.export_cloud.export')}</Button>
                                     {this.state.exportSuccess ? (
-                                        <Text color="success.500">Successfully exported to cloud</Text>
+                                        <Text color="success.500">{t('account.export_cloud.success')}</Text>
                                     ) : (<></>)}
                                 </Box>
                                 <Divider mb="4"/>
                                 <Box mb="4">
-                                    <Button onPress={() => this.onClickGoogle()}>Import from Google Calendar</Button>
+                                    <Button onPress={() => this.onClickGoogle()}>{t('account.google_calendar.import')}</Button>
                                     {this.state.googleSuccess ? (
-                                        <Text color="success.500">Successfully imported Google Calendar</Text>
+                                        <Text color="success.500">{t('account.google_calendar.success')}</Text>
                                     ) : (<></>)}
                                 </Box>
                                 <Divider mb="4"/>

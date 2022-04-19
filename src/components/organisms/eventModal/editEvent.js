@@ -46,7 +46,7 @@ class EditEvent extends React.Component {
     }
 
     async onSubmit() {
-        if (this.props.team) {
+        if (this.props.isTeam) {
             await this.onSubmitTeam();
         } else {
             await this.onSubmitDevice();
@@ -112,7 +112,7 @@ class EditEvent extends React.Component {
     }
 
     async onDelete() {
-        if (this.props.team) {
+        if (this.props.isTeam) {
             await this.onDeleteTeam();
         } else {
             await this.onDeleteDevice();

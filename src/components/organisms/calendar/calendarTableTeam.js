@@ -334,8 +334,8 @@ class CalendarTableTeam extends React.Component {
                         </Modal.Body>
                     </Modal.Content>
                 </Modal>
-                <EditEvent key={this.state.event.id} isOpen={this.state.editEvent} event={this.state.event} onClose={() => this.closeEventModal()} team={true}/>
-                <EditTodo key={this.state.todo.id} isOpen={this.state.editTodo} todo={this.state.todo} onClose={() => this.closeTodoModal()} team={true}/>
+                <EditEvent key={this.state.event.id} isOpen={this.state.editEvent} event={this.state.event} onClose={() => this.closeEventModal()} isTeam={true}/>
+                <EditTodo key={this.state.todo.id} isOpen={this.state.editTodo} todo={this.state.todo} onClose={() => this.closeTodoModal()} isTeam={true}/>
             </>
         );
     }

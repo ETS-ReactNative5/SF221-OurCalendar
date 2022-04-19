@@ -21,6 +21,7 @@ class Home extends React.Component {
             googleEventContent: [],
             teamEventContent: [],
             teamTodoContent: [],
+            team: false,
         }
     }
 
@@ -32,28 +33,36 @@ class Home extends React.Component {
         this._unsubscribe.remove();
     }
 
-    async openEventModal(eventId) {
-        const event = await eventStorage.getItem('events');
+    async openEventModal(eventId, team) {
+        let event;
+        if (team) {
+            event = await eventStorage.getItem('teamEvents');
+            this.setState({team: true});
+        } else {
+            event = await eventStorage.getItem('events');
+        }
 
-        await this.setState({event: event[eventId]});
-        this.setState({editEvent: true});
+        this.setState({event: event[eventId], editEvent: true});
     }
 
     closeEventModal() {
-        this.setState({editEvent: false});
-        this.setState({event: {}});
+        this.setState({editEvent: false, event: {}, team: false});
     }
 
-    async openTodoModal(todoId) {
-        const todo = await eventStorage.getItem('todos');
+    async openTodoModal(todoId, team) {
+        let todo;
+        if (team) {
+            todo = await eventStorage.getItem('teamTodos');
+            this.setState({team: true});
+        } else {
+            todo = await eventStorage.getItem('todos');
+        }
 
-        await this.setState({todo: todo[todoId]});
-        this.setState({editTodo: true});
+        this.setState({todo: todo[todoId], editTodo: true});
     }
 
     closeTodoModal() {
-        this.setState({editTodo: false});
-        this.setState({todo: {}});
+        this.setState({editTodo: false, todo: {}, team: false});
     }
 
     dateToString(startDate, endDate) {
@@ -148,7 +157,7 @@ class Home extends React.Component {
                                   time={this.dateToString(teamEvent[item].start, teamEvent[item].end)}
                                   iconFamily={teamEvent[item].icon.font} iconName={teamEvent[item].icon.name}
                                   color={teamEvent[item].color} colorContrast={fontColorContrast(teamEvent[item].color)}
-                                  openModal={() => this.openEventModal(teamEvent[item].id)}/>
+                                  openModal={() => this.openEventModal(teamEvent[item].id, true)}/>
                 );
             }
         });
@@ -162,7 +171,7 @@ class Home extends React.Component {
                                   time={moment(teamTodo[item].end).format('L HH:mm')}
                                   iconFamily={teamTodo[item].icon.font} iconName={teamTodo[item].icon.name}
                                   color={teamTodo[item].color} colorContrast={fontColorContrast(teamTodo[item].color)}
-                                  openModal={() => this.openTodoModal(teamTodo[item].id)}/>
+                                  openModal={() => this.openTodoModal(teamTodo[item].id, true)}/>
                 );
             }
         });
@@ -254,8 +263,8 @@ class Home extends React.Component {
                                 </>
                             ) : (<></>)
                         }
-                        <EditEvent key={this.state.event.id} isOpen={this.state.editEvent} event={this.state.event} onClose={() => this.closeEventModal()}/>
-                        <EditTodo key={this.state.todo.id} isOpen={this.state.editTodo} todo={this.state.todo} onClose={() => this.closeTodoModal()}/>
+                        <EditEvent key={this.state.event.id} isOpen={this.state.editEvent} event={this.state.event} onClose={() => this.closeEventModal()} isTeam={this.state.team}/>
+                        <EditTodo key={this.state.todo.id} isOpen={this.state.editTodo} todo={this.state.todo} onClose={() => this.closeTodoModal()} isTeam={this.state.team}/>
                     </View>
                 </AppTemplate>
             </>
